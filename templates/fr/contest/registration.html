@@ -1,0 +1,49 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+<h1>Inscription</h1>
+
+<div class="errors">
+{% if form.errors %}
+    <p>
+        Veuillez corriger l{{ form.errors|pluralize:"',es"}} erreur{{ form.errors|pluralize}} ci-dessous.
+    </p>
+{% endif %}
+
+{{ global_errors }} 
+</div>
+
+<form action="" method="post" name="registrationform"> {% csrf_token %}
+	<div class="fieldblock">
+	<p class="form-2a">{{ form.firstname.label_tag }}{{ form.firstname }}{% if form.firstname.errors %}<span class="error">{{ form.firstname.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2b">{{ form.surname.label_tag }}{{ form.surname }}{% if form.surname.errors %}<span class="error">{{ form.surname.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2a">{{ form.gender.label_tag }}{{ form.gender }}{% if form.gender.errors %}<span class="error">{{ form.gender.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2b"><label for="id_dob">Date de naissance<span class="details">(jour/mois/année)</span></label>{{ form.dob }}{% if form.dob.errors %}<span class="error">{{ form.dob.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1">{{ form.address.label_tag }}{{ form.address }}{% if form.address.errors %}<span class="error">{{ form.address.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2a">{{ form.postal_code.label_tag }}{{ form.postal_code }}{% if form.postal_code.errors %}<span class="error">{{ form.postal_code.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2b">{{ form.city.label_tag }}{{ form.city }}{% if form.city.errors %}<span class="error">{{ form.city.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1"><label for="id_email">Adresse e-mail <span class="details">(nous l'utiliserons uniquement dans le cadre des OI)</span></label>{{ form.email }}{% if form.email.errors %}<span class="error">{{ form.email.errors|join:"<br/>" }}</span>{% endif %}</p>
+	</div>
+	
+	<div class="fieldblock">
+	<p class="form-1"><label for="id_school_exists">Etablissement scolaire actuel</label>{% if form.school_exists.errors %}<span class="error">Un choix parmi les deux options est obligatoire.</span>{% endif %}</p>
+	<p class="form-1"><label class="forminputlabel" for="id_school_exists_1"><input id="id_school_exists_1" type="radio" name="school_exists" value="1" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "1" %}checked="checked" {% endif %}/>Mon école ou université est dans cette liste:<span class="details">(ordonnées par code postal)</span></label></p>
+	<p class="form-1demi">{{ form.school }}{% if form.school.errors %}<span class="error">{{ form.school.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1"><label class="forminputlabel" for="id_school_exists_0"><input id="id_school_exists_0" type="radio" name="school_exists" value="0" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "0" %}checked="checked" {% endif %}/>Sinon, je l'ajoute:</label></p>
+	<p class="form-1">{{ form.new_school_name.label_tag }}{{ form.new_school_name }}{% if form.new_school_name.errors %}<span class="error">{{ form.new_school_name.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2a">{{ form.new_school_postal_code.label_tag }}{{ form.new_school_postal_code }}{% if form.new_school_postal_code.errors %}<span class="error">{{ form.new_school_postal_code.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2b">{{ form.new_school_city.label_tag }}{{ form.new_school_city }}{% if form.new_school_city.errors %}<span class="error">{{ form.new_school_city.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1demi">{{ form.year_study.label_tag }}{{ form.year_study }}{% if form.year_study.errors %}<span class="error">{{ form.year_study.errors|join:"<br/>" }}</span>{% endif %}</p>
+	</div>
+	
+	<div class="fieldblock">
+	<p class="form-2a">{{ form.contest_category.label_tag }}{{ form.contest_category }}{% if form.contest_category.errors %}<span class="error">{{ form.contest_category.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-2b"><label for="id_language">Langue <span class="details">(des énoncés)</span></label>{{ form.language }}{% if form.language.errors %}<span class="error">{{ form.language.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1"><label for="id_semifinal_center">Centre choisi pour la demi-finale <span class="details">(attention, l'accueil et l'assistance aux participants ne sont garantis que dans la langue du centre)</span></label>{{ form.semifinal_center }}{% if form.semifinal_center.errors %}<span class="error">{{ form.semifinal_center.errors|join:"<br/>" }}</span>{% endif %}</p>
+	</div>
+	
+	
+	<p class="no-border">  	<input type="submit" class="button" value="M'inscrire"> </p>
+</form>
+
+{% endblock %}

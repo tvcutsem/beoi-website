@@ -1,0 +1,270 @@
+{% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{% block title %}Olympiades belges d'Informatique &mdash; Belgische Olympiade in Informatica{% endblock %}</title>
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
+</head>
+
+<body {% if SWITCH_LANG %}onload="javascript:document.forms[0].language.value='{{SWITCH_LANG}}';document.forms[0].submit();"{% endif %} >
+<script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" >
+$(function(){
+	$('.fadein img:gt(0)').hide();
+	setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 3000);
+});
+</script>
+
+
+<!--header -->
+<div id="header-wrap"><div id="header">
+
+	<a name="top"></a>
+
+	<img id="logo" src="/static/images/be-oi-logo-120px.png" />
+	<h1 id="logo-text"><a href="{{ HOME_URL }}" >{% trans "Belgian Olympiads in Informatics" %}</a></h1>
+	<p id="slogan">{% trans "Programming, algorithmic et logic" %}</p>
+
+	<form id="lang" name="langtop" action="/i18n/setlang/" method="post"> {% csrf_token %}
+		<input name="language" type="hidden" value="" />
+		<input name="next" type="hidden" value="" />
+        {% block change_language %}{% endblock %}
+	</form>
+
+
+<!--/header-->
+</div></div>
+
+<!-- pop-up for languages -->
+<div id="popup" class="popup_block">
+	<form name="formlang" action="/i18n/setlang/" method="post"> {% csrf_token %}
+		<input name="language" type="hidden" value="" />
+		<input name="next" type="hidden" value="" />
+		<h2>Belgische Olympiades in Informatica</h2>
+		<p id="slogan">De Belgische Olympiades in Informatica (OI) zijn en competitie van programmering, algorithmiek en logica die is samengesteld door twee wedstrijden. De eerste is voor leerlingen uit het einde van het middelbaar, en dient om kandidaten te identificeren voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd is voor studenten uit het eerste jaar van het hoger onderwijs.</p>
+		<p><a href="#" onClick="javascript:formlang.language.value='nl';formlang.next.value='{% url home-nl %}';formlang.submit();">
+			&raquo; Ga verder in het Nederlands</a></p>
+		<hr/>
+		<h2>Olympiades belges d'Informatique</h2>
+		
+		<p id="slogan">Les Olympiades belges d'Informatique (OI) sont une compétition de programmation, d'algorithmique et de logique composée de deux concours. Le premier est destiné aux élèves en fin de secondaire et permettra d'identifier des candidats pour les Olympiades Internationales d'Informatique (IOI). Le second concours est destiné aux étudiants en première année d'étude supérieure.</p>
+	    <p><a href="#" onClick="javascript:formlang.language.value='fr';formlang.next.value='{% url home-fr %}';formlang.submit();">
+				&raquo; Continuer en français</a></p>
+	</form>
+</div>
+	
+<!-- content-outer -->
+<div id="content-wrap" class="clear" >
+
+    <!-- content -->
+    <div id="content">
+
+        <!-- main -->
+	    <div id="main">
+
+{% block content %}{% endblock content %}
+       <!-- /main -->
+		</div>
+
+      <!-- sidebar -->
+		<div id="sidebar">
+
+			<div class="sidemenu">
+				<h3>{% trans "Contest" %}</h3>
+            <ul>
+				{% for item in SIDE_MENU %}
+					<li><a href="{{item.1}}">{{item.0}}</a>
+						{% if item.2 %}
+							<ul>
+								{% for subitem in item.2 %}<li><a href="{{subitem.1}}">{{subitem.0}}</a>{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+
+			<div class="sidemenu">
+				<h3>{% trans "Organisation" %}</h3>
+            <ul>
+				{% for item in ORGANISATION_MENU %}
+					<li><a href="{{item.1}}">{{item.0}}</a>
+						{% if item.2 %}
+							<ul>
+								{% for subitem in item.2 %}<li><a href="{{subitem.1}}">{{subitem.0}}</a>{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+			
+			<div class="sidemenu">
+				<h3>{% trans "With support from" %}</h3>
+            	<div class="fadein">
+				<img src="/static/logos/ua-logo.jpg" />
+				<img src="/static/logos/henam-logo.png" />
+				<img src="/static/logos/umons-logo.png" />
+				<img src="/static/logos/fundp-logo.png" />
+				<img src="/static/logos/hecfh-logo.png" />
+				<img src="/static/logos/ucl-logo.png" />
+				<img src="/static/logos/helb-prigogine-logo.png" />
+				<img src="/static/logos/ulg-logo.png" />
+				<img src="/static/logos/hers-logo.png" />
+				<img src="/static/logos/kul-logo.jpg" />
+				<img src="/static/logos/helha-logo.png" />
+				<img src="/static/logos/vinci-logo.png" />
+				<img src="/static/logos/ulb-logo.png" />
+				<img src="/static/logos/helmo-logo.png" />
+				<img src="/static/logos/hepl-logo.png" />
+				<img src="/static/logos/vub-logo.jpg" />
+				<img src="/static/logos/hel-logo.png" />
+				<img src="/static/logos/hephs-logo.png" />
+				<img src="/static/logos/heph-condorcet-logo.png" />
+				<img src="/static/logos/henam-logo.png" />
+				</div> 
+			</div>
+
+      <!-- /sidebar -->
+
+		</div>
+
+    <!-- content -->
+	</div>
+
+<!-- /content-out -->
+</div>
+		
+<!-- footer-outer -->
+<div id="footer-outer" class="clear"><div id="footer-wrap">
+
+	<div id="gallery" class="clear">
+
+<!--		<h3>Flickr Photos </h3> -->
+
+
+    </div>
+
+	<div class="col-a">
+
+		<h3>Contact</h3>
+
+        <p><strong>E-mail: </strong>info@be-oi.be</p>
+
+      <h3>{% trans "Updates" %}</h3>
+
+      <ul class="subscribe-stuff">
+<!--      	<li><a title="RSS" href="static/rss.xml" rel="nofollow">
+
+				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a>
+			</li>-->
+      	<li><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
+				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
+			</li>
+<!--			<li><a title="Twitter" href="#" rel="nofollow">
+				<img alt="Twitter" title="Twitter" src="/static/images/social_twitter.png" /></a>
+			</li>-->
+			<li><a title="E-mail this story to a friend!" href="mailto:info@be-oi.be" rel="nofollow">
+
+				<img alt="E-mail this story to a friend!" title="E-mail this story to a friend!" src="/static/images/social_email.png" /></a>
+			</li>
+      </ul>
+
+      <p>{% trans "Stay up to date. Subscribe via" %}
+		<!--<a href="/static/rss.xml">RSS</a>, --><a href="index">Facebook</a><!--,
+		<a href="#">Twitter</a>--> or <a href="mailto:info@be-oi.be">Email</a>
+
+		</p>
+
+	</div>
+
+	<div class="col-a">
+		<h3></h3>
+
+	</div>
+
+   <div class="col-a">
+		<h3>{% trans "Flickr Photos" %}</h3>
+
+		   <div class="footer-list">
+				<ul>
+					{% for item in PHOTOS_MENU %}
+						<li><a href="{{item.1}}">{{item.0}}</a>
+					{% endfor %}
+				</ul>
+			</div>
+   </div>
+
+   <div class="col-b">
+
+      <h3>{% trans "Archives" %}</h3>
+
+	   <div class="footer-list">
+			<ul>
+				{% for item in ARCHIVES_MENU %}
+					<li><a href="{{item.1}}">{{item.0}}</a>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+<!-- /footer-outer -->
+</div></div>
+
+<!-- footer-bottom -->
+<div id="footer-bottom">
+
+    <p class="bottom-left">
+		&copy; 2010 <strong>be-OI</strong>&nbsp; &nbsp; &nbsp;
+		<a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
+
+	 </p>
+
+	 <p class="bottom-right">
+		<a href="{% url home %}">Home</a> |
+		<a href="/static/rss.xml">RSS</a> |
+      <strong><a href="#top">Back to Top</a></strong>
+    </p>
+
+<!-- /footer-bottom-->
+</div>
+{% if LANGUAGE_CODE == "en" or HOME == 1 %}
+<script type="text/javascript">
+$(document).ready(function(){
+
+	function popOpen(){
+		
+		popID = "popup"; //Get Popup Name
+		popWidth = 650;
+				
+		//Fade in the Popup and add close button
+		$('#' + popID).fadeIn().css({ 'width': Number( popWidth ) });
+		
+		//Define margin for center alignment (vertical + horizontal) - we add 80 to the height/width to 
+		// accomodate for the padding + border width defined in the css
+		var popMargTop = ($('#' + popID).height() + 80) / 2;
+		var popMargLeft = ($('#' + popID).width() + 80) / 2;
+		
+		//Apply Margin to Popup
+		$('#' + popID).css({ 
+			'margin-top' : -popMargTop,
+			'margin-left' : -popMargLeft
+		});
+		
+		//Fade in Background
+		$('body').append('<div id="fade"></div>'); //Add the fade layer to bottom of the body tag.
+		$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer 
+		
+	};
+
+	popOpen(); //Run popOpen function once on load
+	popOpen
+	
+});
+</script>
+{% endif %}
+
+</body>
+</html>

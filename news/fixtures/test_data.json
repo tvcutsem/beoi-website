@@ -1,0 +1,28 @@
+[
+    {
+        "pk": 2, 
+        "model": "news.news", 
+        "fields": {
+            "status": 0, 
+            "lang": 1, 
+            "modification_date": "2010-12-07 21:25:56", 
+            "author": 1, 
+            "title": "Offline", 
+            "body": "Offline news in dutch", 
+            "creation_date": "2010-12-07 21:25:56"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 0, 
+            "modification_date": "2010-12-07 21:26:38", 
+            "author": 1, 
+            "title": "Test", 
+            "body": "Test body in French", 
+            "creation_date": "2010-12-07 21:24:59"
+        }
+    }
+]

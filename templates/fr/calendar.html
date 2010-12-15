@@ -1,0 +1,31 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+<h2>Calendrier</h2>
+
+<p>Le calendrier officiel suivant reprend les dates clés des Olympiades d'Informatiques belges 2011.</p>
+
+<dl>
+	<dt>10 février 2011</dt>
+	<dd><p>Date limite pour <a href="{% url registration-fr %}">les inscriptions</a>.</p></dd>
+
+	<dt>16 février 2011</dt>
+	<dd><p><a href="{% url semifinal-fr %}">Demi-finales</a> dans les <a href="{% url regional-centers-fr %}">centres régionaux</a>.</p></dd>
+
+	<dt>7-11 mars 2011</dt>
+	<dd><p>Formation algorithmique (optionnelle) pour les élèves du secondaire (vacances de Carnaval).</p></dd>
+
+	<dt>30 mars 2011</dt>
+	<dd><p><a href="{% url final-fr %}">Finales</a> (lieu à déterminer).</p></dd>
+
+	<dt>2 avril 2011</dt>
+	<dd><p>Proclamation et cérémonie de remise des prix (lieu à déterminer).</p></dd>
+
+	<dt>11-24 avril 2011</dt>
+	<dd><p>Formation algorithmique approfondie pour les élèves du secondaire du pool IOI (dates à décider).</p></dd>
+
+	<dt>22-29 juillet 2011</dt>
+	<dd><p>23<sup>iemes</sup> Olympiades Internationales d'Informatique (IOI) à Pattaya en Thaïlande (<a href="http://www.ioi2011.or.th/">http://www.ioi2011.or.th/</a>).</p></dd>
+</dl>
+
+{% endblock %}

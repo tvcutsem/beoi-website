@@ -1,0 +1,366 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-12 00:14+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+
+#: settings_common.py:23 contest/models.py:11 news/models.py:29
+msgid "French"
+msgstr "Français"
+
+#: settings_common.py:24 contest/models.py:12 news/models.py:30
+msgid "Dutch"
+msgstr "Néerlandais"
+
+#: backup_oldtheme/templates/base.html:22
+msgid "Belgian Olympiads in Informatics"
+msgstr "Olympiades belges d'Informatique"
+
+#: contest/admin.py:41
+msgid "Name"
+msgstr "Nom"
+
+#: contest/admin.py:47
+msgid "Mark selected contestants as manual checked"
+msgstr "Marquer les participants sélectionnés comme vérifiés manuellement"
+
+#: contest/forms.py:8 contest/forms.py:9
+msgid "Make your choice"
+msgstr "Faites votre choix"
+
+#: contest/forms.py:29
+msgid ""
+"You cannot register to the secondary school contest if you are in the first "
+"year of baccalaureate"
+msgstr ""
+
+#: contest/forms.py:31
+msgid ""
+"You have selected a high school but have registered to the secondary school "
+"contest"
+msgstr ""
+
+#: contest/forms.py:35
+msgid ""
+"You cannot register to the high school contest if you are at the secondary "
+"school"
+msgstr ""
+
+#: contest/forms.py:37
+msgid ""
+"You have selected a secondary school but have registered to the high school "
+"contest"
+msgstr ""
+
+#: contest/models.py:19
+msgid "secondary-school students"
+msgstr "secondaire"
+
+#: contest/models.py:20
+msgid "post-secondary-school students"
+msgstr "supérieur"
+
+#: contest/models.py:25
+msgid "Invalid postal code"
+msgstr "Code postal invalide"
+
+#: contest/models.py:34
+msgid "Male"
+msgstr "homme"
+
+#: contest/models.py:35
+msgid "Female"
+msgstr "femme"
+
+#: contest/models.py:48
+msgid "1st year of secondary school"
+msgstr "1e secondaire"
+
+#: contest/models.py:49
+msgid "2nd year of secondary school"
+msgstr "2e secondaire"
+
+#: contest/models.py:50
+msgid "3rd year of secondary school"
+msgstr "3e secondaire"
+
+#: contest/models.py:51
+msgid "4th year of secondary school"
+msgstr "4e secondaire"
+
+#: contest/models.py:52
+msgid "5th year of secondary school"
+msgstr "5e secondaire"
+
+#: contest/models.py:53
+msgid "6th year of secondary school"
+msgstr "6e secondaire"
+
+#: contest/models.py:54
+msgid "7th year of secondary school"
+msgstr "7e secondaire"
+
+#: contest/models.py:55
+msgid "1st year of baccalaureate (post-secondary)"
+msgstr "1e année de BAC"
+
+#: contest/models.py:60
+msgid "Incorrect year"
+msgstr "Année incorrecte"
+
+#: contest/models.py:63
+msgid "surname"
+msgstr "nom de famille"
+
+#: contest/models.py:64
+msgid "firstname"
+msgstr "prénom"
+
+#: contest/models.py:65
+msgid "gender"
+msgstr "sexe"
+
+#: contest/models.py:66
+msgid "email"
+msgstr "e-mail"
+
+#: contest/models.py:67
+msgid "address"
+msgstr "adresse"
+
+#: contest/models.py:68 contest/models.py:99 contest/models.py:114
+msgid "city"
+msgstr "ville"
+
+#: contest/models.py:69 contest/models.py:100
+msgid "postal code"
+msgstr "code postal"
+
+#: contest/models.py:70
+msgid "date of birth"
+msgstr "date de naissance"
+
+#: contest/models.py:71
+#, fuzzy
+msgid "contest category"
+msgstr "année OI"
+
+#: contest/models.py:73
+msgid "year of study"
+msgstr "année d'étude"
+
+#: contest/models.py:74
+msgid "examination language"
+msgstr "langue de l'épreuve"
+
+#: contest/models.py:76
+msgid "manual checked"
+msgstr "vérifié (manuel)"
+
+#: contest/models.py:78
+msgid "token"
+msgstr ""
+
+#: contest/models.py:79
+msgid "contest year"
+msgstr "année OI"
+
+#: contest/models.py:80
+msgid "registering time"
+msgstr "heure d'enregistement"
+
+#: contest/models.py:87
+msgid "contestant"
+msgstr "participant"
+
+#: contest/models.py:88
+msgid "contestants"
+msgstr "participants"
+
+#: contest/models.py:98
+msgid "school name"
+msgstr "nom de l'établissement"
+
+#: contest/models.py:101
+msgid "school type"
+msgstr ""
+
+#: contest/models.py:108
+msgid "school"
+msgstr "école"
+
+#: contest/models.py:109
+msgid "schools"
+msgstr "écoles"
+
+#: contest/models.py:113
+msgid "name"
+msgstr "nom"
+
+#: contest/models.py:115
+msgid "venue details"
+msgstr ""
+
+#: contest/models.py:116
+msgid "in current proposal list"
+msgstr ""
+
+#: contest/models.py:123
+msgid "semifinal center"
+msgstr "centre pour la demi-finale"
+
+#: contest/models.py:124
+msgid "semifinal centers"
+msgstr "centres pour la demi-finale"
+
+#: contest/models.py:133
+msgid "score"
+msgstr "score"
+
+#: contest/models.py:134
+msgid "qualified"
+msgstr "qualifié"
+
+#: contest/models.py:138
+msgid "semifinal result"
+msgstr "résultat de la demi-finale"
+
+#: contest/models.py:139
+msgid "semifinal results"
+msgstr "résultats de la demi-finale"
+
+#: contest/models.py:145
+msgid "written part score"
+msgstr "points de la partie papier"
+
+#: contest/models.py:146
+msgid "computer part score"
+msgstr "points de la partie machine"
+
+#: contest/models.py:147
+msgid "rank"
+msgstr ""
+
+#: contest/models.py:151
+msgid "final result"
+msgstr "résultat de la finale"
+
+#: contest/models.py:152
+msgid "final results"
+msgstr "résultats de la finale"
+
+#: news/admin.py:18
+msgid "Headline"
+msgstr ""
+
+#: news/admin.py:19
+msgid "Publication"
+msgstr ""
+
+#: news/admin.py:20
+msgid "Body"
+msgstr ""
+
+#: news/feed.py:29
+#, fuzzy
+msgid "Belgian Olympiads in Informatics: RSS Entires"
+msgstr "Olympiades belges d'Informatique"
+
+#: news/feed.py:32
+#, fuzzy
+msgid "RSS feed of recent news from Belgian Olympiads in Informatics"
+msgstr "Olympiades belges d'Informatique"
+
+#: news/models.py:21
+msgid "Offline"
+msgstr ""
+
+#: news/models.py:22
+msgid "Online"
+msgstr ""
+
+#: news/models.py:34
+msgid "title"
+msgstr ""
+
+#: news/models.py:35
+msgid "author"
+msgstr ""
+
+#: news/models.py:36
+msgid "creation date"
+msgstr ""
+
+#: news/models.py:37
+msgid "modification date"
+msgstr ""
+
+#: news/models.py:38
+msgid "publication date"
+msgstr ""
+
+#: news/models.py:39
+msgid "status"
+msgstr ""
+
+#: news/models.py:40
+msgid "language"
+msgstr ""
+
+#: news/models.py:41
+msgid "body"
+msgstr ""
+
+#: news/models.py:41
+msgid ""
+"HTML tags are allowed. &lt;p&gt;...&lt;/p&gt; tags MUST be used for text!"
+msgstr ""
+
+#: news/models.py:48
+msgid "news entry"
+msgstr ""
+
+#: news/models.py:49
+msgid "news entries"
+msgstr ""
+
+#: templates/base.html:28
+msgid "Programming, algorithmic et logic"
+msgstr "Programmation, algorithmique et logique"
+
+#: templates/base.html:77
+msgid "Contest"
+msgstr "Épreuve"
+
+#: templates/base.html:92
+msgid "Organisation"
+msgstr "Organisation"
+
+#: templates/base.html:107
+msgid "With support from"
+msgstr "Avec le soutien de"
+
+#: templates/base.html:182
+msgid "Flickr Photos"
+msgstr "Photos Flickr"
+
+#: templates/base.html:195
+msgid "Archives"
+msgstr "Archives"
+
+#~ msgid "preparatory courses"
+#~ msgstr "Spéciale math"

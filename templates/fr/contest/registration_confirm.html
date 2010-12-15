@@ -1,0 +1,17 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+<h2>Inscription</h2>
+
+{% if not error %}
+<p>Félicitation, vous êtes inscrit! Rendez-vous le 16 février dans votre centre régional.</p>
+
+{% else %}
+<p>Une erreur s'est produite lors de l'inscription. Probablement étiez-vous déjà inscrit ! </p>
+
+{% endif %}
+
+<p>Si vous souhaitez modifier votre inscription, contactez-nous par e-mail à <a href="inscription@be-oi.be">inscription@be-oi.be</a>.</p>
+
+
+{% endblock %}

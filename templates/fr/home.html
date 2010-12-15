@@ -1,0 +1,36 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+
+<img class="withframe" src="/static/pictures/2010/finale-banner.jpg" alt="image post" width="700" height"217" />
+
+<p>Les Olympiades belges d'Informatique (OI) sont une compétition de programmation, d'algorithmique et de logique composée de deux concours. Le premier est destiné aux élèves en fin de secondaire et permettra d'identifier des candidats pour les Olympiades Internationales d'Informatique (IOI). Le second concours est destiné aux étudiants en première année d'étude supérieure.</p>
+
+<h3>Dernières news</h3>
+
+{% if latest %}
+    {% for entry in latest %}
+
+	{% if entry.lang == 0 %}
+	<div class="post">
+		<div class="right">
+			<h3>{{ entry.title }}</h3>
+			{{ entry.body|safe }}
+		</div>
+		
+		<div class="left">
+			<p class="dateinfo">{{ entry.publication_date|date:"M" }}<span>{{ entry.publication_date|date:"d" }}</span></p>
+
+			<div class="post-meta">
+					<ul>
+						<li class="user">{{ entry.author }}</li>
+						<li class="time">{{ entry.publication_date|date:"H:i" }}</li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
