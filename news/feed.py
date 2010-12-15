@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.syndication.views import Feed
 from django.contrib.sites.models import Site
 
-from beoi.news.models import News
+from be-oi.news.models import News
 
 class RssNews(Feed):
 

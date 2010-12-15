@@ -5,7 +5,7 @@ Administration interface options of ``news`` application.
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from beoi.news.models import News
+from be-oi.news.models import News
 
 class NewsAdmin(admin.ModelAdmin):
     """

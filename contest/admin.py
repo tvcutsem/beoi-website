@@ -5,11 +5,11 @@ Administration interface options of ``contest`` application.
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from beoi.contest.models import School
-from beoi.contest.models import SemifinalCenter
-from beoi.contest.models import Contestant
-from beoi.contest.models import ResultSemifinal
-from beoi.contest.models import ResultFinal
+from be-oi.contest.models import School
+from be-oi.contest.models import SemifinalCenter
+from be-oi.contest.models import Contestant
+from be-oi.contest.models import ResultSemifinal
+from be-oi.contest.models import ResultFinal
 
 
 class SchoolAdmin(admin.ModelAdmin):

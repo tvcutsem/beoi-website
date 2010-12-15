@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from beoi.contest.models import *
+from be-oi.contest.models import *
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 

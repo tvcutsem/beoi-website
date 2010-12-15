@@ -4,14 +4,14 @@ from django.contrib import admin
 admin.autodiscover()
 from os import path
 from views import *
-from beoi.news.models import News
-from beoi.news.feed import RssNews
+from be-oi.news.models import News
+from be-oi.news.feed import RssNews
 
 # custom views
 urlpatterns = patterns('',
 	
-	url(r'^inscription$', "beoi.contest.views.registration", {'template': 'fr/contest/registration.html'}, "registration-fr"),
-	url(r'^inschrijven$', "beoi.contest.views.registration", {'template': 'nl/contest/registration.html'}, "registration-nl"),
+	url(r'^inscription$', "be-oi.contest.views.registration", {'template': 'fr/contest/registration.html'}, "registration-fr"),
+	url(r'^inschrijven$', "be-oi.contest.views.registration", {'template': 'nl/contest/registration.html'}, "registration-nl"),
 )
 
 # static pages (url can be changed without affecting links)
