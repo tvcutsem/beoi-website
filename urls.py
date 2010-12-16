@@ -3,7 +3,6 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover()
 from os import path
-#from views import *
 from beoi.news.models import News
 from beoi.news.feed import RssNews
 
