@@ -92,3 +92,5 @@ def beoi_context(request):
 		context_extras["HOME_URL"] = reverse("home")
 		
 	return context_extras
+	
+	
