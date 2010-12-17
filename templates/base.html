@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>{% block title %}Olympiades belges d'Informatique &mdash; Belgische Olympiade in Informatica{% endblock %}</title>
+<title>{% block title %}{% if HOME == 1 %}Olympiades belges d'Informatique &mdash; Belgische Olympiade in Informatica{% else %}{% trans "Belgian Olympiads in Informatics" %}{% endif %}{% endblock %}</title>
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
@@ -30,7 +30,11 @@ $(function(){
 	<form id="lang" name="langtop" action="/i18n/setlang/" method="post"> {% csrf_token %}
 		<input name="language" type="hidden" value="" />
 		<input name="next" type="hidden" value="" />
-        {% block change_language %}{% endblock %}
+		{% if LANGUAGE_CODE == "fr" %}
+        <a href="#" onClick="javascript:langtop.language.value='nl';langtop.next.value='{% url home-nl %}';langtop.submit();">Nederlands</a>
+		{% else %}
+		<a href="#" onClick="javascript:langtop.language.value='fr';langtop.next.value='{% url home-fr %}';langtop.submit();">Français</a>
+		{% endif %}
 	</form>
 
 
