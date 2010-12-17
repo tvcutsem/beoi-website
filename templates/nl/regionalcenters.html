@@ -6,54 +6,9 @@
 
 <p style="color: red;">[Les demi-finales se déroulent le même jour dans toute la Belgique dans plusieurs centres régionaux repris sur cette page. Les participants doivent choisir le centre où ils vont passer cette épreuve lors de l'inscription.]</p>
 
-<h3>Antwerpen</h3>
-
-<pre>	Gebouw G &mdash; Lokaal G010
-	Universiteit Antwerpen (UA) &mdash; Campus Middelheim
-	Middelheimlaan, 1
-	2020 Antwerpen</pre>
-
-<h3>Bergen</h3>
-
-<pre>	Amphithéâtre Richard Stiévenart
-	Université de Mons (UMons) &mdash; Faculté Polytechnique
-	Rue du Joncquois, 53
-	7000 Bergen</pre>
-
-<p><a href="/static/downloads/Polytech_Mons_Joncquois.pdf">Toegang plattegrond</a></p>
-
-<h3>Brussel</h3>
-
-<pre>	[Local à déterminer]
-	Université Libre de Bruxelles (ULB)</pre>
-		
-<h3>Libramont</h3>
-
-	<pre>	[Lokaal te bepalen]
-		Haute École Robert Schuman de Libramont (HERS)
-		Rue de la Cité, 64
-		6800 Libramont</pre>
-
-<h3>Luik</h3>
-
-<pre>	Amphithéâtres de l'Europe (Gebouw B4) &mdash; Lokaal 204
-	Université de Liège (ULg) &mdash; Sart-Tilman
-	Boulevard du Rectorat, 13
-	4000 Liège</pre>
-
-<p><a href="http://www2.ulg.ac.be/acces/plans/b4.html">Toegang plattegrond</a></p>
-
-<h3>Louvain-la-Neuve</h3>
-
-<pre>	[Lokaal te bepalen]
-	Université catholique de Louvain (UCL)
-	1348 Louvain-la-Neuve</pre>
-	
-<h3>Namen</h3>
-
-<pre>	Auditoire I2
-	Facultés Universitaires Notre-Dame de la Paix de Namur (FUNDP) &mdash; Faculté d'Informatique
-	Rue Grandgagnage, 21
-	5000 Namen</pre>
+{% for center in object_list %}
+<h3>{{center.city}}</h3>
+{{ center.details|safe }}
+{% endfor %}
 
 {% endblock %}

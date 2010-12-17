@@ -3,15 +3,24 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover()
 from os import path
-#from views import *
 from beoi.news.models import News
+from beoi.contest.models import SemifinalCenter
 from beoi.news.feed import RssNews
+from django.views.generic import list_detail
 
 # custom views
 urlpatterns = patterns('',
 	
 	url(r'^inscription$', "beoi.contest.views.registration", {'template': 'fr/contest/registration.html'}, "registration-fr"),
 	url(r'^inschrijven$', "beoi.contest.views.registration", {'template': 'nl/contest/registration.html'}, "registration-nl"),
+
+	url(r'^centres-regionaux$',  'django.views.generic.list_detail.object_list', 
+			{'template_name': 'fr/regionalcenters.html',"queryset": SemifinalCenter.objects.filter(active=True)},
+			"regional-centers-fr"),
+	url(r'^regionalecentra$',  'django.views.generic.list_detail.object_list', 
+			{'template_name': 'nl/regionalcenters.html',"queryset": SemifinalCenter.objects.filter(active=True)},
+			"regional-centers-nl"),
+
 )
 
 # static pages (url can be changed without affecting links)
@@ -28,9 +37,6 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^demi-finales$',  'direct_to_template', {'template': 'fr/semifinal.html'}, "semifinal-fr"),
 	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
 	
-	url(r'^centres-regionaux$',  'direct_to_template', {'template': 'fr/regionalcenters.html'}, "regional-centers-fr"),
-	url(r'^regionalecentra$',  'direct_to_template', {'template': 'nl/regionalcenters.html'}, "regional-centers-nl"),
-
 	url(r'^finales$', 'direct_to_template', {'template': 'fr/final.html'}, "final-fr"),
 	url(r'^finales-nl$', 'direct_to_template', {'template': 'nl/final.html'}, "final-nl"),
 
