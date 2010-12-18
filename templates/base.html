@@ -26,7 +26,7 @@ $(function(){
 	<img id="logo" src="/static/images/be-oi-logo-120px.png" />
 	<h1 id="logo-text"><a href="{{ HOME_URL }}" >{% trans "Belgian Olympiads in Informatics" %}</a></h1>
 	<p id="slogan">{% trans "Programming, algorithmic et logic" %}</p>
-
+	{% if csrf_token %}
 	<form id="lang" name="langtop" action="/i18n/setlang/" method="post"> {% csrf_token %}
 		<input name="language" type="hidden" value="" />
 		<input name="next" type="hidden" value="" />
@@ -36,6 +36,7 @@ $(function(){
 		<a href="#" onClick="javascript:langtop.language.value='fr';langtop.next.value='{% url home-fr %}';langtop.submit();">Français</a>
 		{% endif %}
 	</form>
+	{% endif %}
 
 
 <!--/header-->
@@ -74,7 +75,7 @@ $(function(){
 
       <!-- sidebar -->
 		<div id="sidebar">
-
+			{% if SIDE_MENU %}
 			<div class="sidemenu">
 				<h3>{% trans "Contest" %}</h3>
             <ul>
@@ -89,7 +90,8 @@ $(function(){
 				{% endfor %}
 				</ul>
 			</div>
-
+			{% endif %}
+			{% if ORGANISATION_MENU %}
 			<div class="sidemenu">
 				<h3>{% trans "Organisation" %}</h3>
             <ul>
@@ -104,6 +106,7 @@ $(function(){
 				{% endfor %}
 				</ul>
 			</div>
+			{% endif %}
 			
 			<div class="sidemenu">
 				<h3>{% trans "With support from" %}</h3>
