@@ -170,18 +170,19 @@ $(function(){
       	<li><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
 				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
 			</li>
-<!--			<li><a title="Twitter" href="#" rel="nofollow">
+			{% if LANGUAGE_CODE == "fr" %}
+			<li><a title="Twitter" href="http://twitter.com/beoi_fr" rel="nofollow">
 				<img alt="Twitter" title="Twitter" src="/static/images/social_twitter.png" /></a>
-			</li>-->
-			<li><a title="E-mail this story to a friend!" href="mailto:info@be-oi.be" rel="nofollow">
+			</li>{% endif %}
+			<li><a title="Send us an e-mail" href="mailto:info@be-oi.be" rel="nofollow">
 
-				<img alt="E-mail this story to a friend!" title="E-mail this story to a friend!" src="/static/images/social_email.png" /></a>
+				<img alt="Send us an e-mail" title="Send us an e-mail" src="/static/images/social_email.png" /></a>
 			</li>
       </ul>
 
-      <p>{% trans "Stay up to date. Subscribe via" %}
-		<!--<a href="/static/rss.xml">RSS</a>, --><a href="index">Facebook</a><!--,
-		<a href="#">Twitter</a>--> or <a href="mailto:info@be-oi.be">Email</a>
+      	<p>{% trans "Stay up to date. Subscribe via" %}
+		<!--<a href="/static/rss.xml">RSS</a>, --><a href="index">Facebook</a>{% if LANGUAGE_CODE == "fr" %},
+		<a href="http://twitter.com/beoi_fr">Twitter</a>{% endif %} or <a href="mailto:info@be-oi.be">Email</a>
 
 		</p>
 
