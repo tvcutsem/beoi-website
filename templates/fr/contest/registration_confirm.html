@@ -5,12 +5,16 @@
 
 {% if not error %}
 <p>Félicitation, vous êtes inscrit! Rendez-vous le 16 février dans votre centre régional.</p>
+{% if object %}
+<p>Vous avez choisi <i>{{object}}</i> comme centre pour passer votre demi-finale. Ce centre nous a donné les informations suivantes concernant le lieu exact de l'épreuve. Si nécessaire, vous recevrez davantage d'informations par e-mail.</p>
+<div style="padding-left:50px;">{{object.details|safe}}</div>
+{% endif %}
 
 {% else %}
 <p>Une erreur s'est produite lors de l'inscription. Probablement étiez-vous déjà inscrit ! </p>
 
 {% endif %}
-
+<p>&nbsp;</p>
 <p>Si vous souhaitez modifier votre inscription, contactez-nous par e-mail à <a href="inscription@be-oi.be">inscription@be-oi.be</a>.</p>
 
 

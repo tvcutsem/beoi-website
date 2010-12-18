@@ -68,6 +68,10 @@ class Contestant(models.Model):
 		(YEARSTUDY_BAC1_INDENG,_("1st year of Bachelor in Industrial Sciences")),
 		(YEARSTUDY_BAC1_OTHER,_("1st year of Bachelor (other)")),
 	)		
+	YEARSTUDY_PER_CONTEST = {
+		CONTEST_SEC: [YEARSTUDY_1SEC, YEARSTUDY_2SEC, YEARSTUDY_3SEC, YEARSTUDY_4SEC, YEARSTUDY_5SEC, YEARSTUDY_6SEC, YEARSTUDY_7SEC],
+		CONTEST_HIGH: [YEARSTUDY_BAC1_CS, YEARSTUDY_BAC1_MGMT_CS, YEARSTUDY_BAC1_SYST, YEARSTUDY_BAC1_APPSC, YEARSTUDY_BAC1_INDENG, YEARSTUDY_BAC1_OTHER]
+	}
 
 	# Fields
 	surname 			= models.CharField(_('surname'), max_length=255, db_index=True)
@@ -122,11 +126,11 @@ class SemifinalCenter(models.Model):
 
 	name 		= models.CharField(_('name'), max_length=255)
 	city 		= models.CharField(_('city'), max_length=255)
-	details		= models.TextField(_('venue details'))
+	details		= models.TextField(_('venue details'),help_text=_("HTML tags are allowed. &lt;p&gt;...&lt;/p&gt; tags MUST be used for text!"))
 	active 		= models.BooleanField(_("in current proposal list"), default=True)
 
 	def __unicode__(self):
-		return "%s, %s" % (self.name, self.city)
+		return u"%s — %s" % (self.city, self.name)
 
 	class Meta:
 		ordering = ["city", "name"]

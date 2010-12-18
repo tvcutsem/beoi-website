@@ -8,8 +8,8 @@ SCHOOL_NOT_EXIST = "0"
 
 class RegisteringForm(forms.Form):
 	
-	firstname 		= forms.CharField(max_length=255, label=_('Surname'))
-	surname 		= forms.CharField(max_length=255, label=_('Firstname'))
+	firstname 		= forms.CharField(max_length=255, label=_('Firstname'))
+	surname 		= forms.CharField(max_length=255, label=_('Surname'))
 	gender 			= forms.ChoiceField(choices=Contestant.GENDER_CHOICES, label=_('Gender'))
 	dob				= forms.DateField(input_formats=['%d/%m/%Y','%d/%m/%y'], label=_("Date of birth"))
 	address			= forms.CharField(max_length=255, label=_('Address'))
@@ -41,9 +41,7 @@ class RegisteringForm(forms.Form):
 		
 		if cleaned_data.get("school_exists") == SCHOOL_EXISTS:
 			
-			print 1
 			if not cleaned_data.get("school"):
-				print "-"
 				self._errors["school"] = self.error_class([_("Please choose your school")])
 				del cleaned_data["school"]
 				return cleaned_data
@@ -73,13 +71,13 @@ class RegisteringForm(forms.Form):
 
 		# check category
 		if contest == CONTEST_SEC : 
-			if year_study == Contestant.YEARSTUDY_BAC1: 
+			if year_study not in Contestant.YEARSTUDY_PER_CONTEST[contest]: 
 				raise forms.ValidationError( _("You cannot register to the secondary school contest if you are in the first year of baccalaureate") )			
 			if school_category != CONTEST_SEC:
 				raise forms.ValidationError( _("You have selected a high school but have registered to the secondary school contest") )
 			
 		elif contest == CONTEST_HIGH:
-			if year_study != Contestant.YEARSTUDY_BAC1: 
+			if year_study not in Contestant.YEARSTUDY_PER_CONTEST[contest]: 
 				raise forms.ValidationError( _("You cannot register to the high school contest if you are at the secondary school") )			
 			if school_category != CONTEST_HIGH:
 				raise forms.ValidationError( _("You have selected a secondary school but have registered to the high school contest") )

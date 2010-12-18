@@ -20,6 +20,14 @@ urlpatterns = patterns('',
 	url(r'^regionalecentra$',  'django.views.generic.list_detail.object_list', 
 			{'template_name': 'nl/regionalcenters.html',"queryset": SemifinalCenter.objects.filter(active=True)},
 			"regional-centers-nl"),
+	
+	url(r'^inscription/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', 
+			{'template_name': 'fr/contest/registration_confirm.html', "queryset": SemifinalCenter.objects.filter(active=True) }, 
+			"registration-confirm-fr"),
+
+	url(r'^inschrijven/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', 
+			{'template_name': 'nl/contest/registration_confirm.html', "queryset": SemifinalCenter.objects.filter(active=True) }, 
+			"registration-confirm-nl"),
 
 )
 
@@ -45,9 +53,6 @@ urlpatterns += patterns('django.views.generic.simple',
 
 	url(r'^archives$', 'direct_to_template', {'template': 'fr/archives.html'}, "archives-fr"),
 	url(r'^archieven$', 'direct_to_template', {'template': 'nl/archives.html'}, "archives-nl"),
-
-	url(r'^inscription/confirm/(?P<id>\d+)/$', 'direct_to_template', {'template': 'fr/contest/registration_confirm.html'}, "registration-confirm-fr"),
-	url(r'^inschrijven/confirm/(?P<id>\d+)/$', 'direct_to_template', {'template': 'nl/contest/registration_confirm.html'}, "registration-confirm-nl"),
 
 	url(r'^inscription/error$', 'direct_to_template', {'template': 'fr/contest/registration_confirm.html', "extra_context":{"error":1}}, "registration-error-fr"),
 	url(r'^inschrijven/error$', 'direct_to_template', {'template': 'nl/contest/registration_confirm.html', "extra_context":{"error":1}}, "registration-error-nl"),

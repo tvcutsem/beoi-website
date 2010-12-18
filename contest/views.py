@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.template import RequestContext, Context
 from beoi.contest.models import *
 from beoi.contest.forms import *
 from django.http import HttpResponseRedirect
@@ -9,6 +9,7 @@ import random
 from django.utils.hashcompat import md5_constructor
 from settings import SECRET_KEY
 from django.template.loader import get_template
+from django.core.mail import send_mail
 
 REGISTRATION_FORM_YEAR = 2011 # to change each year !
 
@@ -34,11 +35,11 @@ def registration(request, template):
 			# retrieve the school
 			if cd["school_exists"] == SCHOOL_NOT_EXIST : # if a new one
 
-				school = School.objects.get_or_create( # if already exists, does not create a new one
-					name = cd["new_school_name"],
-					city = cd["new_school_city"],
-					postal_code = cd["new_school_postal_code"],
-					category = cd["contest_category"])
+				school, created = School.objects.get_or_create( # if already exists, does not create a new one
+													name = cd["new_school_name"],
+													city = cd["new_school_city"],
+													postal_code = cd["new_school_postal_code"],
+													category = cd["contest_category"])
 				# should never raise a IntegrityError, right?
 										
 			else :  # if school selected in the list
@@ -72,9 +73,13 @@ def registration(request, template):
 			if request.LANGUAGE_CODE == "fr":
 				mail_template = get_template("emails/fr/registration.txt")
 				context = Context({"name":cd["surname"]})
-				send_mail("Inscription aux Olympiades d'Informatique", mail_template.render(context), "inscription@be-oi.be", [email], fail_silently=True)
-				return HttpResponseRedirect(reverse("registration-confirm-fr", args=[semifinal_center.id])) 
-			else: return HttpResponseRedirect(reverse("registration-confirm-nl")) 
+				send_mail("Inscription aux Olympiades d'Informatique", mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
+				return HttpResponseRedirect(reverse("registration-confirm-fr", args=[cd["semifinal_center"].id])) 
+			else: 
+				mail_template = get_template("emails/nl/registration.txt")
+				context = Context({"name":cd["surname"]})
+				send_mail("Inscription aux Olympiades d'Informatique", mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
+				return HttpResponseRedirect(reverse("registration-confirm-nl", args=[cd["semifinal_center"].id])) 
 
  	else:
 		form = RegisteringForm() 
