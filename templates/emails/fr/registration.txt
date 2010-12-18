@@ -1,1 +1,7 @@
-test
+{{ NAME }},
+Nous confirmons ton inscription à la demi-finale des Olympiades belges d'Informatique, catégorie "{{ CONTEST }}". 
+Tu as choisi de présenter le 16 février 2011 au centre de {{CENTER_NAME}}. Tu trouveras plus d'information sur comment t'y rendre sur la page http://be-oi.be{{CENTER_DETAILS}}.
+
+Pour toute question, tu peux nous contacter à l'adresse info@be-oi.be.
+
+L'équipe be-OI
