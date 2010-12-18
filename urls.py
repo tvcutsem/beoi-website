@@ -14,21 +14,6 @@ urlpatterns = patterns('',
 	url(r'^inscription$', "beoi.contest.views.registration", {'template': 'fr/contest/registration.html'}, "registration-fr"),
 	url(r'^inschrijven$', "beoi.contest.views.registration", {'template': 'nl/contest/registration.html'}, "registration-nl"),
 
-	url(r'^centres-regionaux$',  'django.views.generic.list_detail.object_list', 
-			{'template_name': 'fr/regionalcenters.html',"queryset": SemifinalCenter.objects.filter(active=True)},
-			"regional-centers-fr"),
-	url(r'^regionalecentra$',  'django.views.generic.list_detail.object_list', 
-			{'template_name': 'nl/regionalcenters.html',"queryset": SemifinalCenter.objects.filter(active=True)},
-			"regional-centers-nl"),
-	
-	url(r'^inscription/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', 
-			{'template_name': 'fr/contest/registration_confirm.html', "queryset": SemifinalCenter.objects.filter(active=True) }, 
-			"registration-confirm-fr"),
-
-	url(r'^inschrijven/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', 
-			{'template_name': 'nl/contest/registration_confirm.html', "queryset": SemifinalCenter.objects.filter(active=True) }, 
-			"registration-confirm-nl"),
-
 )
 
 # static pages (url can be changed without affecting links)
@@ -81,28 +66,40 @@ urlpatterns += patterns('django.views.generic.simple',
 # Django views
 urlpatterns += patterns('',
 
-	url(r'^accueil$',
-        'django.views.generic.date_based.archive_index',
-        dict(
-            queryset=News.online_objects.all(),
-            date_field='creation_date',
-			template_name="fr/home.html",
-			num_latest=10
-        ),
-        name='home-fr',
-    ),
 
-	url(r'^home$',
-        'django.views.generic.date_based.archive_index',
-        dict(
-            queryset=News.online_objects.all(),
-            date_field='creation_date',
-			template_name="nl/home.html",
-			num_latest=10
-        ),
-        name='home-nl',
-    ),
+	url(r'^centres-regionaux$',  'django.views.generic.list_detail.object_list', {
+				'template_name': 'fr/regionalcenters.html',
+				"queryset": SemifinalCenter.objects.filter(active=True)
+			},"regional-centers-fr"),
+	url(r'^regionalecentra$',  'django.views.generic.list_detail.object_list', {
+				'template_name': 'nl/regionalcenters.html',
+				"queryset": SemifinalCenter.objects.filter(active=True)
+			},"regional-centers-nl"),
 
+	url(r'^inscription/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', {
+				'template_name': 'fr/contest/registration_confirm.html', 
+				"queryset": SemifinalCenter.objects.filter(active=True) 
+			}, "registration-confirm-fr"),
+
+	url(r'^inschrijven/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', {
+				'template_name': 'nl/contest/registration_confirm.html', 
+				"queryset": SemifinalCenter.objects.filter(active=True) 
+			}, "registration-confirm-nl"),
+
+	url(r'^accueil$', 'django.views.generic.date_based.archive_index', {
+				'queryset':News.online_objects.all(),
+    			'date_field': 'creation_date',
+				'template_name': "fr/home.html",
+				'num_latest':10
+			}, 'home-fr'),
+
+	url(r'^home$',	'django.views.generic.date_based.archive_index', {
+				'queryset':News.online_objects.all(),
+    			'date_field': 'creation_date',
+				'template_name': "nl/home.html",
+				'num_latest':10
+			}, 'home-nl'),
+	
  	(r'^rss$', RssNews()),
 
 	# admin panel
