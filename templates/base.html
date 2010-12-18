@@ -6,7 +6,7 @@
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
-{% if not debug and 0==1 %}
+{% if not debug %}
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-20319365-1']);
@@ -18,7 +18,6 @@
   })();
 </script>
 {% endif %}
-
 </head>
 <body {% if SWITCH_LANG %}onload="javascript:document.forms[0].language.value='{{SWITCH_LANG}}';document.forms[0].submit();"{% endif %} >
 <script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
