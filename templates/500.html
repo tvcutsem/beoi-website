@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+{% comment %}
+	If it succeed to guess the language (from browser settings or from the latest choice on the site), 
+	it displays the message in one language
+	Otherwise, the message is displayed in both language
+{% endcomment %}
+
+{% if LANGUAGE_CODE != "fr" %}
+<h2>TO TRANSLATE</h2>
+
+<p>TODO IN NDLS</p>
+
+<p><a href="{% url home-nl %}">&raquo; Retour à la page d'accueil</a></p>
+{% endif%}
+
+{% if LANGUAGE_CODE != "nl" %}
+<h2>Erreur</h2>
+
+<p>La page demandée a provoqué une erreur sur le serveur, veuillez nous en excuser. L'administrateur a été informé de ce problème et fera son possible pour le résoudre.</p>
+
+<p><a href="{% url home-fr %}">&raquo; Retour à la page d'accueil</a></p>
+
+{% endif%}
+
+{% endblock %}
