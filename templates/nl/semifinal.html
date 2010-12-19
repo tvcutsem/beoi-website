@@ -1,50 +1,51 @@
 {% extends "base.html" %}
 
 {% block content%}
-<h2>Verloop van de halve finale</h2>
+<h2>Halve finale<img src="/static/pictures/2010/oi2010-finals-sheet.jpg" width="350" height="231" alt="firefox" class="withframe float-right" /></h2>
 
-<div style="color: red;">
-<p>La demi-finale se déroule le mercredi 16 février 2011 à 14h dans différents <a href="{% url regional-centers-fr %}">centre régionaux</a>. Elle est composée de deux concours distincts, le premier pour les élèves du secondaire et le second pour les étudiants en première année du supérieur. Chacune de ces catégories aura un questionnaire distinct.</p>
+<p>De halve finale vindt plaats op woensdag 16 februari 2011 en begint om 14 uur in verschillende <a href="{% url regional-centers-nl %}">regionale centra</a> in de land.</p>
 
-<p>Lors de votre inscription, vous devez choisir la langue dans laquelle vous souhaitez recevoir votre questionnaire et répondre aux questions. Ce choix ne dépend pas du centre régional choisi. De plus, sachez que chaque centre régional est associé à une langue en particulier, cette dernière sera utilisée par les surveillants qui ne parleront donc pas forcément une autre langue.</p>
+<p>Een paar aanwijzingen over het soort van vragen die kunnen verwacht worden tijdens de halve finale staan in het reglement hieronder. U kunt ook naar <a href="{% url sample-questions-fr %}">de vragen van verleden jaar</a> kijken.</p>
 
-<p>L'épreuve se déroule complètement sur papier et dure trois heures au maximum. Les participants ne doivent se munir que de quoi écrire; des feuilles de brouillon leurs seront fournies lors de l'épreuve. Sont notamment interdits les GSM, les calculatrices et tout autre appareil électronique. Les participants sont libres de poser des questions aux surveillants qui décideront de répondre ou non à la question du participant. Les participants ne peuvent quitter la salle d'examen tant qu'ils n'ont pas rendu leur copie.</p>
+<h3>Reglement van de wedstrijd</h3>
 
-<p>Les participants doivent indiquer leurs nom, prénom et école uniquement sur la première page, dans le cadre prévu à cet effet. Pour toutes les autres pages, ils veilleront à ce que leurs réponses figurent dans les cadres dédiés.</p>
+<ol>
+	<li>De halve finale bestaat uit twee afzonderlijke wedstrijden, elk met een verschillende vragenlijst: één voor leerlingen uit het secundair onderwijs en één voor leerlingen uit het eerste jaar hoger onderwijs.</li>
+	
+	<li>De test voor de halve finale gebeurt volledig op papier en duurt maximaal 3 uur. De deelnemers moeten enkel zorgen voor schrijfmateriaal. Kladpapier zal hen ter beschikking worden gesteld tijdens de test. Het gebruik van GSM toestellen, rekenmachines, of enig ander electronisch toestel tijdens de test wordt uitdrukkelijk verboden en impliceert een onmiddellijke uitsluiting.</li>
+	
+	<li>Om ervoor te zorgen billijkheid tussen de deelnemers uit verschillende centra kunnen de deelnemers geen begripsvermogensvragen aan de opletters stellen. Elke fout in de test wordt beschouwd als onderdeel van de wedstrijd.</li>
+	
+	<li>Tijdens de test is het de deelnemers onder geen beding toegestaan om de zaal te verlaten, indien ze niet eerst hun antwoordexemplaar hebben ingediend.</li>
+	
+	<li>De deelnemer moet ten minste 15 minuten vóór de start van de wedstrijd aankomen naar het regionaal centrum dit ze bij inschrijving heeft gekozen. Elke vertraging zal van de duur van zijn proeftijd afgetrokken worden.</li>
+	
+	<li style="color: red;">La langue choisie lors de l'inscription déterminera la langue de l'énoncé, quel que soit le centre. Cependant, le participant doit savoir que les surveillants d'un centre ne sont pas tenus de parler une autre langue que la langue officielle du centre. Le participant veillera également à rappeler la langue de l'énoncé désiré.</li>
+	
+	<li>De deelnemers dienen hun naam, voornaam en school duidelijk te vermelden, op de eerste pagina van het antwoordformulier, in het daarvoor voorziene kader. Voor al de andere pagina's dienen ze er vooral op te letten dat ze hun antwoorden duidelijk vermelden in de daarvoor voorziene kaders.</li>
+	
+	<li>De deelnemers kunnen hun vragen beantwoorden in het Nederlands, in het Frans of in het Engels, in pseudo-code of in een van de toegestane programmeertalen: Java, C, C++, Pascal, Python en PHP. Het is niet toegestaan functies te gebruiken afkomstig van niet-standaard bibliotheken voor de desbetreffende talen.</li>
+	
+	<li style="color: red;">Les types et thèmes des questions de l'épreuve de la catégorie secondaire sont les suivants&nbsp;:
+		<ul style="color: black;">
+			<li>Meerkeuzevragen : een kort algoritme kunnen lezen en begrijpen, om een ontbrekend deel in te vullen, om het verwachte resultaat te voorspellen, of om er een fout in te ontdekken&nbsp;;</li>
+			<li>Opstellen van een algoritme om een probleem in een bepaalde context op te lossen&nbsp;;</li>
+			<li>Een algoritme opstellen dat een bepaalde wiskundige uitdrukking correct berekent&nbsp;;</li>
+			<li>Op basis van een aantal precies gedefinieerde primitieve basisfuncties, deze functies gebruiken en combineren om een bepaald probleem op te lossen&nbsp;</li>
+			<li>Het opstellen van een algoritme om een probleem op te lossen dat de manipulatie van een "array" datastructuur vereist.</li>
+		</ul>
+	</li>
+	
+	<li style="color: red;">Les types et thèmes des questions de l'épreuve de la catégorie supérieur sont les suivants&nbsp;:
+		<ul style="color: black;">
+			<li>Meerkeuzevragen : een kort algoritme kunnen lezen en begrijpen, om een ontbrekend deel in te vullen, om het verwachte resultaat te voorspellen, of om er een fout in te ontdekken&nbsp;;</li>
+			<li>Een vraag omtrent het lezen, begrijpen en vergelijken van verschillende algoritmes die eenzelfde  probleem oplossen&nbsp;;</li>
+			<li>Het lezen en begrijpen van een relatief complex algoritme, om vervolgens een variant van dat algoritme voor te stellen dat meer efficiënt is of een algemener probleem oplost&nbsp;;</li>
+			<li>Op basis van een precieze specificatie van een probleem, het probleem kunnen begrijpen en een algoritme vinden en opstellen om dat probleem op te lossen&nbsp;;</li>
+			<li>Op basis van een voorgestelde datastructuur en een gegeven probleem, een algoritme opstellen dat gebruik maakt van die datastructuur om dat probleem op te lossen.</li>
+		</ul>
+	</li>
+</ol>
 
-<p>Les participants peuvent répondre aux questions en français ou néerlandais, en pseudo-code ou dans un des langages de programmation autorisés : Java, C, C++, Pascal, Python et PHP. Il est interdit d'utiliser des fonctions provenant de quelque librairie non-standard que ce soit. En cas de doute, le participant est invité à se renseigner auprès des surveillants.</p>
-
-<p>Quelques indications sur le type des questions auxquelles vous pourriez être confrontés durant la demi-finale sont reprises ci-dessous. N'hésitez pas non plus à consulter <a href="{% url sample-questions-fr %}">les questions de l'année passée</a>.</p>
-
-<h3>Concours pour le secondaire</h3>
-
-<p>Les participants devront résoudre cinq questions, dont trois petites et deux grosses. Voici les types et les thèmes de ces questions :</p>
-
-<ul>
-	<li>QCM : lire et comprendre un petit algorithme et soit compléter un trou, soit indiquer ce que calcule l'algorithme ou enfin trouver une erreur ;</li>
-
-	<li>Trouver un algorithme pour résoudre un problème contextualisé ;</li>
-
-	<li>Donner un algorithme permettant de calculer la valeur d'une expression mathématique ;</li>
-
-	<li>Sur base de la définition précise de plusieurs opérations de base, les utiliser afin de résoudre un problème ;</li>
-
-	<li>Fournir un algorithme pour résoudre un problème nécessitant la manipulation d'un tableau.</li>
-</ul>
-
-<h3>Concours pour le supérieur</h3>
-
-<ul>
-	<li>QCM : lire et comprendre un petit algorithme et soit compléter un trou, soit indiquer ce que calcule l'algorithme ou enfin trouver une erreur ;</li>
-
-	<li>Lire, comprendre et faire une comparaison de différents algorithmes permettant de résoudre un même problème ;</li>
-
-	<li>Lire et comprendre ce que fait un algorithme compliqué, ensuite proposer une variante de l'algorithme soit pour le rendre plus performant, soit pour résoudre un problème plus général ;</li>
-
-	<li>Sur base d'une spécification précise d'un problème, comprendre le problème, trouver et définir un algorithme permettant de le résoudre ;</li>
-
-	<li>Sur base d'une structure de données expliquée et d'un problème énoncé, définir un algorithme qui résout ce problème.</li>
-</ul>
-</div>
 
 {% endblock %}
