@@ -6,6 +6,8 @@
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
+{% if LANGUAGE_CODE != "nl" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-fr %}" title="Flux RSS en français">{% endif %}
+{% if LANGUAGE_CODE != "fr" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-nl %}" title="RSS Feed in het Nederlands">{% endif %}
 </head>
 
 <body {% if SWITCH_LANG %}onload="javascript:document.forms[0].language.value='{{SWITCH_LANG}}';document.forms[0].submit();"{% endif %} >
@@ -163,10 +165,8 @@ $(function(){
       <h3>{% trans "Updates" %}</h3>
 
       <ul class="subscribe-stuff">
-<!--      	<li><a title="RSS" href="static/rss.xml" rel="nofollow">
-
-				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a>
-			</li>-->
+	   	<li><a title="RSS" href="{% if LANGUAGE_CODE == "fr" %}{% url rss-fr %}{% else %}{% url rss-nl %}{% endif %}" rel="nofollow">
+				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a></li>
       	<li><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
 				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
 			</li>

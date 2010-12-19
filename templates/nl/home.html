@@ -13,10 +13,10 @@
 {% if latest %}
     {% for entry in latest %}
 
-	{% if entry.lang == 1 %}
+	{% if entry.lang == 0 %}
 	<div class="post">
 		<div class="right">
-			<h4>{{ entry.title }}</h4>
+				<h4>{{ entry.title }}</h4>
 			{{ entry.body|safe }}
 		</div>
 		
@@ -25,7 +25,7 @@
 
 			<div class="post-meta">
 					<ul>
-						<li class="user">{{ entry.author }}</li>
+						<li class="user">{% if entry.author.first_name %}{{ entry.author.first_name }} {{ entry.author.last_name }}{% else %}{{ entry.author }}{% endif %}</li>
 						<li class="time">{{ entry.publication_date|date:"H:i" }}</li>
 					</ul>
 			</div>
