@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -38,79 +38,87 @@ msgstr ""
 
 #: backup_oldtheme/contest/forms.py:8 backup_oldtheme/contest/forms.py:9
 msgid "Make your choice"
-msgstr ""
+msgstr "Maak uw keuze"
 
 #: backup_oldtheme/contest/forms.py:29 contest/forms.py:75
 msgid ""
 "You cannot register to the secondary school contest if you are in the first "
 "year of baccalaureate"
 msgstr ""
+"Je kunt je niet inschrijven voor de competitie voor het secundair als je"
+"in het eerste jaar van het hoger onderwijs zit"
 
 #: backup_oldtheme/contest/forms.py:31 contest/forms.py:77
 msgid ""
 "You have selected a high school but have registered to the secondary school "
 "contest"
 msgstr ""
+"Je hebt een hogeschool/universiteit gekozen, maar je bent ingeschreven"
+"voor het secundair"
 
 #: backup_oldtheme/contest/forms.py:35 contest/forms.py:81
 msgid ""
 "You cannot register to the high school contest if you are at the secondary "
 "school"
 msgstr ""
+"Je kunt je niet inschrijven voor de competitie voor het hoger"
+"onderwijs als je in het secundair zit"
 
 #: backup_oldtheme/contest/forms.py:37 contest/forms.py:83
 msgid ""
 "You have selected a secondary school but have registered to the high school "
 "contest"
 msgstr ""
+"Je hebt een secundair school gekozen, maar je bent ingeschreven"
+"voor het hoger onderwijs"
 
 #: backup_oldtheme/contest/models.py:19 contest/models.py:19
 msgid "secondary-school students"
-msgstr ""
+msgstr "Secundair"
 
 #: backup_oldtheme/contest/models.py:20 contest/models.py:20
 msgid "post-secondary-school students"
-msgstr ""
+msgstr "Hoger onderwijs"
 
 #: backup_oldtheme/contest/models.py:25 contest/models.py:25
 msgid "Invalid postal code"
-msgstr ""
+msgstr "Invalide postcode"
 
 #: backup_oldtheme/contest/models.py:34 contest/models.py:38
 msgid "Male"
-msgstr ""
+msgstr "Man"
 
 #: backup_oldtheme/contest/models.py:35 contest/models.py:39
 msgid "Female"
-msgstr ""
+msgstr "Vrouw"
 
 #: backup_oldtheme/contest/models.py:48 contest/models.py:57
 msgid "1st year of secondary school"
-msgstr ""
+msgstr "1ste jaar van het secundair"
 
 #: backup_oldtheme/contest/models.py:49 contest/models.py:58
 msgid "2nd year of secondary school"
-msgstr ""
+msgstr "2de jaar van het secundair"
 
 #: backup_oldtheme/contest/models.py:50 contest/models.py:59
 msgid "3rd year of secondary school"
-msgstr ""
+msgstr "3de jaar van het secundair"
 
 #: backup_oldtheme/contest/models.py:51 contest/models.py:60
 msgid "4th year of secondary school"
-msgstr ""
+msgstr "4de jaar van het secundair"
 
 #: backup_oldtheme/contest/models.py:52 contest/models.py:61
 msgid "5th year of secondary school"
-msgstr ""
+msgstr "5de jaar van het secundair"
 
 #: backup_oldtheme/contest/models.py:53 contest/models.py:62
 msgid "6th year of secondary school"
-msgstr ""
+msgstr "6de jaar van het secundair"
 
 #: backup_oldtheme/contest/models.py:54 contest/models.py:63
 msgid "7th year of secondary school"
-msgstr ""
+msgstr "7de jaar van het secundair"
 
 #: backup_oldtheme/contest/models.py:55
 msgid "1st year of baccalaureate (post-secondary)"
@@ -118,58 +126,58 @@ msgstr ""
 
 #: backup_oldtheme/contest/models.py:60 contest/models.py:29
 msgid "Incorrect year"
-msgstr ""
+msgstr "Invalide jaar"
 
 #: backup_oldtheme/contest/models.py:63 contest/models.py:77
 msgid "surname"
-msgstr ""
+msgstr "familienaam"
 
 #: backup_oldtheme/contest/models.py:64 contest/models.py:78
 msgid "firstname"
-msgstr ""
+msgstr "voornaam"
 
 #: backup_oldtheme/contest/models.py:65 contest/models.py:79
 msgid "gender"
-msgstr ""
+msgstr "geslacht"
 
 #: backup_oldtheme/contest/models.py:66 contest/models.py:80
 msgid "email"
-msgstr ""
+msgstr "email"
 
 #: backup_oldtheme/contest/models.py:67 contest/models.py:81
 msgid "address"
-msgstr ""
+msgstr "adres"
 
 #: backup_oldtheme/contest/models.py:68 backup_oldtheme/contest/models.py:99
 #: backup_oldtheme/contest/models.py:114 contest/models.py:82
 #: contest/models.py:112 contest/models.py:128
 msgid "city"
-msgstr ""
+msgstr "stad"
 
 #: backup_oldtheme/contest/models.py:69 backup_oldtheme/contest/models.py:100
 #: contest/models.py:83 contest/models.py:113
 msgid "postal code"
-msgstr ""
+msgstr "postcode"
 
 #: backup_oldtheme/contest/models.py:70 contest/models.py:84
 msgid "date of birth"
-msgstr ""
+msgstr "geboortedatum"
 
 #: backup_oldtheme/contest/models.py:71 contest/models.py:85
 msgid "contest category"
-msgstr ""
+msgstr "wedtrijd"
 
 #: backup_oldtheme/contest/models.py:73 contest/models.py:87
 msgid "year of study"
-msgstr ""
+msgstr "studiejaar"
 
 #: backup_oldtheme/contest/models.py:74 contest/models.py:88
 msgid "examination language"
-msgstr ""
+msgstr "taal"
 
 #: backup_oldtheme/contest/models.py:76 contest/models.py:90
 msgid "manual checked"
-msgstr ""
+msgstr "met de hand geverifieerd"
 
 #: backup_oldtheme/contest/models.py:78 contest/models.py:91
 msgid "token"
@@ -270,76 +278,76 @@ msgstr "Belgische Olympiade in Informatica"
 
 #: contest/forms.py:11
 msgid "Firstname"
-msgstr ""
+msgstr "Voornaam"
 
 #: contest/forms.py:12
 msgid "Surname"
-msgstr ""
+msgstr "Familienaam"
 
 #: contest/forms.py:13
 msgid "Gender"
-msgstr ""
+msgstr "Geslacht"
 
 #: contest/forms.py:14
 msgid "Date of birth"
-msgstr ""
+msgstr "Geboortedatum"
 
 #: contest/forms.py:15
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: contest/forms.py:16 contest/forms.py:24
 msgid "Postal code"
-msgstr ""
+msgstr "Postcode"
 
 #: contest/forms.py:17 contest/forms.py:25
 msgid "City"
-msgstr ""
+msgstr "Stad"
 
 #: contest/forms.py:18
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: contest/forms.py:20
 msgid "is in the list"
-msgstr ""
+msgstr "staat op de lijst"
 
 #: contest/forms.py:20
 msgid "is not in the list"
-msgstr ""
+msgstr "staat niet op de lijst"
 
 #: contest/forms.py:20
 msgid "Is the school in the list"
-msgstr ""
+msgstr "Staat de school op de lijst"
 
 #: contest/forms.py:21 contest/forms.py:32
 msgid "Make a choice"
-msgstr ""
+msgstr "Maak een keus"
 
 #: contest/forms.py:23
 msgid "School name"
-msgstr ""
+msgstr "Schoolnaam"
 
 #: contest/forms.py:27
 msgid "Year of study"
-msgstr ""
+msgstr "Studiejaar"
 
 #: contest/forms.py:29
-#, fuzzy
+
 msgid "Contest category"
 msgstr "Wedstrijd"
 
 #: contest/forms.py:30
 msgid "Examination language"
-msgstr ""
+msgstr "Taal van de wedstrijd"
 
 #: contest/forms.py:45
 msgid "Please choose your school"
-msgstr ""
+msgstr "Kies uw school"
 
 #: contest/forms.py:55 contest/forms.py:59 contest/forms.py:63
 msgid "This field is mandatory"
-msgstr ""
+msgstr "dit veld is verplicht"
 
 #: contest/models.py:64
 msgid "1st year of Bachelor in Computer Sciences"
@@ -387,12 +395,12 @@ msgid "Body"
 msgstr ""
 
 #: news/feed.py:29
-#, fuzzy
+
 msgid "Belgian Olympiads in Informatics: RSS Entires"
 msgstr "Belgische Olympiade in Informatica"
 
 #: news/feed.py:32
-#, fuzzy
+
 msgid "RSS feed of recent news from Belgian Olympiads in Informatics"
 msgstr "Belgische Olympiade in Informatica"
 
