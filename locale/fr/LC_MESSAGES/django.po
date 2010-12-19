@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -45,32 +45,40 @@ msgid ""
 "You cannot register to the secondary school contest if you are in the first "
 "year of baccalaureate"
 msgstr ""
+"Vous ne pouvez pas vous inscrire au concours pour les secondaires si vous"
+"êtes en première BAC"
 
 #: backup_oldtheme/contest/forms.py:31 contest/forms.py:77
 msgid ""
 "You have selected a high school but have registered to the secondary school "
 "contest"
 msgstr ""
+"Vous avez sélectionné une université ou haute école mais vous êtes"
+"inscrit au concours pour les secondaires"
 
 #: backup_oldtheme/contest/forms.py:35 contest/forms.py:81
 msgid ""
 "You cannot register to the high school contest if you are at the secondary "
 "school"
 msgstr ""
+"Vous ne pouvez pas vous inscrire au concours pour le supérieur si vous"
+"êtes en secondaire"
 
 #: backup_oldtheme/contest/forms.py:37 contest/forms.py:83
 msgid ""
 "You have selected a secondary school but have registered to the high school "
 "contest"
 msgstr ""
+"Vous avez sélectionné une école secondaire mais vous êtes inscrit"
+"au concours pour le supérieur"
 
 #: backup_oldtheme/contest/models.py:19 contest/models.py:19
 msgid "secondary-school students"
-msgstr "secondaire"
+msgstr "Secondaire"
 
 #: backup_oldtheme/contest/models.py:20 contest/models.py:20
 msgid "post-secondary-school students"
-msgstr "supérieur"
+msgstr "Supérieur"
 
 #: backup_oldtheme/contest/models.py:25 contest/models.py:25
 msgid "Invalid postal code"
@@ -78,11 +86,11 @@ msgstr "Code postal invalide"
 
 #: backup_oldtheme/contest/models.py:34 contest/models.py:38
 msgid "Male"
-msgstr "homme"
+msgstr "Homme"
 
 #: backup_oldtheme/contest/models.py:35 contest/models.py:39
 msgid "Female"
-msgstr "femme"
+msgstr "Femme"
 
 #: backup_oldtheme/contest/models.py:48 contest/models.py:57
 msgid "1st year of secondary school"
@@ -114,7 +122,7 @@ msgstr "7e secondaire"
 
 #: backup_oldtheme/contest/models.py:55
 msgid "1st year of baccalaureate (post-secondary)"
-msgstr "1e année de BAC"
+msgstr "1ere BAC (autre)"
 
 #: backup_oldtheme/contest/models.py:60 contest/models.py:29
 msgid "Incorrect year"
@@ -156,7 +164,7 @@ msgid "date of birth"
 msgstr "date de naissance"
 
 #: backup_oldtheme/contest/models.py:71 contest/models.py:85
-#, fuzzy
+
 msgid "contest category"
 msgstr "année OI"
 
@@ -270,116 +278,116 @@ msgid "Belgian Olympiads in Informatics"
 msgstr "Olympiades belges d'Informatique"
 
 #: contest/forms.py:11
-#, fuzzy
+
 msgid "Firstname"
-msgstr "prénom"
+msgstr "Prénom"
 
 #: contest/forms.py:12
-#, fuzzy
+
 msgid "Surname"
-msgstr "nom de famille"
+msgstr "Nom de famille"
 
 #: contest/forms.py:13
-#, fuzzy
+
 msgid "Gender"
-msgstr "sexe"
+msgstr "Sexe"
 
 #: contest/forms.py:14
-#, fuzzy
+
 msgid "Date of birth"
-msgstr "date de naissance"
+msgstr "Date de naissance"
 
 #: contest/forms.py:15
-#, fuzzy
+
 msgid "Address"
-msgstr "adresse"
+msgstr "Adresse"
 
 #: contest/forms.py:16 contest/forms.py:24
-#, fuzzy
+
 msgid "Postal code"
-msgstr "code postal"
+msgstr "Code postal"
 
 #: contest/forms.py:17 contest/forms.py:25
 msgid "City"
-msgstr ""
+msgstr "Ville"
 
 #: contest/forms.py:18
-#, fuzzy
+
 msgid "Email"
-msgstr "e-mail"
+msgstr "E-mail"
 
 #: contest/forms.py:20
 msgid "is in the list"
-msgstr ""
+msgstr "est dans la liste"
 
 #: contest/forms.py:20
 msgid "is not in the list"
-msgstr ""
+msgstr "n'est pas dans la liste"
 
 #: contest/forms.py:20
 msgid "Is the school in the list"
-msgstr ""
+msgstr "L'école se trouve-t-elle dans la liste"
 
 #: contest/forms.py:21 contest/forms.py:32
-#, fuzzy
+
 msgid "Make a choice"
 msgstr "Faites votre choix"
 
 #: contest/forms.py:23
-#, fuzzy
+
 msgid "School name"
-msgstr "nom de l'établissement"
+msgstr "Nom de l'établissement"
 
 #: contest/forms.py:27
-#, fuzzy
+
 msgid "Year of study"
-msgstr "année d'étude"
+msgstr "Année d'étude"
 
 #: contest/forms.py:29
-#, fuzzy
+
 msgid "Contest category"
-msgstr "année OI"
+msgstr "Année OI"
 
 #: contest/forms.py:30
-#, fuzzy
+
 msgid "Examination language"
-msgstr "langue de l'épreuve"
+msgstr "Langue de l'épreuve"
 
 #: contest/forms.py:45
 msgid "Please choose your school"
-msgstr ""
+msgstr "Choisissez votre école"
 
 #: contest/forms.py:55 contest/forms.py:59 contest/forms.py:63
 msgid "This field is mandatory"
-msgstr ""
+msgstr "Ce champ est obligatoire"
 
 #: contest/models.py:64
 msgid "1st year of Bachelor in Computer Sciences"
-msgstr ""
+msgstr "1ère BAC en Sciences Informatiques"
 
 #: contest/models.py:65
 msgid "1st year of Bachelor in Management Computing"
-msgstr ""
+msgstr "1ère BAC en Informatique de Gestion"
 
 #: contest/models.py:66
 msgid "1st year of Bachelor in Computing and Systems"
-msgstr ""
+msgstr "1ère BAC en Informatique et Systèmes"
 
 #: contest/models.py:67
 msgid "1st year of Bachelor in Engineering"
-msgstr ""
+msgstr "1ère BAC en Sciences de l'Ingénieur, orientation Ingénieur Civil"
 
 #: contest/models.py:68
 msgid "1st year of Bachelor in Industrial Sciences"
-msgstr ""
+msgstr "1ère BAC en Ingénieur Industriel"
 
 #: contest/models.py:69
-#, fuzzy
+
 msgid "1st year of Bachelor (other)"
-msgstr "1e année de BAC"
+msgstr "1ere BAC (autre)"
 
 #: contest/models.py:114
-#, fuzzy
+
 msgid "school category"
 msgstr "année OI"
 
@@ -401,12 +409,12 @@ msgid "Body"
 msgstr ""
 
 #: news/feed.py:29
-#, fuzzy
+
 msgid "Belgian Olympiads in Informatics: RSS Entires"
 msgstr "Olympiades belges d'Informatique"
 
 #: news/feed.py:32
-#, fuzzy
+
 msgid "RSS feed of recent news from Belgian Olympiads in Informatics"
 msgstr "Olympiades belges d'Informatique"
 
