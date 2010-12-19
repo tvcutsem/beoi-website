@@ -20,9 +20,9 @@ class RegisteringForm(forms.Form):
 	school_exists	= forms.ChoiceField(choices=((SCHOOL_EXISTS,_("is in the list")),(SCHOOL_NOT_EXIST,_("is not in the list"))), label=_('Is the school in the list'))
 	school			= forms.ModelChoiceField(queryset=School.objects.order_by('-category','postal_code',"name"), required=False, empty_label=_("Make a choice"))
 	
-	new_school_name	= forms.CharField(max_length=255, label=_('School name'), required=False, widget=forms.TextInput(attrs={"disabled":"disabled"}))
-	new_school_postal_code = forms.IntegerField(min_value=1000, max_value=9999, label=_("Postal code"), required=False, widget=forms.TextInput(attrs={"disabled":"disabled"}))
-	new_school_city	= forms.CharField(max_length=255, label=_('City'), required=False, widget=forms.TextInput(attrs={"disabled":"disabled"}))
+	new_school_name	= forms.CharField(max_length=255, label=_('School name'), required=False)
+	new_school_postal_code = forms.IntegerField(min_value=1000, max_value=9999, label=_("Postal code"), required=False)
+	new_school_city	= forms.CharField(max_length=255, label=_('City'), required=False)
 
 	year_study 		= forms.ChoiceField(choices=Contestant.YEARSTUDY_CHOICES, label=_("Year of study"), initial=Contestant.YEARSTUDY_DEFAULT)
 	
