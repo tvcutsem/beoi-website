@@ -109,32 +109,16 @@ $(function(){
 				</ul>
 			</div>
 			{% endif %}
-			
+			{% if SUPPORT %}
 			<div class="sidemenu">
 				<h3>{% trans "With support from" %}</h3>
             	<div class="fadein">
-				<img src="/static/logos/ua-logo.jpg" />
-				<img src="/static/logos/henam-logo.png" />
-				<img src="/static/logos/umons-logo.png" />
-				<img src="/static/logos/fundp-logo.png" />
-				<img src="/static/logos/hecfh-logo.png" />
-				<img src="/static/logos/ucl-logo.png" />
-				<img src="/static/logos/helb-prigogine-logo.png" />
-				<img src="/static/logos/ulg-logo.png" />
-				<img src="/static/logos/hers-logo.png" />
-				<img src="/static/logos/kul-logo.jpg" />
-				<img src="/static/logos/helha-logo.png" />
-				<img src="/static/logos/vinci-logo.png" />
-				<img src="/static/logos/ulb-logo.png" />
-				<img src="/static/logos/helmo-logo.png" />
-				<img src="/static/logos/hepl-logo.png" />
-				<img src="/static/logos/vub-logo.jpg" />
-				<img src="/static/logos/hel-logo.png" />
-				<img src="/static/logos/hephs-logo.png" />
-				<img src="/static/logos/heph-condorcet-logo.png" />
-				<img src="/static/logos/henam-logo.png" />
+				{% for logo in SUPPORT %}
+				<img src="/static/logos/{{logo}}" />
+				{% endfor %}
 				</div> 
 			</div>
+			{% endif %}
 
       <!-- /sidebar -->
 
