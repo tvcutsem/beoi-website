@@ -8,10 +8,8 @@
 
 <h3>Dernières news</h3>
 
-{% if latest %}
     {% for entry in latest %}
 
-	{% if entry.lang == 0 %}
 	<div class="post">
 		<div class="right">
 				<h4>{{ entry.title }}</h4>
@@ -29,8 +27,6 @@
 			</div>
 		</div>
 	</div>
-	{% endif %}
     {% endfor %}
-{% endif %}
 
 {% endblock %}

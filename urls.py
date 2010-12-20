@@ -87,14 +87,14 @@ urlpatterns += patterns('',
 			}, "registration-confirm-nl"),
 
 	url(r'^accueil$', 'django.views.generic.date_based.archive_index', {
-				'queryset':News.online_objects.all(),
+				'queryset':News.online_objects.filter(lang=News.LANG_FR),
     			'date_field': 'publication_date',
 				'template_name': "fr/home.html",
 				'num_latest':10
 			}, 'home-fr'),
 
 	url(r'^home$',	'django.views.generic.date_based.archive_index', {
-				'queryset':News.online_objects.all(),
+				'queryset':News.online_objects.filter(lang=News.LANG_NL),
     			'date_field': 'publication_date',
 				'template_name': "nl/home.html",
 				'num_latest':10
