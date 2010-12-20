@@ -6,6 +6,8 @@
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
+{% if LANGUAGE_CODE != "nl" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-fr %}" title="Flux RSS en français">{% endif %}
+{% if LANGUAGE_CODE != "fr" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-nl %}" title="RSS Feed in het Nederlands">{% endif %}
 </head>
 
 <body {% if SWITCH_LANG %}onload="javascript:document.forms[0].language.value='{{SWITCH_LANG}}';document.forms[0].submit();"{% endif %} >
@@ -26,7 +28,7 @@ $(function(){
 	<img id="logo" src="/static/images/be-oi-logo-120px.png" />
 	<h1 id="logo-text"><a href="{{ HOME_URL }}" >{% trans "Belgian Olympiads in Informatics" %}</a></h1>
 	<p id="slogan">{% trans "Programming, algorithmic et logic" %}</p>
-
+	{% if csrf_token %}
 	<form id="lang" name="langtop" action="/i18n/setlang/" method="post"> {% csrf_token %}
 		<input name="language" type="hidden" value="" />
 		<input name="next" type="hidden" value="" />
@@ -36,6 +38,7 @@ $(function(){
 		<a href="#" onClick="javascript:langtop.language.value='fr';langtop.next.value='{% url home-fr %}';langtop.submit();">Français</a>
 		{% endif %}
 	</form>
+	{% endif %}
 
 
 <!--/header-->
@@ -47,13 +50,13 @@ $(function(){
 		<input name="language" type="hidden" value="" />
 		<input name="next" type="hidden" value="" />
 		<h2>Belgische Olympiades in Informatica</h2>
-		<p id="slogan">De Belgische Olympiades in Informatica (OI) zijn en competitie van programmering, algorithmiek en logica die is samengesteld door twee wedstrijden. De eerste is voor leerlingen uit het einde van het middelbaar, en dient om kandidaten te identificeren voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd is voor studenten uit het eerste jaar van het hoger onderwijs.</p>
+		<p id="slogan">De Belgische Olympiades in Informatica (OI) zijn een competitie van programmering, algorithmiek en logica die is samengesteld door twee wedstrijden. De eerste is voor leerlingen uit het einde van het middelbaar, en dient om kandidaten te identificeren voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd is voor studenten uit het eerste jaar van het hoger onderwijs.</p>
 		<p><a href="#" onClick="javascript:formlang.language.value='nl';formlang.next.value='{% url home-nl %}';formlang.submit();">
 			&raquo; Ga verder in het Nederlands</a></p>
 		<hr/>
 		<h2>Olympiades belges d'Informatique</h2>
 		
-		<p id="slogan">Les Olympiades belges d'Informatique (OI) sont une compétition de programmation, d'algorithmique et de logique composée de deux concours. Le premier est destiné aux élèves en fin de secondaire et permettra d'identifier des candidats pour les Olympiades Internationales d'Informatique (IOI). Le second concours est destiné aux étudiants en première année d'étude supérieure.</p>
+		<p id="slogan">Les Olympiades belges d'Informatique (OI) sont une compétition de programmation, d'algorithmique et de logique composée de deux concours. Le premier est destiné aux élèves en fin de secondaires et permettra d'identifier des candidats pour les Olympiades Internationales d'Informatique (IOI). Le second concours est destiné aux étudiants en première année d'études supérieures.</p>
 	    <p><a href="#" onClick="javascript:formlang.language.value='fr';formlang.next.value='{% url home-fr %}';formlang.submit();">
 				&raquo; Continuer en français</a></p>
 	</form>
@@ -74,7 +77,7 @@ $(function(){
 
       <!-- sidebar -->
 		<div id="sidebar">
-
+			{% if SIDE_MENU %}
 			<div class="sidemenu">
 				<h3>{% trans "Contest" %}</h3>
             <ul>
@@ -89,7 +92,8 @@ $(function(){
 				{% endfor %}
 				</ul>
 			</div>
-
+			{% endif %}
+			{% if ORGANISATION_MENU %}
 			<div class="sidemenu">
 				<h3>{% trans "Organisation" %}</h3>
             <ul>
@@ -104,32 +108,17 @@ $(function(){
 				{% endfor %}
 				</ul>
 			</div>
-			
+			{% endif %}
+			{% if SUPPORT %}
 			<div class="sidemenu">
 				<h3>{% trans "With support from" %}</h3>
             	<div class="fadein">
-				<img src="/static/logos/ua-logo.jpg" />
-				<img src="/static/logos/henam-logo.png" />
-				<img src="/static/logos/umons-logo.png" />
-				<img src="/static/logos/fundp-logo.png" />
-				<img src="/static/logos/hecfh-logo.png" />
-				<img src="/static/logos/ucl-logo.png" />
-				<img src="/static/logos/helb-prigogine-logo.png" />
-				<img src="/static/logos/ulg-logo.png" />
-				<img src="/static/logos/hers-logo.png" />
-				<img src="/static/logos/kul-logo.jpg" />
-				<img src="/static/logos/helha-logo.png" />
-				<img src="/static/logos/vinci-logo.png" />
-				<img src="/static/logos/ulb-logo.png" />
-				<img src="/static/logos/helmo-logo.png" />
-				<img src="/static/logos/hepl-logo.png" />
-				<img src="/static/logos/vub-logo.jpg" />
-				<img src="/static/logos/hel-logo.png" />
-				<img src="/static/logos/hephs-logo.png" />
-				<img src="/static/logos/heph-condorcet-logo.png" />
-				<img src="/static/logos/henam-logo.png" />
+				{% for logo in SUPPORT %}
+				<img src="/static/logos/{{logo}}" />
+				{% endfor %}
 				</div> 
 			</div>
+			{% endif %}
 
       <!-- /sidebar -->
 
@@ -160,25 +149,24 @@ $(function(){
       <h3>{% trans "Updates" %}</h3>
 
       <ul class="subscribe-stuff">
-<!--      	<li><a title="RSS" href="static/rss.xml" rel="nofollow">
-
-				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a>
-			</li>-->
+	   	<li><a title="RSS" href="{% if LANGUAGE_CODE == "fr" %}{% url rss-fr %}{% else %}{% url rss-nl %}{% endif %}" rel="nofollow">
+				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a></li>
       	<li><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
 				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
 			</li>
-<!--			<li><a title="Twitter" href="#" rel="nofollow">
+			{% if LANGUAGE_CODE == "fr" %}
+			<li><a title="Twitter" href="http://twitter.com/beoi_fr" rel="nofollow">
 				<img alt="Twitter" title="Twitter" src="/static/images/social_twitter.png" /></a>
-			</li>-->
-			<li><a title="E-mail this story to a friend!" href="mailto:info@be-oi.be" rel="nofollow">
+			</li>{% endif %}
+			<li><a title="Send us an e-mail" href="mailto:info@be-oi.be" rel="nofollow">
 
-				<img alt="E-mail this story to a friend!" title="E-mail this story to a friend!" src="/static/images/social_email.png" /></a>
+				<img alt="Send us an e-mail" title="Send us an e-mail" src="/static/images/social_email.png" /></a>
 			</li>
       </ul>
 
-      <p>{% trans "Stay up to date. Subscribe via" %}
-		<!--<a href="/static/rss.xml">RSS</a>, --><a href="index">Facebook</a><!--,
-		<a href="#">Twitter</a>--> or <a href="mailto:info@be-oi.be">Email</a>
+      	<p>{% trans "Stay up to date. Subscribe via" %}
+		<!--<a href="/static/rss.xml">RSS</a>, --><a href="index">Facebook</a>{% if LANGUAGE_CODE == "fr" %},
+		<a href="http://twitter.com/beoi_fr">Twitter</a>{% endif %} or <a href="mailto:info@be-oi.be">Email</a>
 
 		</p>
 
