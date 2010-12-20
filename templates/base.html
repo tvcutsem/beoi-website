@@ -165,7 +165,8 @@ $(function(){
       </ul>
 
       	<p>{% trans "Stay up to date. Subscribe via" %}
-		<!--<a href="/static/rss.xml">RSS</a>, --><a href="index">Facebook</a>{% if LANGUAGE_CODE == "fr" %},
+		<a href="{% if LANGUAGE_CODE == "fr" %}{% url rss-fr %}{% else %}{% url rss-nl %}{% endif %}">RSS</a>,
+		<a href="index">Facebook</a>{% if LANGUAGE_CODE == "fr" %},
 		<a href="http://twitter.com/beoi_fr">Twitter</a>{% endif %} or <a href="mailto:info@be-oi.be">Email</a>
 
 		</p>
