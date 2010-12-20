@@ -24,11 +24,6 @@ def postal_code_belgium(value):
 	if value < 1000 or value > 9999:
 		raise ValidationError(_("Invalid postal code"))
 
-def validate_year(value):
-	if  value < 1900 or value > 3000:
-		raise ValidationError(_("Incorrect year"))
-
-
 class Contestant(models.Model):
 
 	GENDER_MALE = 0
@@ -89,7 +84,7 @@ class Contestant(models.Model):
 	semifinal_center 	= models.ForeignKey("SemifinalCenter")
 	manual_check 		= models.BooleanField(_("manual checked"), default=False)
 	token 				= models.CharField(_('token'), max_length=255, editable=False)
-	contest_year 		= models.IntegerField(_("contest year"), validators=[validate_year])
+	contest_year 		= models.IntegerField(_("contest year"))
 	registering_time 	= models.DateTimeField(_("registering time"), auto_now_add=True)
 	
 	# Managers
