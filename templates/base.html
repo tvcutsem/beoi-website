@@ -151,25 +151,23 @@ $(function(){
       <ul class="subscribe-stuff">
 	   	<li><a title="RSS" href="{% if LANGUAGE_CODE == "fr" %}{% url rss-fr %}{% else %}{% url rss-nl %}{% endif %}" rel="nofollow">
 				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a></li>
-      	<li><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
+				{% if LANGUAGE_CODE == "fr" %}
+				<li><a title="Twitter" href="http://twitter.com/beoi_fr" rel="nofollow">
+					<img alt="Twitter" title="Twitter" src="/static/images/social_twitter.png" /></a>
+				</li>{% endif %}
+      	<li ><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
 				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
 			</li>
-			{% if LANGUAGE_CODE == "fr" %}
-			<li><a title="Twitter" href="http://twitter.com/beoi_fr" rel="nofollow">
-				<img alt="Twitter" title="Twitter" src="/static/images/social_twitter.png" /></a>
-			</li>{% endif %}
+
 			{# <li><a title="Send us an e-mail" href="mailto:info@be-oi.be" rel="nofollow"> #}
 			{# 	<img alt="Send us an e-mail" title="Send us an e-mail" src="/static/images/social_email.png" /></a> #}
 			</li>
       </ul>
 
-      	<p>{% trans "Stay up to date. Subscribe via" %}
+      	<div style="clear:left;"><p>{% trans "Stay up to date. Subscribe via" %}
 		<a href="{% if LANGUAGE_CODE == "fr" %}{% url rss-fr %}{% else %}{% url rss-nl %}{% endif %}">RSS</a>
 		{% if LANGUAGE_CODE == "fr" %}, <a href="http://twitter.com/beoi_fr">Twitter</a>{% endif %}
-		or <a href="index">Facebook</a>
-		
-
-		</p>
+		{% trans "or" %} <a href="index">Facebook</a></p></div>
 
 	</div>
 
