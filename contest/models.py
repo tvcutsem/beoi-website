@@ -140,7 +140,7 @@ class ResultSemifinal(models.Model):
 	qualified		= models.NullBooleanField(_("qualified"))
 	
 	class Meta:
-		ordering = ["-contestant__contest_year","contestant__contest", "-score"]
+		ordering = ["-contestant__contest_year","contestant__contest_year", "-score"]
 		verbose_name = _('semifinal result')
 		verbose_name_plural = _('semifinal results')
 
@@ -153,6 +153,6 @@ class ResultFinal(models.Model):
 	rank 			= models.IntegerField(_("rank"), db_index=True)
 	
 	class Meta:
-		ordering = ["-contestant__contest_year","contestant__contest", "rank"]
+		ordering = ["-contestant__contest_year","contestant__contest_year", "rank"]
 		verbose_name = _('final result')
 		verbose_name_plural = _('final results')
