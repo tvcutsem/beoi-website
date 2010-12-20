@@ -78,7 +78,8 @@ def registration(request, template):
 				return HttpResponseRedirect(reverse("registration-confirm-fr", args=[cd["semifinal_center"].id])) 
 			else: 
 				mail_template = get_template("emails/nl/registration.txt")
-				context = Context({"name":cd["surname"]})
+				context = Context({"NAME":cd["firstname"]+" "+cd["surname"], "CONTEST": cd["contest_category"],
+				 					"CENTER_NAME": cd["semifinal_center"], "CENTER_DETAILS":reverse("regional-centers-nl")  })
 				send_mail("Inscription aux Olympiades d'Informatique", mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
 				return HttpResponseRedirect(reverse("registration-confirm-nl", args=[cd["semifinal_center"].id])) 
 
