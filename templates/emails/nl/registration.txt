@@ -1,0 +1,9 @@
+{{ NAME }},
+
+We bevestigen uw inschrijving voor de halve finale van de Belgische Olympiades in Informatica, in de "{{ CONTEST }}" categorie. U hebt gekozen om die op 16 februari 2011 te presenteren aan het "{{ CENTER_NAME }}" centrum. U kunt meer informatie vinden over hoe het centrum te bereiken op de volgende pagina: {{ CENTER_DETAILS }}.
+
+U moet niks speciaal brengen, behalve iets om te schrijven. Probeer om 13u45 aan te komen. De wedstrijd begint om 14 uur.
+
+Als U nog vragen hebt, kunt U ze sturen naar info@be-oi.be.
+
+De be-OI team
