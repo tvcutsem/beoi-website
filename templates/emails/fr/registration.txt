@@ -5,6 +5,6 @@ Vous avez choisi de la présenter le 16 février 2011 au centre de "{{ CENTER_NA
 
 Vous ne devez rien apporter de particulier, si ce n'est de quoi écrire. Dans la mesure du possible, essayez d'arriver à 13h45. Le concours débute à 14h.
 
-Pour toute question, adressez-vous à info@be-oi.be.
+Pour toute question, adressez-vous à inscription@be-oi.be.
 
 L'équipe be-OI
