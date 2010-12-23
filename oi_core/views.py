@@ -4,6 +4,7 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.views.generic.simple import direct_to_template
 from django.core.urlresolvers import resolve
+import random
 
 def beoi_context(request): 
 	
@@ -15,6 +16,30 @@ def beoi_context(request):
 		template_lang = resolve(request.META["PATH_INFO"])[2]["template"][0:2]
 	except :
 		pass
+		
+	context_extras["SUPPORT"] = [ # files in /static/logos/
+		"ua-logo.jpg",
+		"henam-logo.png",
+		"umons-logo.png",
+		"fundp-logo.png",
+		"hecfh-logo.png",
+		"ucl-logo.png",
+		"helb-prigogine-logo.png",
+		"ulg-logo.png",
+		"hers-logo.png",
+		"kul-logo.jpg",
+		"helha-logo.png",
+		"vinci-logo.png",
+		"ulb-logo.png",
+		"helmo-logo.png",
+		"hepl-logo.png",
+		"vub-logo.jpg",
+		"hel-logo.png",
+		"hephs-logo.png",
+		"heph-condorcet-logo.png",
+		"henam-logo.png"
+	]
+	random.shuffle(context_extras["SUPPORT"])
 	
 	if request.LANGUAGE_CODE == "fr":
 		

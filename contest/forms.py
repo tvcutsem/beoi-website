@@ -3,8 +3,8 @@ from beoi.contest.models import *
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-SCHOOL_EXISTS = "1"
-SCHOOL_NOT_EXIST = "0"
+SCHOOL_EXISTS = 1
+SCHOOL_NOT_EXIST = 0
 
 class RegisteringForm(forms.Form):
 	
@@ -30,15 +30,24 @@ class RegisteringForm(forms.Form):
 	language 		= forms.ChoiceField(choices=LANG_CHOICES, label=_("Examination language"))
 	
 	semifinal_center= forms.ModelChoiceField(queryset=SemifinalCenter.objects.filter(active=True).order_by('city','name'), empty_label=_("Make a choice"))
+		
+	""" Force conversion to 'int' ... for comparison """
+	def __int_only(self, field):
+		try:
+			data = int(self.cleaned_data[field])
+		except: # unexpected
+			raise forms.ValidationError(_("Wrong value for this field"))
+		return data
+		
+	def clean_school_exists(self): return self.__int_only("school_exists")
+	def clean_year_study(self): return self.__int_only("year_study")
+	def clean_contest_category(self): return self.__int_only("contest_category")
+	def clean_language(self): return self.__int_only("language")
 	
-
 	def clean(self):
-
+		
 		cleaned_data = self.cleaned_data
 
-		contest = int(cleaned_data.get("contest_category"))
-		year_study = int(cleaned_data.get("year_study"))
-		
 		if cleaned_data.get("school_exists") == SCHOOL_EXISTS:
 			
 			if not cleaned_data.get("school"):
@@ -48,7 +57,6 @@ class RegisteringForm(forms.Form):
 			
 			school_category = cleaned_data.get("school").category
 			
-	
 		elif cleaned_data.get("school_exists") == SCHOOL_NOT_EXIST:
 			error = False
 			if not cleaned_data.get("new_school_name"):
@@ -67,9 +75,12 @@ class RegisteringForm(forms.Form):
 			
 			school_category = contest
 		else: 
+			del cleaned_data["school_exists"] # unexpected
 			return cleaned_data
 
 		# check category
+		contest = cleaned_data.get("contest_category")
+		year_study = cleaned_data.get("year_study")
 		if contest == CONTEST_SEC : 
 			if year_study not in Contestant.YEARSTUDY_PER_CONTEST[contest]: 
 				raise forms.ValidationError( _("You cannot register to the secondary school contest if you are in the first year of baccalaureate") )			
@@ -81,6 +92,8 @@ class RegisteringForm(forms.Form):
 				raise forms.ValidationError( _("You cannot register to the high school contest if you are at the secondary school") )			
 			if school_category != CONTEST_HIGH:
 				raise forms.ValidationError( _("You have selected a secondary school but have registered to the high school contest") )
-				
+		
+		else: del cleaned_data["contest"] # unexpected
+
 		return cleaned_data
 	

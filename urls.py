@@ -5,7 +5,7 @@ admin.autodiscover()
 from os import path
 from beoi.news.models import News
 from beoi.contest.models import SemifinalCenter
-from beoi.news.feed import RssNews
+from beoi.news.feed import RssNewsFr, RssNewsNl
 from django.views.generic import list_detail
 
 # custom views
@@ -87,20 +87,21 @@ urlpatterns += patterns('',
 			}, "registration-confirm-nl"),
 
 	url(r'^accueil$', 'django.views.generic.date_based.archive_index', {
-				'queryset':News.online_objects.all(),
-    			'date_field': 'creation_date',
+				'queryset':News.online_objects.filter(lang=News.LANG_FR),
+    			'date_field': 'publication_date',
 				'template_name': "fr/home.html",
 				'num_latest':10
 			}, 'home-fr'),
 
 	url(r'^home$',	'django.views.generic.date_based.archive_index', {
-				'queryset':News.online_objects.all(),
-    			'date_field': 'creation_date',
+				'queryset':News.online_objects.filter(lang=News.LANG_NL),
+    			'date_field': 'publication_date',
 				'template_name': "nl/home.html",
 				'num_latest':10
 			}, 'home-nl'),
 	
- 	(r'^rss$', RssNews()),
+	url(r'^rss-fr$', RssNewsFr(), {}, "rss-fr"),
+	url(r'^rss-nl$', RssNewsNl(), {}, "rss-nl"),
 
 	# admin panel
 	(r'^admin/doc/', include('django.contrib.admindocs.urls')),

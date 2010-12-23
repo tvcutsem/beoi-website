@@ -10,6 +10,9 @@ from django.utils.hashcompat import md5_constructor
 from settings import SECRET_KEY
 from django.template.loader import get_template
 from django.core.mail import send_mail
+from django.contrib.sites.models import Site, RequestSite
+from django.contrib.syndication.views import add_domain
+from django.utils.translation import ugettext_lazy as _
 
 REGISTRATION_FORM_YEAR = 2011 # to change each year !
 
@@ -70,15 +73,29 @@ def registration(request, template):
 				if request.LANGUAGE_CODE == "fr": return HttpResponseRedirect(reverse("registration-error-fr")) 
 				else: return HttpResponseRedirect(reverse("registration-error-nl")) 
 			
+			# get the full url for mail data
+			if Site._meta.installed: current_site = Site.objects.get_current()
+			else: current_site = RequestSite(request)
+			
+			# mail sending
+			context = Context({
+						"NAME":cd["firstname"]+" "+cd["surname"], 
+						"CONTEST": dict(CONTEST_CHOICES)[cd["contest_category"]],
+						"CENTER_NAME": cd["semifinal_center"]
+					 })
 			if request.LANGUAGE_CODE == "fr":
 				mail_template = get_template("emails/fr/registration.txt")
-				context = Context({"name":cd["surname"]})
-				send_mail("Inscription aux Olympiades d'Informatique", mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
+				context["CENTER_DETAILS"] = add_domain(current_site.domain,reverse("regional-centers-fr"))  
+			else : 
+				mail_template = get_template("emails/nl/registration.txt")
+				context["CENTER_DETAILS"] = add_domain(current_site.domain,reverse("regional-centers-nl"))				
+
+			send_mail(_("Registering to Belgian Olympiads in Informatics"), mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
+		
+			# redirect to confirmation page
+			if request.LANGUAGE_CODE == "fr": 
 				return HttpResponseRedirect(reverse("registration-confirm-fr", args=[cd["semifinal_center"].id])) 
 			else: 
-				mail_template = get_template("emails/nl/registration.txt")
-				context = Context({"name":cd["surname"]})
-				send_mail("Inscription aux Olympiades d'Informatique", mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
 				return HttpResponseRedirect(reverse("registration-confirm-nl", args=[cd["semifinal_center"].id])) 
 
  	else:
