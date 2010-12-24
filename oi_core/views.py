@@ -1,10 +1,20 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.views.generic.simple import direct_to_template
 from django.core.urlresolvers import resolve
 import random
+
+def home(request):
+	
+	if request.LANGUAGE_CODE == "fr":
+		return redirect("home-fr")
+	elif request.LANGUAGE_CODE == "nl":
+		return redirect("home-nl")
+	
+	return 	render_to_response('home.htm', {"HOME":1}, context_instance=RequestContext(request))
+
 
 def beoi_context(request): 
 	
