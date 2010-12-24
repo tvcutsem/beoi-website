@@ -430,8 +430,8 @@ msgstr ""
 msgid "Belgian Olympiads in Informatics"
 msgstr "Olympiades belges d'Informatique"
 
-#: templates/base.html:30
-msgid "Programming, algorithmic et logic"
+#: templates/base.html:41
+msgid "Programming, algorithmic and logic"
 msgstr "Programmation, algorithmique et logique"
 
 #: templates/base.html:82
