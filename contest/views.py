@@ -99,7 +99,8 @@ def registration(request, template):
 				return HttpResponseRedirect(reverse("registration-confirm-nl", args=[cd["semifinal_center"].id])) 
 
  	else:
-		form = RegisteringForm() 
+		if request.LANGUAGE_CODE == "fr": form = RegisteringForm(initial={"language":LANG_FR}) 
+		else: form = RegisteringForm(initial={"language":LANG_NL}) 
 
 	return render_to_response(template, {
 		'form': form, "global_errors": form.non_field_errors(), 
