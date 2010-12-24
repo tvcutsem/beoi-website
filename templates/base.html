@@ -8,8 +8,19 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
 {% if LANGUAGE_CODE != "nl" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-fr %}" title="Flux RSS en français">{% endif %}
 {% if LANGUAGE_CODE != "fr" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-nl %}" title="RSS Feed in het Nederlands">{% endif %}
+{% if not debug %}
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20319365-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+{% endif %}
 </head>
-
 <body {% if SWITCH_LANG %}onload="javascript:document.forms[0].language.value='{{SWITCH_LANG}}';document.forms[0].submit();"{% endif %} >
 <script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" >

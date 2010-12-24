@@ -39,8 +39,8 @@ class RssNewsFr(RssNews):
 		return reverse("home-fr")
 	
 class RssNewsNl(RssNews):
-	title = "News van be-OI"
-	description = "Belgische Olympiade in Informatica"
+	title = "Nieuws van de be-OI"
+	description = "Belgische Olympiades in Informatica"
 
 	def __init__(self):
 		self.lang = News.LANG_NL
