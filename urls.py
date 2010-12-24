@@ -14,12 +14,13 @@ urlpatterns = patterns('',
 	url(r'^inscription$', "beoi.contest.views.registration", {'template': 'fr/contest/registration.html'}, "registration-fr"),
 	url(r'^inschrijven$', "beoi.contest.views.registration", {'template': 'nl/contest/registration.html'}, "registration-nl"),
 
+	url(r'^$', 'beoi.oi_core.views.home', {}, "home"),
+
 )
 
 # static pages (url can be changed without affecting links)
 urlpatterns += patterns('django.views.generic.simple',
 	
-	url(r'^$', 'direct_to_template', {'template': 'home.html', "extra_context":{"HOME":1}}, "home"),
 
 	url(r'^calendrier$', 'direct_to_template', {'template': 'fr/calendar.html'}, "calendar-fr"),
 	url(r'^agenda$', 'direct_to_template', {'template': 'nl/calendar.html'}, "calendar-nl"),
