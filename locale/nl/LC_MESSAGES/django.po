@@ -360,7 +360,7 @@ msgstr ""
 
 #: contest/views.py:93
 msgid "Registering to Belgian Olympiads in Informatics"
-msgstr "Inschrijvingen voor de Belgische Olympiades in Informatica"
+msgstr "Inschrijvingen voor de Belgische Olympiades in de Informatica"
 
 #: news/admin.py:18
 msgid "Headline"
@@ -428,11 +428,11 @@ msgstr ""
 
 #: templates/base.html:5 templates/base.html.py:29
 msgid "Belgian Olympiads in Informatics"
-msgstr "Belgische Olympiades in Informatica"
+msgstr "Belgische Olympiades in de Informatica"
 
 #: templates/base.html:30
 msgid "Programming, algorithmic et logic"
-msgstr "Programmering, algorithmiek en logica"
+msgstr "Programmatie, algorithmiek en logica"
 
 #: templates/base.html:82
 msgid "Contest"
@@ -473,7 +473,7 @@ msgstr "Archieven"
 #~ msgstr "Maak uw keuze"
 
 #~ msgid "Belgian Olympiads in Informatics: RSS Entires"
-#~ msgstr "Belgische Olympiades in Informatica"
+#~ msgstr "Belgische Olympiades in de Informatica"
 
 #~ msgid "RSS feed of recent news from Belgian Olympiads in Informatics"
-#~ msgstr "Belgische Olympiades in Informatica"
+#~ msgstr "Belgische Olympiades in de Informatica"
