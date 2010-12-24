@@ -3,7 +3,7 @@
 {% block content%}
 <h1>Inschrijven</h1>
 
-<p>De wedstrijd is voor belgen onder 25 jaar gereserveerd die leerlingen van het secundair of studenten in eerste jaar van het Hoger onderwijs zijn. Door inschrijven annvaardt de deelnemer <a href="{% url regulations-nl %}">het reglement</a>.</p>
+<p>De wedstrijd is voorbehouden aan jongeren onder de 25 jaar die leerlingen zijn in het secundair onderwijs of het eerste jaar van het hoger onderwijs in een Belgische school. Door in te schrijven aanvaardt de deelnemer <a href="{% url regulations-nl %}">het reglement</a>.</p>
 
 <div class="errors">
 {% if form.errors %}
@@ -24,14 +24,14 @@
 	<p class="form-1">{{ form.address.label_tag }}{{ form.address }}{% if form.address.errors %}<span class="error">{{ form.address.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2a">{{ form.postal_code.label_tag }}{{ form.postal_code }}{% if form.postal_code.errors %}<span class="error">{{ form.postal_code.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2b">{{ form.city.label_tag }}{{ form.city }}{% if form.city.errors %}<span class="error">{{ form.city.errors|join:"<br/>" }}</span>{% endif %}</p>
-	<p class="form-1"><label for="id_email">Email adres <span class="details">(we zullen het alleen maar in het kader van de OI gebruiken)</span></label>{{ form.email }}{% if form.email.errors %}<span class="error">{{ form.email.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1"><label for="id_email">Emailadres <span class="details">(we zullen het alleen maar in het kader van de OI gebruiken)</span></label>{{ form.email }}{% if form.email.errors %}<span class="error">{{ form.email.errors|join:"<br/>" }}</span>{% endif %}</p>
 	</div>
 	
 	<div class="fieldblock">
 	<p class="form-1"><label for="id_school_exists">Huidige school</label>{% if form.school_exists.errors %}<span class="error">Kiezen tussen de twee opties is verplicht.</span>{% endif %}</p>
-	<p class="form-1"><label class="forminputlabel" for="id_school_exists_1"><input id="id_school_exists_1" type="radio" name="school_exists" value="1" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "1" or not form.is_bound %}checked="checked" {% endif %}/>Mijn school of universiteit staat op de lijst :<span class="details">(geordend door postcode)</span></label></p>
+	<p class="form-1"><label class="forminputlabel" for="id_school_exists_1"><input id="id_school_exists_1" type="radio" name="school_exists" value="1" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "1" or not form.is_bound %}checked="checked" {% endif %}/>Mijn school of universiteit staat op de lijst:<span class="details">(geordend op postcode)</span></label></p>
 	<p class="form-1demi">{{ form.school }}{% if form.school.errors %}<span class="error">{{ form.school.errors|join:"<br/>" }}</span>{% endif %}</p>
-	<p class="form-1"><label class="forminputlabel" for="id_school_exists_0"><input id="id_school_exists_0" type="radio" name="school_exists" value="0" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "0" %}checked="checked" {% endif %}/>In het tegengesteld geval, ik add het :</label></p>
+	<p class="form-1"><label class="forminputlabel" for="id_school_exists_0"><input id="id_school_exists_0" type="radio" name="school_exists" value="0" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "0" %}checked="checked" {% endif %}/>Indien niet, voeg mijn school toe:</label></p>
 	<p class="form-1">{{ form.new_school_name.label_tag }}{{ form.new_school_name }}{% if form.new_school_name.errors %}<span class="error">{{ form.new_school_name.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2a">{{ form.new_school_postal_code.label_tag }}{{ form.new_school_postal_code }}{% if form.new_school_postal_code.errors %}<span class="error">{{ form.new_school_postal_code.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2b">{{ form.new_school_city.label_tag }}{{ form.new_school_city }}{% if form.new_school_city.errors %}<span class="error">{{ form.new_school_city.errors|join:"<br/>" }}</span>{% endif %}</p>
@@ -44,11 +44,11 @@
 	<div class="fieldblock">
 	<p class="form-2a">{{ form.contest_category.label_tag }}{{ form.contest_category }}{% if form.contest_category.errors %}<span class="error">{{ form.contest_category.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2b"><label for="id_language">Taal <span class="details">(van de vragenlijsten)</span></label>{{ form.language }}{% if form.language.errors %}<span class="error">{{ form.language.errors|join:"<br/>" }}</span>{% endif %}</p>
-	<p class="form-1"><label for="id_semifinal_center">Gekozen centrum voor de halve finale <span class="details">(pas op dat de ontvangst en de deelnemersbijstand alleen maar in de taal van het centrum gegarandeerd zijn)</span></label>{{ form.semifinal_center }}{% if form.semifinal_center.errors %}<span class="error">{{ form.semifinal_center.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1"><label for="id_semifinal_center">Gekozen centrum voor de halve finale <span class="details">(Pas op: ontvangst en assistentie voor deelnemers is slechts gegarandeerd in de taal van het centrum)</span></label>{{ form.semifinal_center }}{% if form.semifinal_center.errors %}<span class="error">{{ form.semifinal_center.errors|join:"<br/>" }}</span>{% endif %}</p>
 	</div>
 	
 	
-	<p class="no-border">  	<input type="submit" class="button" value="Zich inschrijven"> </p>
+	<p class="no-border">  	<input type="submit" class="button" value="Inschrijven"> </p>
 </form>
 
 {% endblock %}
