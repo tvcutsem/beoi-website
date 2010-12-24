@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>{% block title %}{% if HOME == 1 %}Olympiades belges d'Informatique &mdash; Belgische Olympiade in Informatica{% else %}{% trans "Belgian Olympiads in Informatics" %}{% endif %}{% endblock %}</title>
+<title>{% block title %}{% if HOME == 1 %}Olympiades belges d'Informatique &mdash; Belgische Olympiades in de Informatica{% else %}{% trans "Belgian Olympiads in Informatics" %}{% endif %}{% endblock %}</title>
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
@@ -38,7 +38,7 @@ $(function(){
 
 	<img id="logo" src="/static/images/be-oi-logo-120px.png" />
 	<h1 id="logo-text"><a href="{{ HOME_URL }}" >{% trans "Belgian Olympiads in Informatics" %}</a></h1>
-	<p id="slogan">{% trans "Programming, algorithmic et logic" %}</p>
+	<p id="slogan">{% trans "Programming, algorithmic and logic" %}</p>
 	{% if csrf_token %}
 	<form id="lang" name="langtop" action="/i18n/setlang/" method="post"> {% csrf_token %}
 		<input name="language" type="hidden" value="" />
@@ -60,8 +60,8 @@ $(function(){
 	<form name="formlang" action="/i18n/setlang/" method="post"> {% csrf_token %}
 		<input name="language" type="hidden" value="" />
 		<input name="next" type="hidden" value="" />
-		<h2>Belgische Olympiades in Informatica</h2>
-		<p id="slogan">De Belgische Olympiades in Informatica (OI) zijn een competitie van programmering, algorithmiek en logica die samengesteld is door twee wedstrijden. De eerste is voor leerlingen uit het einde van het middelbaar, en dient om kandidaten te identificeren voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd is voor studenten uit het eerste jaar van het hoger onderwijs.</p>
+		<h2>Belgische Olympiades in de Informatica</h2>
+		<p id="slogan">De Belgische Olympiades in de Informatica (OI) zijn een competitie van programmeren, algoritmiek en logica die is samengesteld uit twee wedstrijden. De eerste is voor leerlingen uit het laatste jaar middelbaar onderwijs, en dient om kandidaten te identificeren voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd is voor studenten uit het eerste jaar van het hoger onderwijs.</p>
 		<p><a href="#" onClick="javascript:formlang.language.value='nl';formlang.next.value='{% url home-nl %}';formlang.submit();">
 			&raquo; Ga verder in het Nederlands</a></p>
 		<hr/>
