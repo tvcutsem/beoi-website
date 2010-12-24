@@ -13,7 +13,7 @@ def home(request):
 	elif request.LANGUAGE_CODE == "nl":
 		return redirect("home-nl")
 	
-	return 	render_to_response('home.htm', {"HOME":1}, context_instance=RequestContext(request))
+	return 	render_to_response('home.html', {"HOME":1}, context_instance=RequestContext(request))
 
 
 def beoi_context(request): 
