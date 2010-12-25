@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-20 23:27+0100\n"
+"POT-Creation-Date: 2010-12-25 00:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -426,43 +426,43 @@ msgstr ""
 msgid "news entries"
 msgstr ""
 
-#: templates/base.html:5 templates/base.html.py:29
+#: templates/base.html:5 templates/base.html.py:40
 msgid "Belgian Olympiads in Informatics"
 msgstr "Olympiades belges d'Informatique"
 
-#: templates/base.html:30
-msgid "Programming, algorithmic et logic"
+#: templates/base.html:41
+msgid "Programming, algorithmic and logic"
 msgstr "Programmation, algorithmique et logique"
 
-#: templates/base.html:82
+#: templates/base.html:93
 msgid "Contest"
 msgstr "Épreuve"
 
-#: templates/base.html:98
+#: templates/base.html:109
 msgid "Organisation"
 msgstr "Organisation"
 
-#: templates/base.html:114
+#: templates/base.html:125
 msgid "With support from"
 msgstr "Avec le soutien de"
 
-#: templates/base.html:149
+#: templates/base.html:160
 msgid "Updates"
 msgstr ""
 
-#: templates/base.html:167
+#: templates/base.html:178
 msgid "Stay up to date. Subscribe via"
 msgstr ""
 
-#: templates/base.html:170
+#: templates/base.html:181
 msgid "or"
 msgstr ""
 
-#: templates/base.html:180
+#: templates/base.html:191
 msgid "Flickr Photos"
 msgstr "Photos Flickr"
 
-#: templates/base.html:193
+#: templates/base.html:204
 msgid "Archives"
 msgstr "Archives"
 
