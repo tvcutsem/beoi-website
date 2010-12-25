@@ -47,6 +47,7 @@ class RegisteringForm(forms.Form):
 	def clean(self):
 		
 		cleaned_data = self.cleaned_data
+		contest = cleaned_data.get("contest_category")
 
 		if cleaned_data.get("school_exists") == SCHOOL_EXISTS:
 			
@@ -79,7 +80,6 @@ class RegisteringForm(forms.Form):
 			return cleaned_data
 
 		# check category
-		contest = cleaned_data.get("contest_category")
 		year_study = cleaned_data.get("year_study")
 		if contest == CONTEST_SEC : 
 			if year_study not in Contestant.YEARSTUDY_PER_CONTEST[contest]: 
