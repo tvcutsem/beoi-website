@@ -74,8 +74,7 @@ def beoi_context(request):
 				(u"Presse", reverse("press-fr")),
 			]
 			
-		context_extras["HOME_URL"] = reverse("home-fr")
-		
+
 		context_extras["PHOTOS_MENU"] = [
 				(u'Finales OI 2010', "http://www.flickr.com/photos/56924845@N04/sets/72157625451507363/"),
 				(u'IOI 2010', "http://www.flickr.com/photos/56924845@N04/sets/72157625451368589/")
@@ -110,8 +109,6 @@ def beoi_context(request):
 				(u"Pers", reverse("press-nl")),
 			]
 			
- 		context_extras["HOME_URL"] = reverse("home-nl")
-
 		context_extras["PHOTOS_MENU"] = [
 				(u'OI 2010 Finales', "http://www.flickr.com/photos/56924845@N04/sets/72157625451507363/"),
 				(u'IOI 2010', "http://www.flickr.com/photos/56924845@N04/sets/72157625451368589/")
@@ -123,8 +120,5 @@ def beoi_context(request):
 				(u'Belgische delegatie voor de IOI 2010', reverse("2010-ioi-belgian-delegation-nl"))
 			]
 
-	else : 
-		context_extras["HOME_URL"] = reverse("home")
-	
 	return context_extras
 	

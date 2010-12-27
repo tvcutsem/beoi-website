@@ -1,13 +1,17 @@
+{# ---------------------------------------------------------------------------------------------------------------- #}
+{#   The base template file #}
+{#   This file should not contain any dynamic reference to the beoi application. #}
+{#   (because it should be displayable even if the language is not yet determined, if there is an error, ...) #}
+{# ---------------------------------------------------------------------------------------------------------------- #}
 {% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>{% block title %}{% if HOME == 1 %}Olympiades belges d'Informatique &mdash; Belgische Olympiades in de Informatica{% else %}{% trans "Belgian Olympiads in Informatics" %}{% endif %}{% endblock %}</title>
+<title>{% block title %}Olympiades belges d'Informatique &mdash; Belgische Olympiades in de Informatica{% endblock %}</title>
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
-{% if LANGUAGE_CODE != "nl" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-fr %}" title="Flux RSS en français">{% endif %}
-{% if LANGUAGE_CODE != "fr" %}<link rel="alternate" type="application/rss+xml" href="{% url rss-nl %}" title="RSS Feed in het Nederlands">{% endif %}
+{% block rss %}{% endblock %}
 {% if not debug %}
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -31,23 +35,20 @@ $(function(){
 </script>
 
 
+
 <!--header -->
 <div id="header-wrap"><div id="header">
 
 	<a name="top"></a>
 
 	<img id="logo" src="/static/images/be-oi-logo-120px.png" />
-	<h1 id="logo-text"><a href="{{ HOME_URL }}" >{% trans "Belgian Olympiads in Informatics" %}</a></h1>
+	<h1 id="logo-text"><a href="{% block logo-link %}/{% endblock %}" >{% trans "Belgian Olympiads in Informatics" %}</a></h1>
 	<p id="slogan">{% trans "Programming, algorithmic and logic" %}</p>
 	{% if csrf_token %}
 	<form id="lang" name="langtop" action="/i18n/setlang/" method="post"> {% csrf_token %}
 		<input name="language" type="hidden" value="" />
 		<input name="next" type="hidden" value="" />
-		{% if LANGUAGE_CODE == "fr" %}
-        <a href="#" onClick="javascript:langtop.language.value='nl';langtop.next.value='{% url home-nl %}';langtop.submit();">Nederlands</a>
-		{% else %}
-		<a href="#" onClick="javascript:langtop.language.value='fr';langtop.next.value='{% url home-fr %}';langtop.submit();">Français</a>
-		{% endif %}
+		{% block langswitch %}{% endblock %}
 	</form>
 	{% endif %}
 
@@ -55,23 +56,8 @@ $(function(){
 <!--/header-->
 </div></div>
 
-<!-- pop-up for languages -->
-<div id="popup" class="popup_block">
-	<form name="formlang" action="/i18n/setlang/" method="post"> {% csrf_token %}
-		<input name="language" type="hidden" value="" />
-		<input name="next" type="hidden" value="" />
-		<h2>Belgische Olympiades in de Informatica</h2>
-		<p id="slogan">De Belgische Olympiades in de Informatica (OI) zijn een competitie in programmeren, algoritmiek en logica, samengesteld uit twee wedstrijden. De eerste is voor leerlingen uit het middelbaar onderwijs, en dient om kandidaten te identificeren voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd is voor studenten uit het eerste jaar van het hoger onderwijs.</p>
-		<p><a href="#" onClick="javascript:formlang.language.value='nl';formlang.next.value='{% url home-nl %}';formlang.submit();">
-			&raquo; Ga verder in het Nederlands</a></p>
-		<hr/>
-		<h2>Olympiades belges d'Informatique</h2>
-		
-		<p id="slogan">Les Olympiades belges d'Informatique (OI) sont une compétition de programmation, d'algorithmique et de logique composée de deux concours. Le premier est destiné aux élèves de secondaires et permettra d'identifier des candidats pour les Olympiades Internationales d'Informatique (IOI). Le second concours est destiné aux étudiants en première année d'études supérieures.</p>
-	    <p><a href="#" onClick="javascript:formlang.language.value='fr';formlang.next.value='{% url home-fr %}';formlang.submit();">
-				&raquo; Continuer en français</a></p>
-	</form>
-</div>
+{# to insert block, code, js in the body #}
+{% block inbody %}{% endblock%} 
 	
 <!-- content-outer -->
 <div id="content-wrap" class="clear" >
@@ -82,7 +68,7 @@ $(function(){
         <!-- main -->
 	    <div id="main">
 
-{% block content %}{% endblock content %}
+{% block content %}{% endblock %}
        <!-- /main -->
 		</div>
 
@@ -157,34 +143,12 @@ $(function(){
 
         <p><strong>E-mail: </strong>info@be-oi.be</p>
 
-      <h3>{% trans "Updates" %}</h3>
-
-      <ul class="subscribe-stuff">
-	   	<li><a title="RSS" href="{% if LANGUAGE_CODE == "fr" %}{% url rss-fr %}{% else %}{% url rss-nl %}{% endif %}" rel="nofollow">
-				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a></li>
-				{% if LANGUAGE_CODE == "fr" %}
-				<li><a title="Twitter" href="http://twitter.com/beoi_fr" rel="nofollow">
-					<img alt="Twitter" title="Twitter" src="/static/images/social_twitter.png" /></a>
-				</li>{% endif %}
-      	<li ><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
-				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
-			</li>
-
-			{# <li><a title="Send us an e-mail" href="mailto:info@be-oi.be" rel="nofollow"> #}
-			{# 	<img alt="Send us an e-mail" title="Send us an e-mail" src="/static/images/social_email.png" /></a> #}
-			</li>
-      </ul>
-
-      	<div style="clear:left;"><p>{% trans "Stay up to date. Subscribe via" %}
-		<a href="{% if LANGUAGE_CODE == "fr" %}{% url rss-fr %}{% else %}{% url rss-nl %}{% endif %}">RSS</a>
-		{% if LANGUAGE_CODE == "fr" %}, <a href="http://twitter.com/beoi_fr">Twitter</a>{% endif %}
-		{% trans "or" %} <a href="index">Facebook</a></p></div>
+		{% block bottom_updates %}{% endblock%}
 
 	</div>
 
 	<div class="col-a">
-		<h3></h3>
-
+		&nbsp;
 	</div>
 
    <div class="col-a">
@@ -225,49 +189,13 @@ $(function(){
 	 </p>
 
 	 <p class="bottom-right">
-		<a href="{% url home %}">Home</a> |
-		<a href="{% url home-fr %}">Fr</a> |
-		<a href="{% url home-nl %}">Nl</a> |
+		<a href="/">Home</a> |
+		{% block bottom_links %}{% endblock%}
       <strong><a href="#top">Back to Top</a></strong>
     </p>
 
 <!-- /footer-bottom-->
 </div>
-{% if LANGUAGE_CODE == "en" or HOME == 1 %}
-<script type="text/javascript">
-$(document).ready(function(){
-
-	function popOpen(){
-		
-		popID = "popup"; //Get Popup Name
-		popWidth = 650;
-				
-		//Fade in the Popup and add close button
-		$('#' + popID).fadeIn().css({ 'width': Number( popWidth ) });
-		
-		//Define margin for center alignment (vertical + horizontal) - we add 80 to the height/width to 
-		// accomodate for the padding + border width defined in the css
-		var popMargTop = ($('#' + popID).height() + 80) / 2;
-		var popMargLeft = ($('#' + popID).width() + 80) / 2;
-		
-		//Apply Margin to Popup
-		$('#' + popID).css({ 
-			'margin-top' : -popMargTop,
-			'margin-left' : -popMargLeft
-		});
-		
-		//Fade in Background
-		$('body').append('<div id="fade"></div>'); //Add the fade layer to bottom of the body tag.
-		$('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer 
-		
-	};
-
-	popOpen(); //Run popOpen function once on load
-	popOpen
-	
-});
-</script>
-{% endif %}
 
 </body>
 </html>

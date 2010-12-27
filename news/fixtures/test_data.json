@@ -1,28 +1,30 @@
 [
     {
-        "pk": 2, 
-        "model": "news.news", 
-        "fields": {
-            "status": 0, 
-            "lang": 1, 
-            "modification_date": "2010-12-07 21:25:56", 
-            "author": 1, 
-            "title": "Offline", 
-            "body": "Offline news in dutch", 
-            "creation_date": "2010-12-07 21:25:56"
-        }
-    }, 
-    {
         "pk": 1, 
         "model": "news.news", 
         "fields": {
             "status": 1, 
             "lang": 0, 
-            "modification_date": "2010-12-07 21:26:38", 
+            "modification_date": "2010-12-24 12:11:53", 
             "author": 1, 
-            "title": "Test", 
-            "body": "Test body in French", 
-            "creation_date": "2010-12-07 21:24:59"
+            "title": "Une extension \u00e0 toute ...", 
+            "body": "<p>News in French</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2010-12-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 1, 
+            "modification_date": "2010-12-24 22:53:01", 
+            "author": 1, 
+            "title": "Een uitbreiding tot ...", 
+            "body": "<p>News in Dutch</p>", 
+            "creation_date": "2010-12-20 20:42:10", 
+            "publication_date": "2010-12-24 09:11:22"
         }
     }
 ]

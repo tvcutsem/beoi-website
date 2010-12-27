@@ -1,0 +1,34 @@
+{# The Dutch base template file #}
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block rss %}
+<link rel="alternate" type="application/rss+xml" href="{% url rss-nl %}" title="RSS Feed in het Nederlands">{% endblock %}
+
+{% block title %}{% trans "Belgian Olympiads in Informatics" %}{% endblock %}
+
+{% block logo-link %}{% url home-nl %}{% endblock %}
+
+{% block langswitch %}<a href="#" onClick="javascript:langtop.language.value='fr';langtop.next.value='{% url home-fr %}';langtop.submit();">Français</a>{% endblock %}
+
+{% block bottom_updates %}
+	<h3>{% trans "Updates" %}</h3>
+	<ul class="subscribe-stuff">
+	 	<li><a title="RSS" href="{% url rss-nl %}" rel="nofollow">
+			<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a>
+		</li>
+		<li ><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
+				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
+		</li>
+	</ul>
+
+	<div style="clear:left;"><p>{% trans "Stay up to date. Subscribe via" %}
+	<a href="{% url rss-nl %}">RSS</a> {% trans "or" %}
+	<a href="http://www.facebook.com/group.php?gid=303863304852">Facebook</a></p></div>
+		
+{% endblock bottom_updates %}
+
+{% block bottom_links %}<a href="{% url home-fr %}">Fr</a> |
+<a href="{% url home-nl %}">Nl</a> |{% endblock%}
+
+{% block inbody %}<!-- Template NL -->{% endblock%} {# For test validation ! #}
