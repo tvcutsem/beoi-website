@@ -69,7 +69,7 @@
         "pk": 1, 
         "model": "contest.semifinalcenter", 
         "fields": {
-            "active": true, 
+            "active": false, 
             "city": "Antwerpen", 
             "name": "Universiteit Antwerpen (UA)", 
             "details": "<p>Gebouw G \u2014 Lokaal G010<br />\r\nUniversiteit Antwerpen (UA) \u2014 Campus Middelheim<br />\r\nMiddelheimlaan 1<br />\r\n2020 Antwerpen</p>"

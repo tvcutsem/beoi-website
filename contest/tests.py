@@ -224,13 +224,50 @@ class RegistrationTest(TestCase):
 		self.assertEquals(Contestant.objects.filter(firstname=samplecopy["firstname"]).count(), 0)
 	
 	def test_listing_school(self):
-		pass
+		response = self.client.get(urlfr)
+		# school of the DB are in the list
+		self.assertContains(response, "Maria Assumpta", 1)
+		self.assertContains(response, "Informatique (ESI)", 1)
 		
 	def test_list_semifinalcenters(self):
-		pass
+		response = self.client.get(urlfr)
+		# active centers of the DB are in the list
+		self.assertContains(response, "Vrije Universiteit Brussel", 1)
 		
 	def test_registration_confirm_semifinalecenter(self):
-		pass
+		response = self.client.get(reverse("registration-confirm-fr", args=[8]))
+		self.assertContains(response, "Vrije Universiteit Brussel")
+		self.assertContains(response, "Gebouw Q - Aula QB", 1)
+		self.assertNotContains(response, "Une erreur s'est produite")
 		
-	def test_inactive_semifinalecenter(self):
-		pass
+	def test_inactive_semifinalecenter_form(self):
+		response = self.client.get(urlfr)
+		# inactive center are not in the list
+		self.assertNotContains(response, "Universiteit Antwerpen")
+		
+	def test_inactive_semifinalecenter_validation(self):
+		samplecopy = sample.copy()
+		samplecopy["semifinal_center"] = "1"
+
+		response = self.client.post(urlfr, samplecopy)
+
+		# submitting an inactive center, should raise an error
+		self.assertContains(response, "erreur", status_code=200)
+		self.assertTemplateUsed(response, "fr/contest/registration.html")
+	
+		# an email has NOT been sent
+		self.assertEquals(len(mail.outbox), 0)
+	
+		# the object does NOT exists
+		self.assertEquals(Contestant.objects.filter(firstname=samplecopy["firstname"]).count(), 0)
+
+	def test_inactive_semifinalecenter_confirm(self):
+		response = self.client.get(reverse("registration-confirm-fr", args=[1]))
+		# an inactive center should be render any confirm page 
+		self.failUnlessEqual(response.status_code, 404)
+
+	def test_registration_confirm_not_existing_semifinalecenter(self):
+		response = self.client.get(reverse("registration-confirm-fr", args=[10]))
+		# a non-existing center should be render any confirm page 
+		self.failUnlessEqual(response.status_code, 404)
+		
