@@ -15,7 +15,7 @@ class RegisteringForm(forms.Form):
 	address			= forms.CharField(max_length=255, label=_('Address'))
 	postal_code		= forms.IntegerField(min_value=1000, max_value=9999, label=_("Postal code"))
 	city			= forms.CharField(max_length=255, label=_('City'))
-	email			= forms.EmailField(max_length=255,_('Email'))
+	email			= forms.EmailField(max_length=255, label=_('Email'))
 	
 	school_exists	= forms.ChoiceField(choices=((SCHOOL_EXISTS,_("is in the list")),(SCHOOL_NOT_EXIST,_("is not in the list"))), label=_('Is the school in the list'))
 	school			= forms.ModelChoiceField(queryset=School.objects.order_by('-category','postal_code',"name"), required=False, empty_label=_("Make a choice"))
