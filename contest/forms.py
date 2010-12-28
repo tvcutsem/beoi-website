@@ -76,7 +76,6 @@ class RegisteringForm(forms.Form):
 			
 			school_category = contest
 		else: 
-			del cleaned_data["school_exists"] # unexpected
 			return cleaned_data
 
 		# check category
@@ -93,7 +92,7 @@ class RegisteringForm(forms.Form):
 			if school_category != CONTEST_HIGH:
 				raise forms.ValidationError( _("You have selected a secondary school but have registered to the high school contest") )
 		
-		else: del cleaned_data["contest"] # unexpected
+		else: pass # not valid
 
 		return cleaned_data
 	
