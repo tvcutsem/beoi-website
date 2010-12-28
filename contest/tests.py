@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.test import TestCase
+from django.test import TransactionTestCase
 from django.core.urlresolvers import reverse
 from beoi.contest.models import *
 from beoi.contest.forms import *
@@ -29,7 +29,7 @@ sample = {
 }
 
 
-class RegistrationTest(TestCase):
+class RegistrationTest(TransactionTestCase):
 
 	fixtures = ['test_data']
 

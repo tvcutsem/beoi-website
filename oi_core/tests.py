@@ -15,8 +15,7 @@ class OiCoreTest(TestCase):
 	def __reverse_200_contains(self, urlname, lang=None):
 		
 		response = self.client.get(reverse(urlname))
-		for text in texts:		 
-			self.failUnlessEqual(response.status_code, 200)
+		self.failUnlessEqual(response.status_code, 200)
 		
 		if lang == FR:
 			self.assertContains(response, "Template FR", status_code=200)

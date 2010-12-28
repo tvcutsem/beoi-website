@@ -4,7 +4,7 @@
         "model": "contest.contestant", 
         "fields": {
             "city": "Uccle", 
-            "school": 59, 
+            "school": 85, 
             "registering_time": "2010-12-26 11:14:51", 
             "surname": "Cambier", 
             "language": 0, 
@@ -19,7 +19,7 @@
             "address": "Avenue Victor Emmanuel III, 78", 
             "manual_check": false, 
             "email": "damien.leroy@uclouvain.be", 
-            "semifinal_center": 5
+            "semifinal_center": 8
         }
     }, 
     {
@@ -27,7 +27,7 @@
         "model": "contest.contestant", 
         "fields": {
             "city": "Bruxelles", 
-            "school": 45, 
+            "school": 43, 
             "registering_time": "2010-12-25 23:11:45", 
             "surname": "Cattoir", 
             "language": 0, 
@@ -42,7 +42,7 @@
             "address": "259 avenue dolez", 
             "manual_check": false, 
             "email": "abc@gmail.com", 
-            "semifinal_center": 2
+            "semifinal_center": 1
         }
     }, 
     {

@@ -13,6 +13,7 @@ from django.core.mail import send_mail
 from django.contrib.sites.models import Site, RequestSite
 from django.contrib.syndication.views import add_domain
 from django.utils.translation import ugettext_lazy as _
+from django.db import transaction
 
 REGISTRATION_FORM_YEAR = 2011 # to change each year !
 
@@ -72,8 +73,11 @@ def registration(request, template):
 				sid = transaction.savepoint()
 				contestant.save()
 				transaction.savepoint_commit(sid)
+				
 			except IntegrityError: # triggered by db or model validation
 				transaction.savepoint_rollback(sid)
+				test = Contestant.objects.count()
+				
 				if request.LANGUAGE_CODE == "fr": return HttpResponseRedirect(reverse("registration-error-fr")) 
 				else: return HttpResponseRedirect(reverse("registration-error-nl")) 
 			
