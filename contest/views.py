@@ -68,8 +68,12 @@ def registration(request, template):
 				contest_year 		= REGISTRATION_FORM_YEAR
 			)			
 			try :		
+				# if using postgres >=8.2, should use database-level autocommit instead
+				sid = transaction.savepoint()
 				contestant.save()
+				transaction.savepoint_commit(sid)
 			except IntegrityError: # triggered by db or model validation
+				transaction.savepoint_rollback(sid)
 				if request.LANGUAGE_CODE == "fr": return HttpResponseRedirect(reverse("registration-error-fr")) 
 				else: return HttpResponseRedirect(reverse("registration-error-nl")) 
 			
