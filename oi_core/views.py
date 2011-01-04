@@ -30,6 +30,7 @@ def beoi_context(request):
 	context_extras["SUPPORT"] = [ # files in /static/logos/
 		"ua-logo.jpg",
 		"henam-logo.png",
+		"ugent-logo.png",
 		"umons-logo.png",
 		"fundp-logo.png",
 		"hecfh-logo.png",
