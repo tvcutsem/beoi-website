@@ -43,6 +43,7 @@ def beoi_context(request):
 		"vinci-logo.png",
 		"ulb-logo.png",
 		"helmo-logo.png",
+		"uhasselt-logo.png",
 		"hepl-logo.png",
 		"vub-logo.jpg",
 		"hel-logo.png",
