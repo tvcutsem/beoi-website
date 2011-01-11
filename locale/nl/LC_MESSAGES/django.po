@@ -32,7 +32,7 @@ msgstr "Naam"
 #: contest/admin.py:47
 msgid "Mark selected contestants as manual checked"
 msgstr ""
-"De geselecteerde deelnemers aangeven zoals handmatig gecontroleerd word"
+"Aangeven dat de geselecteerde deelnemers handmatig gecontroleerd zijn"
 
 #: contest/forms.py:11
 msgid "Firstname"
@@ -108,14 +108,14 @@ msgstr "Kies uw school"
 
 #: contest/forms.py:63 contest/forms.py:67 contest/forms.py:71
 msgid "This field is mandatory"
-msgstr "dit veld is verplicht"
+msgstr "Dit veld is verplicht"
 
 #: contest/forms.py:86
 msgid ""
 "You cannot register to the secondary school contest if you are in the first "
 "year of baccalaureate"
 msgstr ""
-"Je kunt je niet inschrijven voor de competitie voor het secundair als jein "
+"Je kunt je niet inschrijven voor de competitie voor het secundair als je in "
 "het eerste jaar van het hoger onderwijs zit"
 
 #: contest/forms.py:88
@@ -123,7 +123,7 @@ msgid ""
 "You have selected a high school but have registered to the secondary school "
 "contest"
 msgstr ""
-"Je hebt een hogeschool/universiteit gekozen, maar je bent ingeschrevenvoor "
+"Je hebt een hogeschool/universiteit gekozen, maar je bent ingeschreven voor "
 "het secundair"
 
 #: contest/forms.py:92
@@ -131,7 +131,7 @@ msgid ""
 "You cannot register to the high school contest if you are at the secondary "
 "school"
 msgstr ""
-"Je kunt je niet inschrijven voor de competitie voor het hogeronderwijs als "
+"Je kunt je niet inschrijven voor de competitie voor het hoger onderwijs als "
 "je in het secundair zit"
 
 #: contest/forms.py:94
@@ -139,7 +139,7 @@ msgid ""
 "You have selected a secondary school but have registered to the high school "
 "contest"
 msgstr ""
-"Je hebt een secundair school gekozen, maar je bent ingeschrevenvoor het "
+"Je hebt een secundaire school gekozen, maar je bent ingeschreven voor het "
 "hoger onderwijs"
 
 #: contest/models.py:19
@@ -152,7 +152,7 @@ msgstr "Hoger onderwijs"
 
 #: contest/models.py:25
 msgid "Invalid postal code"
-msgstr "Invalide postcode"
+msgstr "Ongeldige postcode"
 
 #: contest/models.py:33
 msgid "Male"
