@@ -96,12 +96,12 @@ def beoi_context(request):
 				(u'Nieuws', reverse("home-nl")),
 				(u'Agenda', reverse("calendar-nl")),
 				(u'Reglement', reverse("regulations-nl")),
-				(u'2011 wedstrijd', reverse("registration-nl"), [
+				(u'Wedstrijd 2011', reverse("registration-nl"), [
 					(u'Inschrijven', reverse("registration-nl")),
 					(u'Halve finales', reverse("semifinal-nl")),
 					(u'Finales', reverse("final-nl"))	
 				]),
-				(u'Vraagvoorbeelden', reverse("sample-questions-nl")),
+				(u'Voorbeeldvragen', reverse("sample-questions-nl")),
 				(u'Archieven', reverse("archives-nl")),
 			]
 			
