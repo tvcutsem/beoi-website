@@ -3,7 +3,7 @@
 {% block content%}
 <h1>Inschrijven</h1>
 
-<p>De wedstrijd is voorbehouden aan jongeren onder de 25 jaar die leerlingen zijn in het secundair onderwijs of het eerste jaar van het hoger onderwijs in een Belgische school. Door in te schrijven aanvaardt de deelnemer <a href="{% url regulations-nl %}">het reglement</a>.</p>
+<p>De wedstrijd is voorbehouden aan jongeren onder de 25 jaar die leerlingen zijn in het secundair onderwijs in België (alle richtingen, alle jaren), of studenten zijn in hun eerste jaar hoger onderwijs in aan een Belgische hogeschool of universiteit (d.w.z. nog geen 60 credits hebben behaald van hun huidige bacheloropleiding). Door in te schrijven aanvaard je <a href="{% url regulations-nl %}">het reglement</a>.</p>
 
 <div class="errors">
 {% if form.errors %}
@@ -24,14 +24,14 @@
 	<p class="form-1">{{ form.address.label_tag }}{{ form.address }}{% if form.address.errors %}<span class="error">{{ form.address.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2a">{{ form.postal_code.label_tag }}{{ form.postal_code }}{% if form.postal_code.errors %}<span class="error">{{ form.postal_code.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2b">{{ form.city.label_tag }}{{ form.city }}{% if form.city.errors %}<span class="error">{{ form.city.errors|join:"<br/>" }}</span>{% endif %}</p>
-	<p class="form-1"><label for="id_email">Emailadres <span class="details">(we zullen het alleen maar in het kader van de OI gebruiken)</span></label>{{ form.email }}{% if form.email.errors %}<span class="error">{{ form.email.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="form-1"><label for="id_email">Emailadres <span class="details">(we gebruiken dit enkel in het kader van de OI)</span></label>{{ form.email }}{% if form.email.errors %}<span class="error">{{ form.email.errors|join:"<br/>" }}</span>{% endif %}</p>
 	</div>
 	
 	<div class="fieldblock">
 	<p class="form-1"><label for="id_school_exists">Huidige school</label>{% if form.school_exists.errors %}<span class="error">Kiezen tussen de twee opties is verplicht.</span>{% endif %}</p>
-	<p class="form-1"><label class="forminputlabel" for="id_school_exists_1"><input id="id_school_exists_1" type="radio" name="school_exists" value="1" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "1" or not form.is_bound %}checked="checked" {% endif %}/>Mijn school of universiteit staat op de lijst:<span class="details">(geordend op postcode)</span></label></p>
+	<p class="form-1"><label class="forminputlabel" for="id_school_exists_1"><input id="id_school_exists_1" type="radio" name="school_exists" value="1" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "1" or not form.is_bound %}checked="checked" {% endif %}/>Mijn school, hogeschool of universiteit staat op de lijst:<span class="details">(geordend op postcode)</span></label></p>
 	<p class="form-1demi">{{ form.school }}{% if form.school.errors %}<span class="error">{{ form.school.errors|join:"<br/>" }}</span>{% endif %}</p>
-	<p class="form-1"><label class="forminputlabel" for="id_school_exists_0"><input id="id_school_exists_0" type="radio" name="school_exists" value="0" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "0" %}checked="checked" {% endif %}/>Indien niet, voeg mijn school toe:</label></p>
+	<p class="form-1"><label class="forminputlabel" for="id_school_exists_0"><input id="id_school_exists_0" type="radio" name="school_exists" value="0" onchange="javascript:new_school_postal_code.disabled=(value==1); new_school_name.disabled=(value==1); new_school_city.disabled=(value==1); school.disabled=(value==0);"  {% if form.school_exists.data == "0" %}checked="checked" {% endif %}/>Indien niet, vul ik hier de gegevens ervan in:</label></p>
 	<p class="form-1">{{ form.new_school_name.label_tag }}{{ form.new_school_name }}{% if form.new_school_name.errors %}<span class="error">{{ form.new_school_name.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2a">{{ form.new_school_postal_code.label_tag }}{{ form.new_school_postal_code }}{% if form.new_school_postal_code.errors %}<span class="error">{{ form.new_school_postal_code.errors|join:"<br/>" }}</span>{% endif %}</p>
 	<p class="form-2b">{{ form.new_school_city.label_tag }}{{ form.new_school_city }}{% if form.new_school_city.errors %}<span class="error">{{ form.new_school_city.errors|join:"<br/>" }}</span>{% endif %}</p>
