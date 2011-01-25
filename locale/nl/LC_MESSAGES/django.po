@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-25 00:23+0100\n"
+"POT-Creation-Date: 2011-01-19 06:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings_common.py:34 contest/models.py:11 news/models.py:28
+#: settings_common.py:36 contest/models.py:11 news/models.py:28
 msgid "French"
 msgstr "Frans"
 
-#: settings_common.py:35 contest/models.py:12 news/models.py:29
+#: settings_common.py:37 contest/models.py:12 news/models.py:29
 msgid "Dutch"
 msgstr "Nederlands"
 
@@ -31,8 +31,7 @@ msgstr "Naam"
 
 #: contest/admin.py:47
 msgid "Mark selected contestants as manual checked"
-msgstr ""
-"Aangeven dat de geselecteerde deelnemers handmatig gecontroleerd zijn"
+msgstr "Aangeven dat de geselecteerde deelnemers handmatig gecontroleerd zijn"
 
 #: contest/forms.py:11
 msgid "Firstname"
@@ -102,15 +101,15 @@ msgstr "Taal van de wedstrijd"
 msgid "Wrong value for this field"
 msgstr "Verkeerde waarde voor dit veld"
 
-#: contest/forms.py:54
+#: contest/forms.py:55
 msgid "Please choose your school"
 msgstr "Kies uw school"
 
-#: contest/forms.py:63 contest/forms.py:67 contest/forms.py:71
+#: contest/forms.py:64 contest/forms.py:68 contest/forms.py:72
 msgid "This field is mandatory"
 msgstr "Dit veld is verplicht"
 
-#: contest/forms.py:86
+#: contest/forms.py:85
 msgid ""
 "You cannot register to the secondary school contest if you are in the first "
 "year of baccalaureate"
@@ -118,7 +117,7 @@ msgstr ""
 "Je kunt je niet inschrijven voor de competitie voor het secundair als je in "
 "het eerste jaar van het hoger onderwijs zit"
 
-#: contest/forms.py:88
+#: contest/forms.py:87
 msgid ""
 "You have selected a high school but have registered to the secondary school "
 "contest"
@@ -126,7 +125,7 @@ msgstr ""
 "Je hebt een hogeschool/universiteit gekozen, maar je bent ingeschreven voor "
 "het secundair"
 
-#: contest/forms.py:92
+#: contest/forms.py:91
 msgid ""
 "You cannot register to the high school contest if you are at the secondary "
 "school"
@@ -134,7 +133,7 @@ msgstr ""
 "Je kunt je niet inschrijven voor de competitie voor het hoger onderwijs als "
 "je in het secundair zit"
 
-#: contest/forms.py:94
+#: contest/forms.py:93
 msgid ""
 "You have selected a secondary school but have registered to the high school "
 "contest"
@@ -192,27 +191,27 @@ msgstr "7de jaar van het secundair"
 
 #: contest/models.py:59
 msgid "1st year of Bachelor in Computer Sciences"
-msgstr ""
+msgstr "1e bachelor Informatica"
 
 #: contest/models.py:60
 msgid "1st year of Bachelor in Management Computing"
-msgstr ""
+msgstr "1e bachelor Handelsingenieur / Beleidsinformatica"
 
 #: contest/models.py:61
 msgid "1st year of Bachelor in Computing and Systems"
-msgstr ""
+msgstr "1e bachelor Toegepaste Informatica"
 
 #: contest/models.py:62
 msgid "1st year of Bachelor in Engineering"
-msgstr ""
+msgstr "1e bachelor Burgerlijk Ingenieur"
 
 #: contest/models.py:63
 msgid "1st year of Bachelor in Industrial Sciences"
-msgstr ""
+msgstr "1e bachelor Industrieel Ingenieur"
 
 #: contest/models.py:64
 msgid "1st year of Bachelor (other)"
-msgstr ""
+msgstr "1e bachelor (andere)"
 
 #: contest/models.py:72
 msgid "surname"
@@ -248,7 +247,7 @@ msgstr "geboortedatum"
 
 #: contest/models.py:80
 msgid "contest category"
-msgstr "wedtrijd"
+msgstr "wedstrijdcategorie"
 
 #: contest/models.py:82
 msgid "year of study"
@@ -260,19 +259,19 @@ msgstr "taal"
 
 #: contest/models.py:85
 msgid "manual checked"
-msgstr "met de hand geverifieerd"
+msgstr "handmatig geverifieerd"
 
 #: contest/models.py:86
 msgid "token"
-msgstr ""
+msgstr "token"
 
 #: contest/models.py:87
 msgid "contest year"
-msgstr ""
+msgstr "wedstrijdjaar"
 
 #: contest/models.py:88
 msgid "registering time"
-msgstr ""
+msgstr "tijdstip van registratie"
 
 #: contest/models.py:95
 msgid "contestant"
@@ -288,23 +287,23 @@ msgstr "schoolnaam"
 
 #: contest/models.py:109
 msgid "school category"
-msgstr ""
+msgstr "schoolcategorie"
 
 #: contest/models.py:117
 msgid "school"
-msgstr ""
+msgstr "school"
 
 #: contest/models.py:118
 msgid "schools"
-msgstr ""
+msgstr "scholen"
 
 #: contest/models.py:122
 msgid "name"
-msgstr ""
+msgstr "naam"
 
 #: contest/models.py:124
 msgid "venue details"
-msgstr ""
+msgstr "details van de locatie"
 
 #: contest/models.py:124 news/models.py:41
 msgid ""
@@ -313,159 +312,163 @@ msgstr ""
 
 #: contest/models.py:125
 msgid "in current proposal list"
-msgstr ""
+msgstr "in huidige lijst met voorstellen"
 
 #: contest/models.py:132
 msgid "semifinal center"
-msgstr ""
+msgstr "centrum voor halve finales"
 
 #: contest/models.py:133
 msgid "semifinal centers"
-msgstr ""
+msgstr "centra voor halve finales"
 
 #: contest/models.py:139
 msgid "score"
-msgstr ""
+msgstr "score"
 
 #: contest/models.py:140
 msgid "qualified"
-msgstr ""
+msgstr "gekwalificeerd"
 
 #: contest/models.py:144
 msgid "semifinal result"
-msgstr ""
+msgstr "resultaat halve finales"
 
 #: contest/models.py:145
 msgid "semifinal results"
-msgstr ""
+msgstr "resultaten halve finales"
 
 #: contest/models.py:151
 msgid "written part score"
-msgstr ""
+msgstr "score schriftelijk deel"
 
 #: contest/models.py:152
 msgid "computer part score"
-msgstr ""
+msgstr "score computergedeelte"
 
 #: contest/models.py:153
 msgid "rank"
-msgstr ""
+msgstr "plaats"
 
 #: contest/models.py:157
 msgid "final result"
-msgstr ""
+msgstr "eindresultaat"
 
 #: contest/models.py:158
 msgid "final results"
-msgstr ""
+msgstr "eindresultaten"
 
-#: contest/views.py:93
+#: contest/views.py:101
 msgid "Registering to Belgian Olympiads in Informatics"
-msgstr "Inschrijvingen voor de Belgische Olympiades in de Informatica"
+msgstr "Inschrijven voor de Belgische Olympiades in de Informatica"
 
 #: news/admin.py:18
 msgid "Headline"
-msgstr ""
+msgstr "Titel"
 
 #: news/admin.py:19
 msgid "Publication"
-msgstr ""
+msgstr "Publicatie"
 
 #: news/admin.py:20
 msgid "Body"
-msgstr ""
+msgstr "Tekst"
 
 #: news/models.py:20
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 #: news/models.py:21
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 #: news/models.py:33
 msgid "title"
-msgstr ""
+msgstr "titel"
 
 #: news/models.py:34
 msgid "author"
-msgstr ""
+msgstr "auteur"
 
 #: news/models.py:35
 msgid "creation date"
-msgstr ""
+msgstr "datum van creatie"
 
 #: news/models.py:36
 msgid "modification date"
-msgstr ""
+msgstr "datum van laatste aanpassing"
 
 #: news/models.py:37
 msgid "publication date"
-msgstr ""
+msgstr "datum van publicatie"
 
 #: news/models.py:38
 msgid "If in the future, the news will be visible from this time"
-msgstr ""
+msgstr "Als in de toekomst, het nieuws zichtbaar zal zijn vanaf dit tijdstip"
 
 #: news/models.py:39
 msgid "status"
-msgstr ""
+msgstr "status"
 
 #: news/models.py:40
 msgid "language"
-msgstr ""
+msgstr "taal"
 
 #: news/models.py:41
 msgid "body"
-msgstr ""
+msgstr "tekst"
 
 #: news/models.py:48
 msgid "news entry"
-msgstr ""
+msgstr "nieuwsbericht"
 
 #: news/models.py:49
 msgid "news entries"
-msgstr ""
+msgstr "nieuwsberichten"
 
-#: templates/base.html:5 templates/base.html.py:40
+#: templates/base.html:45 templates/fr/base.html:7 templates/nl/base.html:8
 msgid "Belgian Olympiads in Informatics"
 msgstr "Belgische Olympiades in de Informatica"
 
-#: templates/base.html:41
+#: templates/base.html:46
 msgid "Programming, algorithmic and logic"
 msgstr "Programmeren, algoritmiek en logica"
 
-#: templates/base.html:93
+#: templates/base.html:79
 msgid "Contest"
 msgstr "Wedstrijd"
 
-#: templates/base.html:109
+#: templates/base.html:95
 msgid "Organisation"
 msgstr "Organisatie"
 
-#: templates/base.html:125
+#: templates/base.html:110
+msgid "Sponsors"
+msgstr ""
+
+#: templates/base.html:117
 msgid "With support from"
 msgstr "Met de steun van"
 
-#: templates/base.html:160
+#: templates/base.html:161
+msgid "Flickr Photos"
+msgstr "Flickr Foto's"
+
+#: templates/base.html:174
+msgid "Archives"
+msgstr "Archieven"
+
+#: templates/fr/base.html:14 templates/nl/base.html:15
 msgid "Updates"
 msgstr ""
 
-#: templates/base.html:178
+#: templates/fr/base.html:27 templates/nl/base.html:25
 msgid "Stay up to date. Subscribe via"
-msgstr ""
+msgstr "Blijf op de hoogte. Abonneer je via"
 
-#: templates/base.html:181
+#: templates/fr/base.html:29 templates/nl/base.html:26
 msgid "or"
 msgstr "of"
-
-#: templates/base.html:191
-msgid "Flickr Photos"
-msgstr "Flickr Photos"
-
-#: templates/base.html:204
-msgid "Archives"
-msgstr "Archieven"
 
 #~ msgid "Incorrect year"
 #~ msgstr "Invalide jaar"
