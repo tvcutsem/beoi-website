@@ -33,7 +33,7 @@ def registration(request, template):
 	
 	if not REGISTRATION_OPEN :   # handle registration open/close status
 		if request.LANGUAGE_CODE == "fr": template = "fr/closed_registration.html"
-		else: template = "fr/closed_registration.html"
+		else: template = "nl/closed_registration.html"
 		return render_to_response(template, context_instance=RequestContext(request))
 
 	if request.method == 'POST': 
