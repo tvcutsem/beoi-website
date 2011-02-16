@@ -61,8 +61,8 @@ def beoi_context(request):
 				(u'News', reverse("home-fr")),
 				(u'Calendrier', reverse("calendar-fr")),
 				(u'Règlement', reverse("regulations-fr")),
-				(u'Concours 2011', reverse("registration-fr"), [
-					(u'Inscription', reverse("registration-fr")),
+				(u'Concours 2011', reverse("semifinal-fr"), [
+					# (u'Inscription', reverse("registration-fr")),
 					(u'Demi-finales', reverse("semifinal-fr")),
 					(u'Finales', reverse("final-fr"))	
 				]),
@@ -96,8 +96,8 @@ def beoi_context(request):
 				(u'Nieuws', reverse("home-nl")),
 				(u'Agenda', reverse("calendar-nl")),
 				(u'Reglement', reverse("regulations-nl")),
-				(u'Wedstrijd 2011', reverse("registration-nl"), [
-					(u'Inschrijven', reverse("registration-nl")),
+				(u'Wedstrijd 2011', reverse("semifinal-nl"), [
+					# (u'Inschrijven', reverse("registration-nl")),
 					(u'Halve finales', reverse("semifinal-nl")),
 					(u'Finales', reverse("final-nl"))	
 				]),
