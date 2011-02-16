@@ -32,9 +32,9 @@ class OiCoreTest(TestCase):
 		self.__reverse_200_contains("home-fr",FR)
 		self.__reverse_200_contains("home-nl",NL)
 
-	# def test_registration(self):
-	# 	self.__reverse_200_contains("registration-fr",FR)
-	# 	self.__reverse_200_contains("registration-nl",NL)
+	def test_registration(self):
+		self.__reverse_200_contains("registration-fr",FR)
+		self.__reverse_200_contains("registration-nl",NL)
 
 	def test_calendar(self):
 		self.__reverse_200_contains("calendar-fr",FR)
@@ -60,9 +60,13 @@ class OiCoreTest(TestCase):
 		self.__reverse_200_contains("archives-fr",FR)
 		self.__reverse_200_contains("archives-nl",NL)
 
-	# def test_registration_error(self):
-	# 	self.__reverse_200_contains("registration-error-fr",FR)
-	# 	self.__reverse_200_contains("registration-error-nl",NL)
+	def test_registration_error(self):
+		self.__reverse_200_contains("registration-error-fr",FR)
+		self.__reverse_200_contains("registration-error-nl",NL)
+
+	def test_regional_centers(self):
+		self.__reverse_200_contains("regional-centers-fr",FR)
+		self.__reverse_200_contains("regional-centers-nl",NL)
 
 	def test_team(self):
 		self.__reverse_200_contains("team-fr",FR)

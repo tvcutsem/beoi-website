@@ -4,6 +4,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 
+REGISTRATION_OPEN = False
+
 LANG_FR = 0
 LANG_NL = 1
 LANG_DEFAULT = LANG_FR
