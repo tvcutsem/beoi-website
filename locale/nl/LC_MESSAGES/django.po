@@ -311,6 +311,7 @@ msgstr "details van de locatie"
 msgid ""
 "HTML tags are allowed. &lt;p&gt;...&lt;/p&gt; tags MUST be used for text!"
 msgstr ""
+"HTML tags zijn toegelaten. &lt;p&gt;...&lt;/p&gt; tags MOETEN gebruikt worden voor tekst!"
 
 #: contest/models.py:127
 msgid "in current proposal list"
@@ -374,11 +375,11 @@ msgstr "Online"
 
 #: faq/models.py:41
 msgid "question"
-msgstr ""
+msgstr "vraag"
 
 #: faq/models.py:41
 msgid "No HTML needed (but can be used)"
-msgstr ""
+msgstr "HTML niet nodig (maar kan gebruikt worden)"
 
 #: faq/models.py:42 faq/models.py:43 news/models.py:39
 msgid "status"
@@ -390,7 +391,7 @@ msgstr "taal"
 
 #: faq/models.py:45
 msgid "answer"
-msgstr ""
+msgstr "antwoord"
 
 #: faq/models.py:52 news/models.py:48
 msgid "news entry"
@@ -402,7 +403,7 @@ msgstr "nieuwsberichten"
 
 #: faq/models.py:65
 msgid "category name"
-msgstr ""
+msgstr "categorie"
 
 #: news/admin.py:18
 msgid "Headline"
@@ -462,7 +463,7 @@ msgstr "Organisatie"
 
 #: templates/base.html:110
 msgid "Sponsors"
-msgstr ""
+msgstr "Sponsors"
 
 #: templates/base.html:115
 msgid "Prizes offered by"
@@ -482,7 +483,7 @@ msgstr "Archieven"
 
 #: templates/fr/base.html:14 templates/nl/base.html:15
 msgid "Updates"
-msgstr ""
+msgstr "Updates"
 
 #: templates/fr/base.html:27 templates/nl/base.html:25
 msgid "Stay up to date. Subscribe via"
@@ -493,13 +494,13 @@ msgid "or"
 msgstr "of"
 
 #~ msgid "Incorrect year"
-#~ msgstr "Invalide jaar"
+#~ msgstr "Ongeldig jaar"
 
 #~ msgid "Make your choice"
 #~ msgstr "Maak uw keuze"
 
 #~ msgid "Belgian Olympiads in Informatics: RSS Entires"
-#~ msgstr "Belgische Olympiades in de Informatica"
+#~ msgstr "Belgische Olympiades in de Informatica: RSS Entries"
 
 #~ msgid "RSS feed of recent news from Belgian Olympiads in Informatics"
-#~ msgstr "Belgische Olympiades in de Informatica"
+#~ msgstr "RSS feed van recent nieuws van de Belgische Olympiades in de Informatica"
