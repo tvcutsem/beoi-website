@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-19 06:47+0100\n"
+"POT-Creation-Date: 2011-02-20 16:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings_common.py:36 contest/models.py:11 news/models.py:28
+#: settings_common.py:36 contest/models.py:13 news/models.py:28
 msgid "French"
 msgstr "Frans"
 
-#: settings_common.py:37 contest/models.py:12 news/models.py:29
+#: settings_common.py:37 contest/models.py:14 news/models.py:29
 msgid "Dutch"
 msgstr "Nederlands"
 
@@ -141,224 +141,224 @@ msgstr ""
 "Je hebt een secundaire school gekozen, maar je bent ingeschreven voor het "
 "hoger onderwijs"
 
-#: contest/models.py:19
+#: contest/models.py:21
 msgid "secondary-school students"
 msgstr "Secundair"
 
-#: contest/models.py:20
+#: contest/models.py:22
 msgid "post-secondary-school students"
 msgstr "Hoger onderwijs"
 
-#: contest/models.py:25
+#: contest/models.py:27
 msgid "Invalid postal code"
 msgstr "Ongeldige postcode"
 
-#: contest/models.py:33
+#: contest/models.py:35
 msgid "Male"
 msgstr "Man"
 
-#: contest/models.py:34
+#: contest/models.py:36
 msgid "Female"
 msgstr "Vrouw"
 
-#: contest/models.py:52
+#: contest/models.py:54
 msgid "1st year of secondary school"
 msgstr "1ste jaar van het secundair"
 
-#: contest/models.py:53
+#: contest/models.py:55
 msgid "2nd year of secondary school"
 msgstr "2de jaar van het secundair"
 
-#: contest/models.py:54
+#: contest/models.py:56
 msgid "3rd year of secondary school"
 msgstr "3de jaar van het secundair"
 
-#: contest/models.py:55
+#: contest/models.py:57
 msgid "4th year of secondary school"
 msgstr "4de jaar van het secundair"
 
-#: contest/models.py:56
+#: contest/models.py:58
 msgid "5th year of secondary school"
 msgstr "5de jaar van het secundair"
 
-#: contest/models.py:57
+#: contest/models.py:59
 msgid "6th year of secondary school"
 msgstr "6de jaar van het secundair"
 
-#: contest/models.py:58
+#: contest/models.py:60
 msgid "7th year of secondary school"
 msgstr "7de jaar van het secundair"
 
-#: contest/models.py:59
+#: contest/models.py:61
 msgid "1st year of Bachelor in Computer Sciences"
 msgstr "1e bachelor Informatica"
 
-#: contest/models.py:60
+#: contest/models.py:62
 msgid "1st year of Bachelor in Management Computing"
 msgstr "1e bachelor Handelsingenieur / Beleidsinformatica"
 
-#: contest/models.py:61
+#: contest/models.py:63
 msgid "1st year of Bachelor in Computing and Systems"
 msgstr "1e bachelor Toegepaste Informatica"
 
-#: contest/models.py:62
+#: contest/models.py:64
 msgid "1st year of Bachelor in Engineering"
 msgstr "1e bachelor Burgerlijk Ingenieur"
 
-#: contest/models.py:63
+#: contest/models.py:65
 msgid "1st year of Bachelor in Industrial Sciences"
 msgstr "1e bachelor Industrieel Ingenieur"
 
-#: contest/models.py:64
+#: contest/models.py:66
 msgid "1st year of Bachelor (other)"
 msgstr "1e bachelor (andere)"
 
-#: contest/models.py:72
+#: contest/models.py:74
 msgid "surname"
 msgstr "familienaam"
 
-#: contest/models.py:73
+#: contest/models.py:75
 msgid "firstname"
 msgstr "voornaam"
 
-#: contest/models.py:74
+#: contest/models.py:76
 msgid "gender"
 msgstr "geslacht"
 
-#: contest/models.py:75
+#: contest/models.py:77
 msgid "email"
 msgstr "email"
 
-#: contest/models.py:76
+#: contest/models.py:78
 msgid "address"
 msgstr "adres"
 
-#: contest/models.py:77 contest/models.py:107 contest/models.py:123
+#: contest/models.py:79 contest/models.py:109 contest/models.py:125
 msgid "city"
 msgstr "stad"
 
-#: contest/models.py:78 contest/models.py:108
+#: contest/models.py:80 contest/models.py:110
 msgid "postal code"
 msgstr "postcode"
 
-#: contest/models.py:79
+#: contest/models.py:81
 msgid "date of birth"
 msgstr "geboortedatum"
 
-#: contest/models.py:80
+#: contest/models.py:82
 msgid "contest category"
 msgstr "wedstrijdcategorie"
 
-#: contest/models.py:82
+#: contest/models.py:84
 msgid "year of study"
 msgstr "studiejaar"
 
-#: contest/models.py:83
+#: contest/models.py:85
 msgid "examination language"
 msgstr "taal"
 
-#: contest/models.py:85
+#: contest/models.py:87
 msgid "manual checked"
 msgstr "handmatig geverifieerd"
 
-#: contest/models.py:86
+#: contest/models.py:88
 msgid "token"
 msgstr "token"
 
-#: contest/models.py:87
+#: contest/models.py:89
 msgid "contest year"
 msgstr "wedstrijdjaar"
 
-#: contest/models.py:88
+#: contest/models.py:90
 msgid "registering time"
 msgstr "tijdstip van registratie"
 
-#: contest/models.py:95
+#: contest/models.py:97
 msgid "contestant"
 msgstr "deelnemer"
 
-#: contest/models.py:96
+#: contest/models.py:98
 msgid "contestants"
 msgstr "deelnemers"
 
-#: contest/models.py:106
+#: contest/models.py:108
 msgid "school name"
 msgstr "schoolnaam"
 
-#: contest/models.py:109
+#: contest/models.py:111
 msgid "school category"
 msgstr "schoolcategorie"
 
-#: contest/models.py:117
+#: contest/models.py:119
 msgid "school"
 msgstr "school"
 
-#: contest/models.py:118
+#: contest/models.py:120
 msgid "schools"
 msgstr "scholen"
 
-#: contest/models.py:122
+#: contest/models.py:124
 msgid "name"
 msgstr "naam"
 
-#: contest/models.py:124
+#: contest/models.py:126
 msgid "venue details"
 msgstr "details van de locatie"
 
-#: contest/models.py:124 news/models.py:41
+#: contest/models.py:126 news/models.py:41
 msgid ""
 "HTML tags are allowed. &lt;p&gt;...&lt;/p&gt; tags MUST be used for text!"
 msgstr ""
 
-#: contest/models.py:125
+#: contest/models.py:127
 msgid "in current proposal list"
 msgstr "in huidige lijst met voorstellen"
 
-#: contest/models.py:132
+#: contest/models.py:134
 msgid "semifinal center"
 msgstr "centrum voor halve finales"
 
-#: contest/models.py:133
+#: contest/models.py:135
 msgid "semifinal centers"
 msgstr "centra voor halve finales"
 
-#: contest/models.py:139
+#: contest/models.py:141
 msgid "score"
 msgstr "score"
 
-#: contest/models.py:140
+#: contest/models.py:142
 msgid "qualified"
 msgstr "gekwalificeerd"
 
-#: contest/models.py:144
+#: contest/models.py:146
 msgid "semifinal result"
 msgstr "resultaat halve finales"
 
-#: contest/models.py:145
+#: contest/models.py:147
 msgid "semifinal results"
 msgstr "resultaten halve finales"
 
-#: contest/models.py:151
+#: contest/models.py:153
 msgid "written part score"
 msgstr "score schriftelijk deel"
 
-#: contest/models.py:152
+#: contest/models.py:154
 msgid "computer part score"
 msgstr "score computergedeelte"
 
-#: contest/models.py:153
+#: contest/models.py:155
 msgid "rank"
 msgstr "plaats"
 
-#: contest/models.py:157
+#: contest/models.py:159
 msgid "final result"
 msgstr "eindresultaat"
 
-#: contest/models.py:158
+#: contest/models.py:160
 msgid "final results"
 msgstr "eindresultaten"
 
-#: contest/views.py:101
+#: contest/views.py:106
 msgid "Registering to Belgian Olympiads in Informatics"
 msgstr "Inschrijven voor de Belgische Olympiades in de Informatica"
 
@@ -446,15 +446,19 @@ msgstr "Organisatie"
 msgid "Sponsors"
 msgstr ""
 
-#: templates/base.html:117
+#: templates/base.html:115
+msgid "Prix offerts par"
+msgstr "Prix offerts par"
+
+#: templates/base.html:123
 msgid "With support from"
 msgstr "Met de steun van"
 
-#: templates/base.html:161
+#: templates/base.html:167
 msgid "Flickr Photos"
 msgstr "Flickr Foto's"
 
-#: templates/base.html:174
+#: templates/base.html:180
 msgid "Archives"
 msgstr "Archieven"
 
