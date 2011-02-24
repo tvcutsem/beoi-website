@@ -4,7 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 from os import path
 from beoi.news.models import News
-from beoi.contest.models import SemifinalCenter
+from beoi.contest.models import *
 from beoi.news.feed import RssNewsFr, RssNewsNl
 from django.views.generic import list_detail
 
@@ -30,6 +30,8 @@ urlpatterns += patterns('django.views.generic.simple',
 
 	url(r'^demi-finales$',  'direct_to_template', {'template': 'fr/semifinal.html'}, "semifinal-fr"),
 	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
+
+	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
 	
 	url(r'^finales$', 'direct_to_template', {'template': 'fr/final.html'}, "final-fr"),
 	url(r'^finales-nl$', 'direct_to_template', {'template': 'nl/final.html'}, "final-nl"),
@@ -70,6 +72,23 @@ urlpatterns += patterns('django.views.generic.simple',
 # Django views
 urlpatterns += patterns('',
 
+	url(r'^demi-finales/secondaire$',  'django.views.generic.list_detail.object_list', {
+			'template_name': 'fr/semifinal_results.html',
+			"queryset": ResultSemifinal.objects
+										.filter(qualified=True)
+										.filter(contestant__contest_category=CONTEST_SEC)
+										.order_by("contestant__surname")
+										.order_by("contestant__firstname"),
+			"extra_context": {"category":"sec"}
+		},"semifinal-sec-fr"),
+
+		
+	url(r'^demi-finales/superieur$',  'django.views.generic.list_detail.object_list', {
+			'template_name': 'fr/semifinal_results.html',
+			"queryset": SemifinalCenter.objects.filter(active=True),
+			"extra_context": {"category":"high"}
+		},"semifinal-sup-fr"),
+
 
 	url(r'^centres-regionaux$',  'django.views.generic.list_detail.object_list', {
 				'template_name': 'fr/regionalcenters.html',
@@ -94,14 +113,14 @@ urlpatterns += patterns('',
 				'queryset':News.online_objects.filter(lang=News.LANG_FR),
     			'date_field': 'publication_date',
 				'template_name': "fr/home.html",
-				'num_latest':10
+				'num_latest':5
 			}, 'home-fr'),
 
 	url(r'^home$',	'django.views.generic.date_based.archive_index', {
 				'queryset':News.online_objects.filter(lang=News.LANG_NL),
     			'date_field': 'publication_date',
 				'template_name': "nl/home.html",
-				'num_latest':10
+				'num_latest':5
 			}, 'home-nl'),
 	
 	url(r'^rss-fr$', RssNewsFr(), {}, "rss-fr"),
