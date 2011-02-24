@@ -66,6 +66,7 @@ def beoi_context(request):
 					(u'Demi-finales', reverse("semifinal-fr")),
 					(u'Finales', reverse("final-fr"))	
 				]),
+				(u'Formations', reverse("training-fr")),
 				(u'Exemples de Questions', reverse("sample-questions-fr")),
 				(u'Archives', reverse("archives-fr")),
 			]
@@ -101,6 +102,7 @@ def beoi_context(request):
 					(u'Halve finales', reverse("semifinal-nl")),
 					(u'Finales', reverse("final-nl"))	
 				]),
+				(u'Opleidingen', reverse("training-nl")),
 				(u'Voorbeeldvragen', reverse("sample-questions-nl")),
 				(u'Archieven', reverse("archives-nl")),
 			]

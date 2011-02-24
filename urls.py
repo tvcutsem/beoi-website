@@ -33,6 +33,9 @@ urlpatterns += patterns('django.views.generic.simple',
 	
 	url(r'^finales$', 'direct_to_template', {'template': 'fr/final.html'}, "final-fr"),
 	url(r'^finales-nl$', 'direct_to_template', {'template': 'nl/final.html'}, "final-nl"),
+	
+	url(r'^formations$', 'direct_to_template', {'template': 'fr/trainings.html'}, "training-fr"),
+	url(r'^opleidingen$', 'direct_to_template', {'template': 'nl/trainings.html'}, "training-nl"),
 
 	url(r'^exemple-questions$', 'direct_to_template', {'template': 'fr/sample_questions.html'}, "sample-questions-fr"),
 	url(r'^vraagvoorbeelden$', 'direct_to_template', {'template': 'nl/sample_questions.html'}, "sample-questions-nl"),
