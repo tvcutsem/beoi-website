@@ -47,6 +47,18 @@ class OiCoreTest(TestCase):
 	def test_semifinal(self):
 		self.__reverse_200_contains("semifinal-fr",FR)
 		self.__reverse_200_contains("semifinal-nl",NL)
+	
+	def test_semifinal_regulations(self):
+		self.__reverse_200_contains("semifinal-regulations-fr",FR)
+		self.__reverse_200_contains("semifinal-regulations-nl",NL)
+
+	def test_semifinal_sec(self):
+		self.__reverse_200_contains("semifinal-sec-fr",FR)
+		self.__reverse_200_contains("semifinal-sec-nl",NL)
+
+	def test_semifinal_sup(self):
+		self.__reverse_200_contains("semifinal-high-fr",FR)
+		self.__reverse_200_contains("semifinal-high-nl",NL)
 
 	def test_final(self):
 		self.__reverse_200_contains("final-fr",FR)
