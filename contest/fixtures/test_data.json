@@ -1,50 +1,120 @@
 [
-    {
-        "pk": 28, 
-        "model": "contest.contestant", 
+	{
+        "pk": 28,
+        "model": "contest.contestant",
         "fields": {
-            "city": "Uccle", 
-            "school": 85, 
-            "registering_time": "2010-12-26 11:14:51", 
-            "surname": "Cambier", 
-            "language": 0, 
-            "firstname": "L\u00e9opold", 
-            "dob": "1992-10-15", 
-            "gender": 0, 
-            "year_study": 13, 
-            "contest_year": 2011, 
-            "token": "4bc30fcd8cfd0b5b0c9128a17a65fb2e", 
-            "contest_category": 1, 
-            "postal_code": 1180, 
-            "address": "Avenue Victor Emmanuel III, 78", 
-            "manual_check": false, 
-            "email": "damien.leroy@uclouvain.be", 
+            "city": "Uccle",
+            "school": 85,
+            "registering_time": "2010-12-26 11:14:51",
+            "surname": "Cambier",
+            "language": 0,
+            "firstname": "L\u00e9opold",
+            "dob": "1992-10-15",
+            "gender": 0,
+            "year_study": 13,
+            "contest_year": 2011,
+            "token": "4bc30fcd8cfd0b5b0c9128a17a65fb2e",
+            "contest_category": 1,
+            "postal_code": 1180,
+            "address": "Avenue Victor Emmanuel III, 78",
+            "manual_check": false,
+            "email": "damien.leroy@uclouvain.be",
             "semifinal_center": 8
         }
-    }, 
+    },
     {
-        "pk": 25, 
-        "model": "contest.contestant", 
-        "fields": {
-            "city": "Bruxelles", 
-            "school": 43, 
-            "registering_time": "2010-12-25 23:11:45", 
-            "surname": "Cattoir", 
-            "language": 0, 
-            "firstname": "Vincent", 
-            "dob": "1993-06-16", 
-            "gender": 0, 
-            "year_study": 6, 
-            "contest_year": 2011, 
-            "token": "eac0a5fc30281684867db361cfb2b897", 
-            "contest_category": 0, 
-            "postal_code": 1180, 
-            "address": "259 avenue dolez", 
-            "manual_check": false, 
-            "email": "abc@gmail.com", 
-            "semifinal_center": 1
-        }
-    }, 
+	    "pk": 25,
+	    "model": "contest.contestant",
+	    "fields": {
+	        "city": "Bruxelles",
+	        "school": 43,
+	        "registering_time": "2010-12-25 23:11:45",
+	        "surname": "Cattoir",
+	        "language": 0,
+	        "firstname": "Vincent",
+	        "dob": "1993-06-16",
+	        "gender": 0,
+	        "year_study": 6,
+	        "contest_year": 2011,
+	        "token": "eac0a5fc30281684867db361cfb2b897",
+	        "contest_category": 0,
+	        "postal_code": 1180,
+	        "address": "259 avenue dolez",
+	        "manual_check": false,
+	        "email": "abc@gmail.com",
+	        "semifinal_center": 1
+	    }
+	},
+    {
+	    "pk": 40,
+	    "model": "contest.contestant",
+	    "fields": {
+	        "city": "Bruxelles",
+	        "school": 43,
+	        "registering_time": "2010-12-25 23:11:45",
+	        "surname": "Acbacb",
+	        "language": 0,
+	        "firstname": "Tfefosk",
+	        "dob": "1993-06-16",
+	        "gender": 0,
+	        "year_study": 6,
+	        "contest_year": 2011,
+	        "token": "eac0a5fc30281684867db361cfb2b897",
+	        "contest_category": 0,
+	        "postal_code": 1180,
+	        "address": "259 avenue dolez",
+	        "manual_check": false,
+	        "email": "abcd@gmail.com",
+	        "semifinal_center": 1
+	    }
+	},
+    {
+	    "pk": 50,
+	    "model": "contest.contestant",
+	    "fields": {
+	        "city": "Bruxelles",
+	        "school": 43,
+	        "registering_time": "2010-12-25 23:11:45",
+	        "surname": "Foobar",
+	        "language": 0,
+	        "firstname": "Bar",
+	        "dob": "1993-06-16",
+	        "gender": 0,
+	        "year_study": 6,
+	        "contest_year": 2011,
+	        "token": "eac0a5fc30281684867db361cfb2b897",
+	        "contest_category": 0,
+	        "postal_code": 1180,
+	        "address": "259 avenue dolez",
+	        "manual_check": false,
+	        "email": "abce@gmail.com",
+	        "semifinal_center": 1
+	    }
+	},
+    {
+	    "pk": 51,
+	    "model": "contest.contestant",
+	    "fields": {
+	        "city": "Bruxelles",
+	        "school": 43,
+	        "registering_time": "2010-12-25 23:11:45",
+	        "surname": "Poiuy",
+	        "language": 0,
+	        "firstname": "PoiuyPoiuy",
+	        "dob": "1993-06-16",
+	        "gender": 0,
+	        "year_study": 6,
+	        "contest_year": 2010,
+	        "token": "eac0a5fc30281684867db361cfb2b897",
+	        "contest_category": 0,
+	        "postal_code": 1180,
+	        "address": "259 avenue dolez",
+	        "manual_check": false,
+	        "email": "abcf@gmail.com",
+	        "semifinal_center": 1
+	    }
+	},
+
     {
         "pk": 43, 
         "model": "contest.school", 
@@ -84,5 +154,50 @@
             "name": "Vrije Universiteit Brussel (VUB)", 
             "details": "<p>Gebouw Q - Aula QB<br />\r\nVrije Universiteit Brussel (VUB) \u2014 Campus Etterbeek<br />\r\nPleinlaan 2<br />\r\n1050 Brussel</p>"
         }
-    }
+    },
+	{
+		"pk": 1, 
+		"model": "contest.resultsemifinal", 
+		"fields": {
+			"contestant": 28, 
+			"qualified": true, 
+			"score": 99
+		}
+	},
+	{
+		"pk": 2, 
+		"model": "contest.resultsemifinal", 
+		"fields": {
+			"contestant": 25, 
+			"qualified": true, 
+			"score": 70
+		}
+	},
+	{
+		"pk": 5, 
+		"model": "contest.resultsemifinal", 
+		"fields": {
+			"contestant": 40, 
+			"qualified": true, 
+			"score": 60
+		}
+	},
+	{
+		"pk": 6, 
+		"model": "contest.resultsemifinal", 
+		"fields": {
+			"contestant": 50, 
+			"qualified": false, 
+			"score": 4
+		}
+	},
+	{
+		"pk": 7, 
+		"model": "contest.resultsemifinal", 
+		"fields": {
+			"contestant": 51, 
+			"qualified": true, 
+			"score": 45
+		}
+	}
 ]

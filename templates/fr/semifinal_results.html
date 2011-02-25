@@ -1,0 +1,23 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+
+<h2>Demi-finale</h2>
+
+<p>La demi-finale comptait cette année 
+{% if category == "sec" %}105 participants dans sa catégorie <i>secondaire</i>{% else %}147 participants dans sa catégorie <i>supérieur</i>{% endif %}.
+Parmi ceux-ci, {% if category == "sec" %}49{% else %}60{% endif %} ont été sélectionnés pour participer à la finale nationale. </p>
+
+<p>La liste ci-dessous reprend l'ensemble des finalistes pour cette catégorie par ordre alphabétique. Chaque participant a reçu par e-mail
+	son score obtenu lors de l'épreuve.</p>
+
+<h3>Finalistes pour la catégorie <i>{% if category == "sec" %}secondaire{% else %}supérieur{% endif %}</i></h3>
+
+	<dl>
+		{% for finalist in object_list %}
+		<dt>{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</dt>
+		<dd><p>{{ finalist.contestant.school.name }} &mdash; {{ finalist.contestant.school.city }}</p></dd>
+		{% endfor %}
+	</dl>
+
+{% endblock %}
