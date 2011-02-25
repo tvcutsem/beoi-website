@@ -94,11 +94,11 @@ def beoi_context(request):
 		
 		context_extras["SIDE_MENU"] = [
 				(u'Nieuws', reverse("home-nl")),
-				(u'Agenda', reverse("calendar-nl")),
+				(u'Kalender', reverse("calendar-nl")),
 				(u'Reglement', reverse("regulations-nl")),
 				(u'Wedstrijd 2011', reverse("semifinal-nl"), [
 					# (u'Inschrijven', reverse("registration-nl")),
-					(u'Halve finales', reverse("semifinal-nl")),
+					(u'Halve finales (+resultaten)', reverse("semifinal-nl")),
 					(u'Finales', reverse("final-nl"))	
 				]),
 				(u'Voorbeeldvragen', reverse("sample-questions-nl")),

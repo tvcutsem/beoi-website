@@ -1,0 +1,22 @@
+{% extends "nl/base.html" %}
+
+{% block content%}
+
+<h2>Halve finales</h2>
+
+<p>De halve finale telde dit jaar  
+{% if category == "sec" %}105 deelnemers in de categorie <i>secundair onderwijs</i>{% else %}147 deelnemers in de categorie <i>hoger onderwijs</i>{% endif %}.
+Daarvan werden {% if category == "sec" %}49{% else %}60{% endif %} deelnemers geselecteerd voor de finales. </p>
+
+<p>Hieronder vind je alle deelnemers in deze categorie in alfabetische volgorde. Elke deelnemer heeft een email ontvangen met daarin zijn/haar score op de halve finales.</p>
+
+<h3>Finalisten in de categorie <i>{% if category == "sec" %}secundair onderwijs{% else %}hoger onderwijs{% endif %}</i></h3>
+
+	<dl>
+		{% for finalist in object_list %}
+		<dt>{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</dt>
+		<dd><p>{{ finalist.contestant.school.name }} &mdash; {{ finalist.contestant.school.city }}</p></dd>
+		{% endfor %}
+	</dl>
+
+{% endblock %}
