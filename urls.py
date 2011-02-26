@@ -32,6 +32,7 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
 
 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
+	url(r'^halve-finale/reglement$',  'direct_to_template', {'template': 'nl/semifinal_rules.html'}, "semifinal-regulations-nl"),
 	
 	url(r'^finales$', 'direct_to_template', {'template': 'fr/final.html'}, "final-fr"),
 	url(r'^finales-nl$', 'direct_to_template', {'template': 'nl/final.html'}, "final-nl"),
@@ -40,7 +41,7 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^opleidingen$', 'direct_to_template', {'template': 'nl/trainings.html'}, "training-nl"),
 
 	url(r'^exemple-questions$', 'direct_to_template', {'template': 'fr/sample_questions.html'}, "sample-questions-fr"),
-	url(r'^vraagvoorbeelden$', 'direct_to_template', {'template': 'nl/sample_questions.html'}, "sample-questions-nl"),
+	url(r'^voorbeeldvragen$', 'direct_to_template', {'template': 'nl/sample_questions.html'}, "sample-questions-nl"),
 
 	url(r'^archives$', 'direct_to_template', {'template': 'fr/archives.html'}, "archives-fr"),
 	url(r'^archieven$', 'direct_to_template', {'template': 'nl/archives.html'}, "archives-nl"),
@@ -74,20 +75,42 @@ urlpatterns += patterns('',
 
 	url(r'^demi-finales/secondaire$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'fr/semifinal_results.html',
-			"queryset": ResultSemifinal.objects
-										.filter(qualified=True)
-										.filter(contestant__contest_category=CONTEST_SEC)
-										.order_by("contestant__surname")
-										.order_by("contestant__firstname"),
-			"extra_context": {"category":"sec"}
+			"queryset": ResultSemifinal.objects.all()
+										.filter(qualified=True,
+												contestant__contest_category=CONTEST_SEC,
+												contestant__contest_year=2011)
+										.order_by("contestant__surname","contestant__firstname"),
+			"extra_context": {"category":"sec" }
 		},"semifinal-sec-fr"),
 
-		
 	url(r'^demi-finales/superieur$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'fr/semifinal_results.html',
-			"queryset": SemifinalCenter.objects.filter(active=True),
+			"queryset": ResultSemifinal.objects
+										.filter(qualified=True,
+												contestant__contest_category=CONTEST_HIGH,
+												contestant__contest_year=2011)
+										.order_by("contestant__surname","contestant__firstname"),
 			"extra_context": {"category":"high"}
-		},"semifinal-sup-fr"),
+		},"semifinal-high-fr"),
+	url(r'^halve-finale/secundair$',  'django.views.generic.list_detail.object_list', {
+			'template_name': 'nl/semifinal_results.html',
+			"queryset": ResultSemifinal.objects.all()
+										.filter(qualified=True,
+												contestant__contest_category=CONTEST_SEC,
+												contestant__contest_year=2011)
+										.order_by("contestant__surname","contestant__firstname"),
+			"extra_context": {"category":"sec" }
+		},"semifinal-sec-nl"),
+
+	url(r'^halve-finale/hoger$',  'django.views.generic.list_detail.object_list', {
+			'template_name': 'nl/semifinal_results.html',
+			"queryset": ResultSemifinal.objects
+										.filter(qualified=True,
+												contestant__contest_category=CONTEST_HIGH,
+												contestant__contest_year=2011)
+										.order_by("contestant__surname","contestant__firstname"),
+			"extra_context": {"category":"high"}
+		},"semifinal-high-nl"),
 
 
 	url(r'^centres-regionaux$',  'django.views.generic.list_detail.object_list', {
