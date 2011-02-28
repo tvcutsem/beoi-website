@@ -15,7 +15,7 @@ Daarvan werden {% if category == "sec" %}49{% else %}60{% endif %} deelnemers ge
 	<dl>
 		{% for finalist in object_list %}
 		<dt>{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</dt>
-		<dd><p>{{ finalist.contestant.school.name }} &mdash; {{ finalist.contestant.school.city }}</p></dd>
+		<dd><p>{{ finalist.contestant.school.name }} &mdash; {% if category == "sec" %}{{ finalist.contestant.year_study }}e middelbaar &mdash; {% endif %}{{ finalist.contestant.school.city }}</p></dd>
 		{% endfor %}
 	</dl>
 
