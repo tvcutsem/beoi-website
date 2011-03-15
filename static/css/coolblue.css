@@ -444,12 +444,12 @@ form label.forminputlabel input {
 .sidemenu ul ul li a:hover { color: #000; }
 
 /* sidemenu face */
-.sidemenu .fadein { 
+.sidemenu .fadein_support { 
 	position:relative; 
 	height:200px; 
 	width:225px; 
 }
-.sidemenu .fadein img { 
+.sidemenu .fadein_support img { 
 	position:absolute; 
 	left:0; 
 	top:0; 
@@ -460,14 +460,21 @@ form label.forminputlabel input {
 	background: white;
 }
 
-.sidemenu .fadeinPrizes { 
+.sidemenu .fadein_prizes { 
 	position:relative; 
 	height:150px; 
 	width:225px; 
 }
 
-.sidemenu .fadeinPrizes li { 
+.sidemenu .fadein_prizes a img { 
 	position:absolute;
+	left:0; 
+	top:0; 
+	border:none;
+	padding:0px;
+	margin:0px;
+	outline:none;
+	background: white;
 }
 
 /* popular */
