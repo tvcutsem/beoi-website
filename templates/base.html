@@ -32,6 +32,10 @@ $(function(){
 	$('.fadein img:gt(0)').hide();
 	setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 3000);
 });
+$(function(){
+	$('.fadeinPrizes li:gt(0)').hide();
+	setInterval(function(){$('.fadeinPrizes :first-child').fadeOut().next('li').fadeIn().prev('li').remove().appendTo('.fadeinPrizes');}, 3000);
+});
 </script>
 
 
@@ -111,15 +115,17 @@ $(function(){
 				<a href="http://www.ibm.com/be/{{LANGUAGE_CODE}}/" target="_blank"><img src="/static/logos/ibm_logo-200.jpg" width="200" height="77" /></a>
 			</div>
 			
+			{% if PRIZE %}
 			<div class="sidemenu">
 				<h3>{% trans "Prizes offered by" %}</h3>
-				<a href="http://www.editions-eyrolles.com/Theme/020000/informatique" target="_blank"><img src="/static/logos/eyrolles-logo-150.jpg" width="150" height="38" /></a><br />
-				<a href="http://www.plantyn.com/wps/portal/{{LANGUAGE_CODE}}" target="_blank"><img src="/static/logos/plantyn-logo-150.jpg" width="150" height="79" /></a>
-				<a href="http://www1.euro.dell.com/content/default.aspx?c=be&l={{LANGUAGE_CODE}}" target="_blank"><img src="/static/logos/dell-2011-logo-150.jpg" width="150" height="107" /></a>
-				<a href="http://www.redcorp.com/" target="_blank"><img src="/static/logos/redcorp-logo-150.jpg" width="150" height="38" /></a>
-				<a href="http://www.irislink.com/" target="_blank"><img src="/static/logos/iris-2011-logo-150.jpg" width="150" height="94" /></a>
+            	<div><ul class="fadeinPrizes">
+				{% for logo in PRIZE %}
+				<li><a href="{{logo.1}}" target="_blank"><img src="/static/logos/{{logo.0}}" width="{{logo.2}}" height="{{logo.3}}" /></a></li>
+				{% endfor %}
+				</ul></div>
 			</div>
-			
+			{% endif %}
+			<!-- Merci Simon :-) -->
 			
 			{% if SUPPORT %}
 			<div class="sidemenu">
@@ -198,7 +204,7 @@ $(function(){
 <div id="footer-bottom">
 
     <p class="bottom-left">
-		&copy; 2010 <strong>be-OI</strong>&nbsp; &nbsp; &nbsp;
+		&copy; 2010-2011 <strong>be-OI</strong>&nbsp; &nbsp; &nbsp;
 		<a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
 
 	 </p>

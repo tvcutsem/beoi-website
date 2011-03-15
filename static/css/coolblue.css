@@ -460,7 +460,15 @@ form label.forminputlabel input {
 	background: white;
 }
 
+.sidemenu .fadeinPrizes { 
+	position:relative; 
+	height:150px; 
+	width:225px; 
+}
 
+.sidemenu .fadeinPrizes li { 
+	position:absolute;
+}
 
 /* popular */
 .popular ul {
