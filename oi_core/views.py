@@ -54,11 +54,11 @@ def beoi_context(request):
 	random.shuffle(context_extras["SUPPORT"])
 	
 	context_extras["PRIZE"] = [ # files in /static/logos/
-		("eyrolles-logo.jpg", "http://www.editions-eyrolles.com/Theme/020000/informatique", 150, 38),
-		("plantyn-logo.jpg", "http://www.plantyn.com/wps/portal/{{LANGUAGE_CODE}}", 150, 79),
-		("dell-2011-logo.jpg", "http://www1.euro.dell.com/content/default.aspx?c=be&l={{LANGUAGE_CODE}}", 150, 107),
-		("redcorp-logo.jpg", "http://www.redcorp.com/", 150, 38),
-		("iris-2011-logo.jpg", "http://www.irislink.com/", 150, 94)
+		("eyrolles-logo.jpg", "http://www.editions-eyrolles.com/Theme/020000/informatique"),
+		("plantyn-logo.jpg", "http://www.plantyn.com/"),
+		("dell-2011-logo.jpg", "http://www.dell.be/"),
+		("redcorp-logo.jpg", "http://www.redcorp.com/"),
+		("iris-2011-logo.jpg", "http://www.irislink.com/")
 	]
 	random.shuffle (context_extras["PRIZE"])
 	

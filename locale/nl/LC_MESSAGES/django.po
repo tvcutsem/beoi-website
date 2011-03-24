@@ -467,7 +467,7 @@ msgstr "Sponsors"
 
 #: templates/base.html:115
 msgid "Prizes offered by"
-msgstr "Prijzen aangeboden door"
+msgstr "Prijzen"
 
 #: templates/base.html:123
 msgid "With support from"
