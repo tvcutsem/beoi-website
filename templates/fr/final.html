@@ -4,7 +4,7 @@
 <h2>Finale<img src="/static/pictures/2011/finale2.jpg" class="withframe float-right" /></h2>
 
 
-<p>Ce sont 38 élèves du secondaire et 54 du supérieur qui ont participé à la finale des Olympiades belges d'Informatique qui a eu lieu le mercredi 30 mars 2011 à Louvain-la-Neuve. Le classement complet des finalistes est repris sur cette page, pour chacun des concours. La finale consistait en une épreuve sur papier et une épreuve sur machine. Vous pouvez télécharger les questions des deux concours :</p>
+<p>Ce sont 38 élèves du secondaire et 54 du supérieur qui ont participé à la finale des Olympiades belges d'Informatique qui a eu lieu le mercredi 30 mars 2011 à Louvain-la-Neuve. Félicitations à tous les participants et tout particulièrement à Benoît Legat et Thomas Van Gysegem, lauréats respectivement dans la catégorie <em>secondaire</em> et <em>supérieur</em>. Le classement complet des finalistes est repris sur cette page, pour chacun des concours. La finale consistait en une épreuve sur papier et une épreuve sur machine. Vous pouvez télécharger les questions des deux concours :</p>
 
 <ul>
 	<li>Catégorie secondaire : <a href="/static/downloads/OI-2011-final-sec-paper-fr.pdf">partie papier</a> et <a href="/static/downloads/OI-2011-final-sec-comp-fr.pdf">partie machine</a> ;</li>
@@ -21,16 +21,16 @@
 <img class="withframe" src="/static/pictures/2011/group_sec.jpg" />
 
 <table>
-<tr><th>Pos.</th><th>Nom</th><th>Etablissement</th><th>Pap.</th><th>Mach.</th><th>Tot.</th></tr>
+<tr><th>#</th><th>Nom</th><th>Etablissement</th><th><img title="Score partie papier" class="icons" src="/static/icons/pen.png" /></th><th><img title="Score partie machine" class="icons" src="/static/icons/keyboard.png" /></th><th><img title="Score total" class="icons" src="/static/icons/sum.png" /></th></tr>
 <tr>
 	{% for finalist in object_list %}
 	{% if finalist.contestant.contest_category == 0 %}
 	<td>{{ finalist.rank }}</td>
-	<td>{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</td>
+	<td nowrap="nowrap">{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</td>
 	<td>{{ finalist.contestant.school.name }}, {{ finalist.contestant.school.city }} &mdash; {{ finalist.contestant.year_study }}e</td>
-	<td>{{ finalist.score_written }}</td>
-	<td>{{ finalist.score_computer }}</td>
-	<td>{{ finalist.total }}</td>
+	<td>{{ finalist.score_written }}%</td>
+	<td>{{ finalist.score_computer }}%</td>
+	<td><strong>{{ finalist.total }}%</strong></td>
 </tr>
 	{% endif %}
 	{% endfor %}
@@ -45,16 +45,15 @@
 
 
 <table>
-<tr><th>Pos.</th><th>Nom</th><th>Etablissement</th><th>Pap.</th><th>Mach.</th><th>Tot.</th></tr>
-<tr>
+<tr><th>#</th><th>Nom</th><th>Etablissement</th><th><img title="Score partie papier" class="icons" src="/static/icons/pen.png" /></th><th><img title="Score partie machine" class="icons" src="/static/icons/keyboard.png" /></th><th><img title="Score total" class="icons" src="/static/icons/sum.png" /></th></tr><tr>
 	{% for finalist in object_list %}
 	{% if finalist.contestant.contest_category == 1 %}
 	<td>{{ finalist.rank }}</td>
-	<td>{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</td>
+	<td nowrap="nowrap">{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</td>
 	<td>{{ finalist.contestant.school.name }}, {{ finalist.contestant.school.city }}</td>
-	<td>{{ finalist.score_written }}</td>
-	<td>{{ finalist.score_computer }}</td>
-	<td>{{ finalist.total }}</td>
+	<td>{{ finalist.score_written }}%</td>
+	<td>{{ finalist.score_computer }}%</td>
+	<td><strong>{{ finalist.total }}%</strong></td>
 </tr>
 	{% endif %}
 	{% endfor %}

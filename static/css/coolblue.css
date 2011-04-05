@@ -72,6 +72,10 @@ p, dl { margin: 10px 25px; }
 img {
    border: none;
 }
+img.icons {
+   	padding: 0px;
+	margin: 0px 0px -2px;
+}
 img.withframe, .post img {
    background: #F3F4F5;
    border: 1px solid #E2E4E7;
