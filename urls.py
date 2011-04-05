@@ -77,7 +77,7 @@ urlpatterns += patterns('',
 	url(r'^finales-fr$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'fr/final.html',
 			"queryset": ResultFinal.objects
-										.extra(select={"total":"(score_written*2/3+score_computer/3)"})
+										.extra(select={"total":"(score_written*2+score_computer)/3"})
 										.filter(contestant__contest_year=2011)
 										.order_by("rank")
 		},"final-fr"),
@@ -85,7 +85,7 @@ urlpatterns += patterns('',
 	url(r'^finales-nl$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'nl/final.html',
 			"queryset": ResultFinal.objects
-										.extra(select={"total":"(score_written*2/3+score_computer/3)"})
+										.extra(select={"total":"(score_written*2+score_computer)/3"})
 										.filter(contestant__contest_year=2011)
 										.order_by("-rank"),
 		},"final-nl"),
