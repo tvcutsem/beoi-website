@@ -323,13 +323,7 @@ class RegistrationTest(TransactionTestCase):
 		# a non-existing center should be render any confirm page 
 		self.failUnlessEqual(response.status_code, 404)
 
-# 
-# 
-# class SemifinalResultTest(TransactionTestCase):
-# 
-# 	fixtures = ['test_data']
-
-	def test_secondary_page(self):
+	def test_secondary_semifinal_result_page(self):
 
 		response = self.client.get(urlresultsecfr)
 		
@@ -349,7 +343,7 @@ class RegistrationTest(TransactionTestCase):
 		# the one from a previous year should NOT be in the page
 		self.assertNotContains(response, "Poiuy")
 		
-	def test_high_school_page(self):
+	def test_high_school_semifinal_result_page(self):
 
 		response = self.client.get(urlresulthighfr)
 
@@ -363,4 +357,15 @@ class RegistrationTest(TransactionTestCase):
 		self.assertNotContains(response, "Cattoir")
 		self.assertNotContains(response, "Acbacb")
 
+
+	def test_final_result_page(self):
+
+		response = self.client.get(reverse("final-fr"))
+
+		# first check the ones that should be in the page
+		self.assertContains(response, "Cambier") #high
+		self.assertContains(response, "Cattoir") #sec
+
+		# the one from a previous year should NOT be in the page
+		self.assertNotContains(response, "Poiuy")
 

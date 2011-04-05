@@ -34,8 +34,8 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
 	url(r'^halve-finale/reglement$',  'direct_to_template', {'template': 'nl/semifinal_rules.html'}, "semifinal-regulations-nl"),
 	
-	url(r'^finales$', 'direct_to_template', {'template': 'fr/final.html'}, "final-fr"),
-	url(r'^finales-nl$', 'direct_to_template', {'template': 'nl/final.html'}, "final-nl"),
+	url(r'^finales-fr/reglement$', 'direct_to_template', {'template': 'fr/final_rules.html'}, "final-rules-fr"),
+	url(r'^finales-nl/reglement$', 'direct_to_template', {'template': 'nl/final_rules.html'}, "final-rules-nl"),
 	
 	url(r'^formations$', 'direct_to_template', {'template': 'fr/trainings.html'}, "training-fr"),
 	url(r'^opleidingen$', 'direct_to_template', {'template': 'nl/trainings.html'}, "training-nl"),
@@ -73,9 +73,26 @@ urlpatterns += patterns('django.views.generic.simple',
 # Django views
 urlpatterns += patterns('',
 
+
+	url(r'^finales-fr$',  'django.views.generic.list_detail.object_list', {
+			'template_name': 'fr/final.html',
+			"queryset": ResultFinal.objects
+										.extra(select={"total":"(score_written*2/3+score_computer/3)"})
+										.filter(contestant__contest_year=2011)
+										.order_by("rank")
+		},"final-fr"),
+		
+	url(r'^finales-nl$',  'django.views.generic.list_detail.object_list', {
+			'template_name': 'nl/final.html',
+			"queryset": ResultFinal.objects
+										.extra(select={"total":"(score_written*2/3+score_computer/3)"})
+										.filter(contestant__contest_year=2011)
+										.order_by("-rank"),
+		},"final-nl"),
+
 	url(r'^demi-finales/secondaire$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'fr/semifinal_results.html',
-			"queryset": ResultSemifinal.objects.all()
+			"queryset": ResultSemifinal.objects
 										.filter(qualified=True,
 												contestant__contest_category=CONTEST_SEC,
 												contestant__contest_year=2011)
@@ -94,7 +111,7 @@ urlpatterns += patterns('',
 		},"semifinal-high-fr"),
 	url(r'^halve-finale/secundair$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'nl/semifinal_results.html',
-			"queryset": ResultSemifinal.objects.all()
+			"queryset": ResultSemifinal.objects
 										.filter(qualified=True,
 												contestant__contest_category=CONTEST_SEC,
 												contestant__contest_year=2011)

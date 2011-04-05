@@ -199,5 +199,15 @@
 			"qualified": true, 
 			"score": 45
 		}
+	},
+	{
+		"pk": 7, 
+		"model": "contest.resulfinal", 
+		"fields": {
+			"contestant": 28, 
+			"score_written": 12, 
+			"score_computer": 22, 
+			"rank": 1
+		}
 	}
 ]
