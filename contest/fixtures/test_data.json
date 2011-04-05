@@ -201,8 +201,18 @@
 		}
 	},
 	{
-		"pk": 7, 
-		"model": "contest.resulfinal", 
+		"pk": 1, 
+		"model": "contest.resultfinal", 
+		"fields": {
+			"contestant": 25, 
+			"score_written": 12, 
+			"score_computer": 22, 
+			"rank": 1
+		}
+	},
+	{
+		"pk": 9, 
+		"model": "contest.resultfinal", 
 		"fields": {
 			"contestant": 28, 
 			"score_written": 12, 

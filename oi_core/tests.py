@@ -64,6 +64,10 @@ class OiCoreTest(TestCase):
 		self.__reverse_200_contains("final-fr",FR)
 		self.__reverse_200_contains("final-nl",NL)
 
+	def test_final_rules(self):
+		self.__reverse_200_contains("final-rules-fr",FR)
+	#	self.__reverse_200_contains("final-rules-nl",NL)
+
 	def test_sample_questions(self):
 		self.__reverse_200_contains("sample-questions-fr",FR)
 		self.__reverse_200_contains("sample-questions-nl",NL)
