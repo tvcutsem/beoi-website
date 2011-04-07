@@ -87,7 +87,7 @@ urlpatterns += patterns('',
 			"queryset": ResultFinal.objects
 										.extra(select={"total":"(score_written*2+score_computer)/3"})
 										.filter(contestant__contest_year=2011)
-										.order_by("-rank"),
+										.order_by("rank"),
 		},"final-nl"),
 
 	url(r'^demi-finales/secondaire$',  'django.views.generic.list_detail.object_list', {
