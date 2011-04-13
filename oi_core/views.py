@@ -73,7 +73,8 @@ def beoi_context(request):
 				(u'Concours 2011', reverse("semifinal-fr"), [
 					# (u'Inscription', reverse("registration-fr")),
 					(u'Demi-finales', reverse("semifinal-fr")),
-					(u'Finales', reverse("final-fr"))	
+					(u'Finales', reverse("final-fr")),	
+					(u'Olympiades Internationales', reverse("ioi-fr"))	
 				]),
 				(u'Formations', reverse("training-fr")),
 				(u'Exemples de Questions', reverse("sample-questions-fr")),
