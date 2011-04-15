@@ -7,23 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-20 17:59+0100\n"
+"POT-Creation-Date: 2011-04-15 17:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings_common.py:36 contest/models.py:13 faq/models.py:10
-#: news/models.py:28
+#: settings_common.py:36 contest/models.py:13 news/models.py:28
 msgid "French"
 msgstr "Frans"
 
-#: settings_common.py:37 contest/models.py:14 faq/models.py:11
-#: news/models.py:29
+#: settings_common.py:37 contest/models.py:14 news/models.py:29
 msgid "Dutch"
 msgstr "Nederlands"
 
@@ -307,11 +305,12 @@ msgstr "naam"
 msgid "venue details"
 msgstr "details van de locatie"
 
-#: contest/models.py:126 faq/models.py:45 news/models.py:41
+#: contest/models.py:126 news/models.py:41
 msgid ""
 "HTML tags are allowed. &lt;p&gt;...&lt;/p&gt; tags MUST be used for text!"
 msgstr ""
-"HTML tags zijn toegelaten. &lt;p&gt;...&lt;/p&gt; tags MOETEN gebruikt worden voor tekst!"
+"HTML tags zijn toegelaten. &lt;p&gt;...&lt;/p&gt; tags MOETEN gebruikt "
+"worden voor tekst!"
 
 #: contest/models.py:127
 msgid "in current proposal list"
@@ -365,46 +364,6 @@ msgstr "eindresultaten"
 msgid "Registering to Belgian Olympiads in Informatics"
 msgstr "Inschrijven voor de Belgische Olympiades in de Informatica"
 
-#: faq/models.py:36 news/models.py:20
-msgid "Offline"
-msgstr "Offline"
-
-#: faq/models.py:37 news/models.py:21
-msgid "Online"
-msgstr "Online"
-
-#: faq/models.py:41
-msgid "question"
-msgstr "vraag"
-
-#: faq/models.py:41
-msgid "No HTML needed (but can be used)"
-msgstr "HTML niet nodig (maar kan gebruikt worden)"
-
-#: faq/models.py:42 faq/models.py:43 news/models.py:39
-msgid "status"
-msgstr "status"
-
-#: faq/models.py:44 news/models.py:40
-msgid "language"
-msgstr "taal"
-
-#: faq/models.py:45
-msgid "answer"
-msgstr "antwoord"
-
-#: faq/models.py:52 news/models.py:48
-msgid "news entry"
-msgstr "nieuwsbericht"
-
-#: faq/models.py:53 news/models.py:49
-msgid "news entries"
-msgstr "nieuwsberichten"
-
-#: faq/models.py:65
-msgid "category name"
-msgstr "categorie"
-
 #: news/admin.py:18
 msgid "Headline"
 msgstr "Titel"
@@ -416,6 +375,14 @@ msgstr "Publicatie"
 #: news/admin.py:20
 msgid "Body"
 msgstr "Tekst"
+
+#: news/models.py:20
+msgid "Offline"
+msgstr "Offline"
+
+#: news/models.py:21
+msgid "Online"
+msgstr "Online"
 
 #: news/models.py:33
 msgid "title"
@@ -441,43 +408,59 @@ msgstr "datum van publicatie"
 msgid "If in the future, the news will be visible from this time"
 msgstr "Als in de toekomst, het nieuws zichtbaar zal zijn vanaf dit tijdstip"
 
+#: news/models.py:39
+msgid "status"
+msgstr "status"
+
+#: news/models.py:40
+msgid "language"
+msgstr "taal"
+
 #: news/models.py:41
 msgid "body"
 msgstr "tekst"
 
-#: templates/base.html:45 templates/fr/base.html:7 templates/nl/base.html:8
+#: news/models.py:48
+msgid "news entry"
+msgstr "nieuwsbericht"
+
+#: news/models.py:49
+msgid "news entries"
+msgstr "nieuwsberichten"
+
+#: templates/base.html:49 templates/fr/base.html:7 templates/nl/base.html:8
 msgid "Belgian Olympiads in Informatics"
 msgstr "Belgische Olympiades in de Informatica"
 
-#: templates/base.html:46
+#: templates/base.html:50
 msgid "Programming, algorithmic and logic"
 msgstr "Programmeren, algoritmiek en logica"
 
-#: templates/base.html:79
+#: templates/base.html:83
 msgid "Contest"
 msgstr "Wedstrijd"
 
-#: templates/base.html:95
+#: templates/base.html:99
 msgid "Organisation"
 msgstr "Organisatie"
 
-#: templates/base.html:110
+#: templates/base.html:114
 msgid "Sponsors"
 msgstr "Sponsors"
 
-#: templates/base.html:115
+#: templates/base.html:120
 msgid "Prizes offered by"
 msgstr "Prijzen"
 
-#: templates/base.html:123
+#: templates/base.html:132
 msgid "With support from"
 msgstr "Met de steun van"
 
-#: templates/base.html:167
+#: templates/base.html:176
 msgid "Flickr Photos"
 msgstr "Flickr Foto's"
 
-#: templates/base.html:180
+#: templates/base.html:189
 msgid "Archives"
 msgstr "Archieven"
 
@@ -493,6 +476,18 @@ msgstr "Blijf op de hoogte. Abonneer je via"
 msgid "or"
 msgstr "of"
 
+#~ msgid "question"
+#~ msgstr "vraag"
+
+#~ msgid "No HTML needed (but can be used)"
+#~ msgstr "HTML niet nodig (maar kan gebruikt worden)"
+
+#~ msgid "answer"
+#~ msgstr "antwoord"
+
+#~ msgid "category name"
+#~ msgstr "categorie"
+
 #~ msgid "Incorrect year"
 #~ msgstr "Ongeldig jaar"
 
@@ -503,4 +498,5 @@ msgstr "of"
 #~ msgstr "Belgische Olympiades in de Informatica: RSS Entries"
 
 #~ msgid "RSS feed of recent news from Belgian Olympiads in Informatics"
-#~ msgstr "RSS feed van recent nieuws van de Belgische Olympiades in de Informatica"
+#~ msgstr ""
+#~ "RSS feed van recent nieuws van de Belgische Olympiades in de Informatica"
