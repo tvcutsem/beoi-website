@@ -32,7 +32,7 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
 
 	url(r'^olympiades-internationales$',  'direct_to_template', {'template': 'fr/ioi.html'}, "ioi-fr"),
-	#to uncomment: url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/ioi.html'}, "ioi-nl"),
+	url(r'^internationale-olympiade$',  'direct_to_template', {'template': 'nl/ioi.html'}, "ioi-nl"),
 
 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
 	url(r'^halve-finale/reglement$',  'direct_to_template', {'template': 'nl/semifinal_rules.html'}, "semifinal-regulations-nl"),

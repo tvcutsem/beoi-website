@@ -7,23 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-20 17:59+0100\n"
+"POT-Creation-Date: 2011-04-15 17:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 
-#: settings_common.py:36 contest/models.py:13 faq/models.py:10
-#: news/models.py:28
+#: settings_common.py:36 contest/models.py:13 news/models.py:28
 msgid "French"
 msgstr "Français"
 
-#: settings_common.py:37 contest/models.py:14 faq/models.py:11
-#: news/models.py:29
+#: settings_common.py:37 contest/models.py:14 news/models.py:29
 msgid "Dutch"
 msgstr "Néerlandais"
 
@@ -307,7 +305,7 @@ msgstr "nom"
 msgid "venue details"
 msgstr ""
 
-#: contest/models.py:126 faq/models.py:45 news/models.py:41
+#: contest/models.py:126 news/models.py:41
 msgid ""
 "HTML tags are allowed. &lt;p&gt;...&lt;/p&gt; tags MUST be used for text!"
 msgstr ""
@@ -364,46 +362,6 @@ msgstr "résultats de la finale"
 msgid "Registering to Belgian Olympiads in Informatics"
 msgstr "Inscription aux Olympiades belges d'Informatique"
 
-#: faq/models.py:36 news/models.py:20
-msgid "Offline"
-msgstr ""
-
-#: faq/models.py:37 news/models.py:21
-msgid "Online"
-msgstr ""
-
-#: faq/models.py:41
-msgid "question"
-msgstr ""
-
-#: faq/models.py:41
-msgid "No HTML needed (but can be used)"
-msgstr ""
-
-#: faq/models.py:42 faq/models.py:43 news/models.py:39
-msgid "status"
-msgstr ""
-
-#: faq/models.py:44 news/models.py:40
-msgid "language"
-msgstr ""
-
-#: faq/models.py:45
-msgid "answer"
-msgstr ""
-
-#: faq/models.py:52 news/models.py:48
-msgid "news entry"
-msgstr ""
-
-#: faq/models.py:53 news/models.py:49
-msgid "news entries"
-msgstr ""
-
-#: faq/models.py:65
-msgid "category name"
-msgstr ""
-
 #: news/admin.py:18
 msgid "Headline"
 msgstr ""
@@ -414,6 +372,14 @@ msgstr ""
 
 #: news/admin.py:20
 msgid "Body"
+msgstr ""
+
+#: news/models.py:20
+msgid "Offline"
+msgstr ""
+
+#: news/models.py:21
+msgid "Online"
 msgstr ""
 
 #: news/models.py:33
@@ -440,43 +406,59 @@ msgstr ""
 msgid "If in the future, the news will be visible from this time"
 msgstr ""
 
+#: news/models.py:39
+msgid "status"
+msgstr ""
+
+#: news/models.py:40
+msgid "language"
+msgstr ""
+
 #: news/models.py:41
 msgid "body"
 msgstr ""
 
-#: templates/base.html:45 templates/fr/base.html:7 templates/nl/base.html:8
+#: news/models.py:48
+msgid "news entry"
+msgstr ""
+
+#: news/models.py:49
+msgid "news entries"
+msgstr ""
+
+#: templates/base.html:49 templates/fr/base.html:7 templates/nl/base.html:8
 msgid "Belgian Olympiads in Informatics"
 msgstr "Olympiades belges d'Informatique"
 
-#: templates/base.html:46
+#: templates/base.html:50
 msgid "Programming, algorithmic and logic"
 msgstr "Programmation, algorithmique et logique"
 
-#: templates/base.html:79
+#: templates/base.html:83
 msgid "Contest"
 msgstr "Épreuve"
 
-#: templates/base.html:95
+#: templates/base.html:99
 msgid "Organisation"
 msgstr "Organisation"
 
-#: templates/base.html:110
+#: templates/base.html:114
 msgid "Sponsors"
 msgstr ""
 
-#: templates/base.html:115
+#: templates/base.html:120
 msgid "Prizes offered by"
 msgstr "Prix offerts par"
 
-#: templates/base.html:123
+#: templates/base.html:132
 msgid "With support from"
 msgstr "Avec le soutien de"
 
-#: templates/base.html:167
+#: templates/base.html:176
 msgid "Flickr Photos"
 msgstr "Photos Flickr"
 
-#: templates/base.html:180
+#: templates/base.html:189
 msgid "Archives"
 msgstr "Archives"
 

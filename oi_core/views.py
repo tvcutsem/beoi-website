@@ -110,7 +110,8 @@ def beoi_context(request):
 				(u'Wedstrijd 2011', reverse("semifinal-nl"), [
 					# (u'Inschrijven', reverse("registration-nl")),
 					(u'Halve finales', reverse("semifinal-nl")),
-					(u'Finales', reverse("final-nl"))	
+					(u'Finales', reverse("final-nl")),
+					(u'Internationale Olympiade', reverse("ioi-nl"))	
 				]),
 				(u'Opleidingen', reverse("training-nl")),
 				(u'Voorbeeldvragen', reverse("sample-questions-nl")),
