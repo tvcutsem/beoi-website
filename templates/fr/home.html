@@ -8,7 +8,7 @@
 
 <h3>Dernières news</h3>
 
-    {% for entry in latest %}
+    {% for entry in object_list %}
 
 	<div class="post">
 		<div class="right">
@@ -28,5 +28,17 @@
 		</div>
 	</div>
     {% endfor %}
+
+{% if paginator.num_pages > 1 %}
+	<p>[ pages: 
+	{% for page in paginator.page_range %}
+		{% if page != page_obj.number %} 
+		<a href="{% url home-fr page=page %}">{{page}}</a> 
+		{% else%} 
+		<strong>{{page}}</strong>
+		{% endif %}
+	{% endfor %}
+	]</p>
+{% endif %}
 
 {% endblock %}

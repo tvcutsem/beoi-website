@@ -28,7 +28,77 @@
             "title": "Une extension \u00e0 toute ...", 
             "body": "<p>News in French</p>", 
             "creation_date": "2010-12-19 23:20:27", 
-            "publication_date": "2010-12-24 09:11:13"
+            "publication_date": "2011-07-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 0, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news2", 
+            "body": "<p>News2</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-01-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 0, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news3", 
+            "body": "<p>News3</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-02-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 0, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news4", 
+            "body": "<p>News4</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-03-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 0, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news5", 
+            "body": "<p>News5</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-04-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 0, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news1", 
+            "body": "<p>News1</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2010-05-24 09:11:13"
         }
     }, 
     {
@@ -42,7 +112,77 @@
             "title": "Een uitbreiding tot ...", 
             "body": "<p>News in Dutch</p>", 
             "creation_date": "2010-12-20 20:42:10", 
-            "publication_date": "2010-12-24 09:11:22"
+            "publication_date": "2011-07-24 09:1:22"
+        }
+    },	
+    {
+        "pk": 8, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 1, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news2", 
+            "body": "<p>News2</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-01-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 1, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news3", 
+            "body": "<p>News3</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-02-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 1, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news4", 
+            "body": "<p>News4</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-03-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 1, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news5", 
+            "body": "<p>News5</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2011-04-24 09:11:13"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "news.news", 
+        "fields": {
+            "status": 1, 
+            "lang": 1, 
+            "modification_date": "2010-12-24 12:11:53", 
+            "author": 1, 
+            "title": "news1", 
+            "body": "<p>News1</p>", 
+            "creation_date": "2010-12-19 23:20:27", 
+            "publication_date": "2010-08-24 09:11:13"
         }
     }
 ]

@@ -10,7 +10,7 @@
 
 <h3>Laatste nieuws</h3>
 
-    {% for entry in latest %}
+    {% for entry in object_list %}
 
 	<div class="post">
 		<div class="right">
@@ -30,6 +30,19 @@
 		</div>
 	</div>
     {% endfor %}
+
+	{% if paginator.num_pages > 1 %}
+		<p>[ pagina: 
+		{% for page in paginator.page_range %}
+			{% if page != page_obj.number %} 
+			<a href="{% url home-nl page=page %}">{{page}}</a> 
+			{% else%} 
+			<strong>{{page}}</strong>
+			{% endif %}
+		{% endfor %}
+		]</p>
+	{% endif %}
+
 
 {% endblock %}
 

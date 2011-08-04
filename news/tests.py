@@ -22,5 +22,35 @@ class NewsTest(TestCase):
         self.assertContains(responsenl, 'News in Dutch', 1, status_code=200) 
         self.assertNotContains(responsenl, 'News in French')
 
-
+    def test_pagination(self):
+        
+        response = self.client.get(reverse('home-fr'))
+        self.assertContains(response, 'News2', 1, status_code=200)  
+        self.assertContains(response, 'News5', 1, status_code=200)  
+        self.assertNotContains(response, 'News1')  
+        
+        response = self.client.get(reverse('home-fr', args=[1]))
+        self.assertContains(response, 'News2', 1, status_code=200)  
+        self.assertContains(response, 'News5', 1, status_code=200)  
+        self.assertNotContains(response, 'News1')
+        
+        response = self.client.get(reverse('home-fr',args=[2]))
+        self.assertContains(response, 'News1', 1, status_code=200)  
+        self.assertNotContains(response, 'News2')  
+        self.assertNotContains(response, 'News5')  
+        
+        response = self.client.get(reverse('home-nl'))
+        self.assertContains(response, 'News2', 1, status_code=200)  
+        self.assertContains(response, 'News5', 1, status_code=200)  
+        self.assertNotContains(response, 'News1')  
+        
+        response = self.client.get(reverse('home-nl', args=[1]))
+        self.assertContains(response, 'News2', 1, status_code=200)  
+        self.assertContains(response, 'News5', 1, status_code=200)  
+        self.assertNotContains(response, 'News1')
+        
+        response = self.client.get(reverse('home-nl',args=[2]))
+        self.assertContains(response, 'News1', 1, status_code=200)  
+        self.assertNotContains(response, 'News2')  
+        self.assertNotContains(response, 'News5')  
 

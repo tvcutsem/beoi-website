@@ -152,19 +152,38 @@ urlpatterns += patterns('',
 				"queryset": SemifinalCenter.objects.filter(active=True) 
 			}, "registration-confirm-nl"),
 
-	url(r'^accueil$', 'django.views.generic.date_based.archive_index', {
-				'queryset':News.online_objects.filter(lang=News.LANG_FR),
-    			'date_field': 'publication_date',
-				'template_name': "fr/home.html",
-				'num_latest':5
-			}, 'home-fr'),
+   	url(r'^accueil/$', 
+   	    'django.views.generic.list_detail.object_list', {
+			'queryset': News.online_objects.filter(lang=News.LANG_FR)\
+			            .order_by("-publication_date"),
+			'template_name': "fr/home.html",
+			'paginate_by': 5,
+			'page': 1
+		}, 'home-fr'),
+   	url(r'^accueil/(?P<page>[0-9]+)/$', 
+   	    'django.views.generic.list_detail.object_list', {
+			'queryset': News.online_objects.filter(lang=News.LANG_FR)\
+			            .order_by("-publication_date"),
+			'template_name': "fr/home.html",
+			'paginate_by': 5
+		}, 'home-fr'),
 
-	url(r'^home$',	'django.views.generic.date_based.archive_index', {
-				'queryset':News.online_objects.filter(lang=News.LANG_NL),
-    			'date_field': 'publication_date',
-				'template_name': "nl/home.html",
-				'num_latest':5
-			}, 'home-nl'),
+	url(r'^home/$', 
+	    'django.views.generic.list_detail.object_list', {
+		'queryset': News.online_objects.filter(lang=News.LANG_NL)\
+		            .order_by("-publication_date"),
+		'template_name': "nl/home.html",
+		'paginate_by': 5,
+		'page': 1
+	}, 'home-nl'),
+	
+	url(r'^home/(?P<page>[0-9]+)/$', 
+	    'django.views.generic.list_detail.object_list', {
+		'queryset': News.online_objects.filter(lang=News.LANG_NL)\
+		            .order_by("-publication_date"),
+		'template_name': "nl/home.html",
+		'paginate_by': 5
+	}, 'home-nl'),
 	
 	url(r'^rss-fr$', RssNewsFr(), {}, "rss-fr"),
 	url(r'^rss-nl$', RssNewsNl(), {}, "rss-nl"),
