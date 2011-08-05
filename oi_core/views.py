@@ -94,9 +94,8 @@ def beoi_context(request):
 			]
 		
 		context_extras["ARCHIVES_MENU"] = [
-				(u'Demi-Finales OI 2010', reverse("semifinals-2010-fr")),
-				(u'Finales OI 2010', reverse("finals-2010-fr")),
-				(u'Délégation belge aux IOI 2010', reverse("2010-ioi-belgian-delegation-fr"))
+				(u'2011', reverse("archive-2011-fr")),
+				(u'2010', reverse("archive-2010-fr")),
 			]
 		
 	elif request.LANGUAGE_CODE == "nl":

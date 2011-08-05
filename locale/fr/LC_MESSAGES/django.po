@@ -428,7 +428,7 @@ msgstr ""
 
 #: templates/base.html:49 templates/fr/base.html:7 templates/nl/base.html:8
 msgid "Belgian Olympiads in Informatics"
-msgstr "Olympiades belges d'Informatique"
+msgstr "Olympiade belge d'Informatique"
 
 #: templates/base.html:50
 msgid "Programming, algorithmic and logic"

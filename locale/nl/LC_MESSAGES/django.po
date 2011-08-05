@@ -430,7 +430,7 @@ msgstr "nieuwsberichten"
 
 #: templates/base.html:49 templates/fr/base.html:7 templates/nl/base.html:8
 msgid "Belgian Olympiads in Informatics"
-msgstr "Belgische Olympiades in de Informatica"
+msgstr "Belgische Olympiade in de Informatica"
 
 #: templates/base.html:50
 msgid "Programming, algorithmic and logic"
