@@ -61,6 +61,9 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^presse$', 'direct_to_template', {'template': 'fr/press.html'}, "press-fr"),
 	url(r'^pers$', 'direct_to_template', {'template': 'nl/press.html'}, "press-nl"),
 	
+	url(r'^archives/2010$', 'direct_to_template', {'template': 'fr/2010/index.html'}, "archive-2010-fr"),
+	url(r'^archives/2011$', 'direct_to_template', {'template': 'fr/2011/index.html'}, "archive-2011-fr"),
+	
 	url(r'^archives/2010/demi-finales$', 'direct_to_template', {'template': 'fr/2010/semifinals.html'}, "semifinals-2010-fr"),
 	url(r'^archives/2010/halve-finale$', 'direct_to_template', {'template': 'nl/2010/semifinals.html'}, "semifinals-2010-nl"),
 	
@@ -69,6 +72,15 @@ urlpatterns += patterns('django.views.generic.simple',
 	
 	url(r'^archives/2010/ioi2010-delegation-belge$', 'direct_to_template', {'template': 'fr/2010/ioi2010-belgian-delegation.html'}, "2010-ioi-belgian-delegation-fr"),
 	url(r'^archives/2010/ioi2010-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2010/ioi2010-belgian-delegation.html'}, "2010-ioi-belgian-delegation-nl"),
+	
+	url(r'^archives/2011/demi-finales$', 'direct_to_template', {'template': 'fr/2011/semifinals.html'}, "semifinals-2011-fr"),
+	url(r'^archives/2011/halve-finale$', 'direct_to_template', {'template': 'nl/2011/semifinals.html'}, "semifinals-2011-nl"),
+	
+	url(r'^archives/2011/finales$', 'direct_to_template', {'template': 'fr/2011/finals.html'}, "finals-2011-fr"),
+	url(r'^archives/2011/finale$', 'direct_to_template', {'template': 'nl/2011/finals.html'}, "finals-2011-nl"),
+	
+	url(r'^archives/2011/ioi2011-delegation-belge$', 'direct_to_template', {'template': 'fr/2011/ioi2011-belgian-delegation.html'}, "2011-ioi-belgian-delegation-fr"),
+	url(r'^archives/2011/ioi2011-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2011/ioi2011-belgian-delegation.html'}, "2011-ioi-belgian-delegation-nl"),
 
 )
 
