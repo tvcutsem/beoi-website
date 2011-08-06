@@ -4,6 +4,8 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.views.generic.simple import direct_to_template
 from django.core.urlresolvers import resolve
+from beoi.oi_core.models import *
+from django.http import HttpResponseRedirect
 import random
 
 def home(request):
@@ -15,7 +17,28 @@ def home(request):
 	
 	return 	render_to_response('home.html', {"HOME":1}, context_instance=RequestContext(request))
 
+def keepuptodate(request, template="", confirm=None):
+    from beoi.oi_core.forms import KeepUpToDateForm
+    
+    if request.method == 'POST':
+        form = KeepUpToDateForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            Interested(email=cd["email"]).save()
+            return HttpResponseRedirect(reverse("oi2012-fr",args=["confirm"]))
+    else: 
+        form = KeepUpToDateForm()
+    
+    
+    return 	render_to_response(template, 
+        {
+         "confirm":confirm,
+         'form': form,
+         "global_errors": form.non_field_errors()
+         }, 
+        context_instance=RequestContext(request))
 
+                            	
 def beoi_context(request): 
 	
 	context_extras = {}
@@ -70,15 +93,19 @@ def beoi_context(request):
 				(u'News', reverse("home-fr")),
 				(u'Calendrier', reverse("calendar-fr")),
 				(u'Règlement', reverse("regulations-fr")),
-				(u'Concours 2011', reverse("semifinal-fr"), [
+				(u'Concours 2012', reverse("oi2012-fr")), 
+				#(u'Concours 2011', reverse("semifinal-fr"), [
 					# (u'Inscription', reverse("registration-fr")),
-					(u'Demi-finales', reverse("semifinal-fr")),
-					(u'Finales', reverse("final-fr")),	
-					(u'Olympiades Internationales', reverse("ioi-fr"))	
-				]),
-				(u'Formations', reverse("training-fr")),
+					#(u'Demi-finales', reverse("semifinal-fr")),
+					#(u'Finales', reverse("final-fr")),	
+					#(u'Olympiades Internationales', reverse("ioi-fr"))	
+				#]),
+                # (u'Formations', reverse("training-fr")),
 				(u'Exemples de Questions', reverse("sample-questions-fr")),
-				(u'Archives', reverse("archives-fr")),
+				(u'Archives', reverse("archives-fr"), [
+				   (u'2010', reverse("archive-2010-fr")),
+				   (u'2011', reverse("archive-2011-fr")),
+				])
 			]
 			
 		context_extras["ORGANISATION_MENU"] = [
@@ -112,7 +139,7 @@ def beoi_context(request):
 					(u'Finales', reverse("final-nl")),
 					(u'Internationale Olympiade', reverse("ioi-nl"))	
 				]),
-				(u'Opleidingen', reverse("training-nl")),
+                # (u'Opleidingen', reverse("training-nl")),
 				(u'Voorbeeldvragen', reverse("sample-questions-nl")),
 				(u'Archieven', reverse("archives-nl")),
 			]

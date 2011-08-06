@@ -16,11 +16,17 @@ urlpatterns = patterns('',
 
 	url(r'^$', 'beoi.oi_core.views.home', {}, "home"),
 
+    url(r'^tenirajour/(?P<confirm>confirm)?$',
+            'beoi.oi_core.views.keepuptodate', 
+            {'template': 'fr/keepuptodate.html'}, 
+            "oi2012-fr"),
+
 )
 
 # static pages (url can be changed without affecting links)
 urlpatterns += patterns('django.views.generic.simple',
-	
+
+
 
 	url(r'^calendrier$', 'direct_to_template', {'template': 'fr/calendar.html'}, "calendar-fr"),
 	url(r'^agenda$', 'direct_to_template', {'template': 'nl/calendar.html'}, "calendar-nl"),
@@ -28,20 +34,22 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^reglement$', 'direct_to_template', {'template': 'fr/regulations.html'}, "regulations-fr"),
 	url(r'^reglement-nl$', 'direct_to_template', {'template': 'nl/regulations.html'}, "regulations-nl"),
 
-	url(r'^demi-finales$',  'direct_to_template', {'template': 'fr/semifinal.html'}, "semifinal-fr"),
+#	url(r'^demi-finales$',  'direct_to_template', {'template': 'fr/semifinal.html'}, "semifinal-fr"),
 	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
 
-	url(r'^olympiades-internationales$',  'direct_to_template', {'template': 'fr/ioi.html'}, "ioi-fr"),
-	url(r'^internationale-olympiade$',  'direct_to_template', {'template': 'nl/ioi.html'}, "ioi-nl"),
+#	url(r'^olympiades-internationales$',  'direct_to_template', {'template': 'fr/ioi.html'}, "ioi-fr"),
+
+    url(r'^internationale-olympiade$',  'direct_to_template', {'template': 'nl/ioi.html'}, "ioi-nl"),
+
 
 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
 	url(r'^halve-finale/reglement$',  'direct_to_template', {'template': 'nl/semifinal_rules.html'}, "semifinal-regulations-nl"),
 	
 	url(r'^finales-fr/reglement$', 'direct_to_template', {'template': 'fr/final_rules.html'}, "final-rules-fr"),
 	url(r'^finales-nl/reglement$', 'direct_to_template', {'template': 'nl/final_rules.html'}, "final-rules-nl"),
-	
-	url(r'^formations$', 'direct_to_template', {'template': 'fr/trainings.html'}, "training-fr"),
-	url(r'^opleidingen$', 'direct_to_template', {'template': 'nl/trainings.html'}, "training-nl"),
+    # 
+    # url(r'^formations$', 'direct_to_template', {'template': 'fr/trainings.html'}, "training-fr"),
+    # url(r'^opleidingen$', 'direct_to_template', {'template': 'nl/trainings.html'}, "training-nl"),
 
 	url(r'^exemple-questions$', 'direct_to_template', {'template': 'fr/sample_questions.html'}, "sample-questions-fr"),
 	url(r'^voorbeeldvragen$', 'direct_to_template', {'template': 'nl/sample_questions.html'}, "sample-questions-nl"),
@@ -89,13 +97,13 @@ urlpatterns += patterns('django.views.generic.simple',
 urlpatterns += patterns('',
 
 
-	url(r'^finales-fr$',  'django.views.generic.list_detail.object_list', {
-			'template_name': 'fr/final.html',
-			"queryset": ResultFinal.objects
-										.extra(select={"total":"(score_written*2+score_computer)/3"})
-										.filter(contestant__contest_year=2011)
-										.order_by("rank")
-		},"final-fr"),
+#	url(r'^finales-fr$',  'django.views.generic.list_detail.object_list', {
+#			'template_name': 'fr/final.html',
+#			"queryset": ResultFinal.objects
+#									.extra(select={"total":"(score_written*2+score_computer)/3"})
+#										.filter(contestant__contest_year=2011)
+#										.order_by("rank")
+#		},"final-fr"),
 		
 	url(r'^finales-nl$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'nl/final.html',

@@ -322,50 +322,50 @@ class RegistrationTest(TransactionTestCase):
 		response = self.client.get(reverse("registration-confirm-fr", args=[10]))
 		# a non-existing center should be render any confirm page 
 		self.failUnlessEqual(response.status_code, 404)
-
-	def test_secondary_semifinal_result_page(self):
-
-		response = self.client.get(urlresultsecfr)
-		
-		# check the title 
-		self.assertContains(response, "secondaire")
-		
-		# first check the ones that should be in the page
-		self.assertContains(response, "Cattoir")
-		self.assertContains(response, "Acbacb")
-		
-		# the not selected one should NOT be in the page
-		self.assertNotContains(response, "Foobar")
-		
-		# the high school one should NOT be in the page
-		self.assertNotContains(response, "Cambier")
-		
-		# the one from a previous year should NOT be in the page
-		self.assertNotContains(response, "Poiuy")
-		
-	def test_high_school_semifinal_result_page(self):
-
-		response = self.client.get(urlresulthighfr)
-
-		# check the title 
-		self.assertContains(response, "supérieur")
-		
-		# first check the one that should be in the page
-		self.assertContains(response, "Cambier")
-
-		# the secondary ones should NOT be in the page
-		self.assertNotContains(response, "Cattoir")
-		self.assertNotContains(response, "Acbacb")
-
-
-	def test_final_result_page(self):
-
-		response = self.client.get(reverse("final-fr"))
-
-		# first check the ones that should be in the page
-		self.assertContains(response, "Cambier") #high
-		self.assertContains(response, "Cattoir") #sec
-
-		# the one from a previous year should NOT be in the page
-		self.assertNotContains(response, "Poiuy")
+    # 
+    # def test_secondary_semifinal_result_page(self):
+    # 
+    #   response = self.client.get(urlresultsecfr)
+    #   
+    #   # check the title 
+    #   self.assertContains(response, "secondaire")
+    #   
+    #   # first check the ones that should be in the page
+    #   self.assertContains(response, "Cattoir")
+    #   self.assertContains(response, "Acbacb")
+    #   
+    #   # the not selected one should NOT be in the page
+    #   self.assertNotContains(response, "Foobar")
+    #   
+    #   # the high school one should NOT be in the page
+    #   self.assertNotContains(response, "Cambier")
+    #   
+    #   # the one from a previous year should NOT be in the page
+    #   self.assertNotContains(response, "Poiuy")
+    #   
+    # def test_high_school_semifinal_result_page(self):
+    # 
+    #   response = self.client.get(urlresulthighfr)
+    # 
+    #   # check the title 
+    #   self.assertContains(response, "supérieur")
+    #   
+    #   # first check the one that should be in the page
+    #   self.assertContains(response, "Cambier")
+    # 
+    #   # the secondary ones should NOT be in the page
+    #   self.assertNotContains(response, "Cattoir")
+    #   self.assertNotContains(response, "Acbacb")
+    # 
+    # 
+    # def test_final_result_page(self):
+    # 
+    #   response = self.client.get(reverse("final-fr"))
+    # 
+    #   # first check the ones that should be in the page
+    #   self.assertContains(response, "Cambier") #high
+    #   self.assertContains(response, "Cattoir") #sec
+    # 
+    #   # the one from a previous year should NOT be in the page
+    #   self.assertNotContains(response, "Poiuy")
 
