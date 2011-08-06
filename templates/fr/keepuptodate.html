@@ -1,0 +1,26 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+<h2>Olympiade d'Informatique 2012</h2>
+
+<p>L'organisation et le calendrier de l'Olympiade belge d'Informatique 2012 seront annoncés durant l'automne.</p>
+
+{{ global_errors }}
+
+
+<form action="" method="post" name="registrationform"> 
+	{% if confirm %}
+	
+	<p>Merci, nous avons enregistré votre adresse e-mail.</p>
+	{% else %}
+	<p><strong>Indiquez votre adresse e-mail dans le formulaire ci-dessous pour recevoir un e-mail lorsque la compétion sera annoncée</strong>.</p>
+	
+	{% csrf_token %}
+	<p>{{ form.email.label_tag }}{{ form.email }}{% if form.email.errors %}<span class="error">{{ form.email.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="no-border">  	<input type="submit" class="button" value="Soumettre"> </p>
+	{% endif %}
+</form>
+
+
+
+{% endblock %}
