@@ -98,7 +98,7 @@ class OiCoreTest(TestCase):
 
     def test_archive2010(self):
         self.__reverse_200_contains("archive-2010-fr",FR)
-        # self.__reverse_200_contains("archive-2010-nl",NL)
+        self.__reverse_200_contains("archive-2010-nl",NL)
 
     def test_semifinals2010(self):
         self.__reverse_200_contains("semifinals-2010-fr",FR)
@@ -114,17 +114,17 @@ class OiCoreTest(TestCase):
 
     def test_archive2011(self):
         self.__reverse_200_contains("archive-2011-fr",FR)
-        # self.__reverse_200_contains("archive-2011-nl",NL)
+        self.__reverse_200_contains("archive-2011-nl",NL)
 
     def test_semifinals2011(self):
         self.__reverse_200_contains("semifinals-2011-fr",FR)
-        # self.__reverse_200_contains("semifinals-2011-nl",NL)
+        self.__reverse_200_contains("semifinals-2011-nl",NL)
 
     def test_finals2011(self):
         self.__reverse_200_contains("finals-2011-fr",FR)
-        # self.__reverse_200_contains("finals-2011-nl",NL)
+        self.__reverse_200_contains("finals-2011-nl",NL)
 
     def test_2011ioibelgiandelegation(self):
         self.__reverse_200_contains("2011-ioi-belgian-delegation-fr",FR)
-        # self.__reverse_200_contains("2011-ioi-belgian-delegation-nl",NL)
+        self.__reverse_200_contains("2011-ioi-belgian-delegation-nl",NL)
 

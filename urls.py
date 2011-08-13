@@ -16,10 +16,15 @@ urlpatterns = patterns('',
 
 	url(r'^$', 'beoi.oi_core.views.home', {}, "home"),
 
-    url(r'^tenirajour/(?P<confirm>confirm)?$',
+    	url(r'^tenirajour/(?P<confirm>confirm)?$',
             'beoi.oi_core.views.keepuptodate', 
             {'template': 'fr/keepuptodate.html'}, 
             "oi2012-fr"),
+
+	url(r'^todo/(?P<confirm>confirm)?$',
+            'beoi.oi_core.views.keepuptodate', 
+            {'template': 'nl/keepuptodate.html'}, 
+            "oi2012-nl"),
 
 )
 
@@ -35,11 +40,10 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^reglement-nl$', 'direct_to_template', {'template': 'nl/regulations.html'}, "regulations-nl"),
 
 #	url(r'^demi-finales$',  'direct_to_template', {'template': 'fr/semifinal.html'}, "semifinal-fr"),
-	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
+#	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
 
 #	url(r'^olympiades-internationales$',  'direct_to_template', {'template': 'fr/ioi.html'}, "ioi-fr"),
-
-    url(r'^internationale-olympiade$',  'direct_to_template', {'template': 'nl/ioi.html'}, "ioi-nl"),
+#    	url(r'^internationale-olympiade$',  'direct_to_template', {'template': 'nl/ioi.html'}, "ioi-nl"),
 
 
 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
@@ -70,25 +74,28 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^pers$', 'direct_to_template', {'template': 'nl/press.html'}, "press-nl"),
 	
 	url(r'^archives/2010$', 'direct_to_template', {'template': 'fr/2010/index.html'}, "archive-2010-fr"),
+	url(r'^archieven/2010$', 'direct_to_template', {'template': 'nl/2010/index.html'}, "archive-2010-nl"),
+
 	url(r'^archives/2011$', 'direct_to_template', {'template': 'fr/2011/index.html'}, "archive-2011-fr"),
+	url(r'^archieven/2011$', 'direct_to_template', {'template': 'nl/2011/index.html'}, "archive-2011-nl"),
 	
 	url(r'^archives/2010/demi-finales$', 'direct_to_template', {'template': 'fr/2010/semifinals.html'}, "semifinals-2010-fr"),
-	url(r'^archives/2010/halve-finale$', 'direct_to_template', {'template': 'nl/2010/semifinals.html'}, "semifinals-2010-nl"),
+	url(r'^archieven/2010/halve-finale$', 'direct_to_template', {'template': 'nl/2010/semifinals.html'}, "semifinals-2010-nl"),
 	
 	url(r'^archives/2010/finales$', 'direct_to_template', {'template': 'fr/2010/finals.html'}, "finals-2010-fr"),
-	url(r'^archives/2010/finale$', 'direct_to_template', {'template': 'nl/2010/finals.html'}, "finals-2010-nl"),
+	url(r'^archieven/2010/finale$', 'direct_to_template', {'template': 'nl/2010/finals.html'}, "finals-2010-nl"),
 	
 	url(r'^archives/2010/ioi2010-delegation-belge$', 'direct_to_template', {'template': 'fr/2010/ioi2010-belgian-delegation.html'}, "2010-ioi-belgian-delegation-fr"),
-	url(r'^archives/2010/ioi2010-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2010/ioi2010-belgian-delegation.html'}, "2010-ioi-belgian-delegation-nl"),
+	url(r'^archieven/2010/ioi2010-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2010/ioi2010-belgian-delegation.html'}, "2010-ioi-belgian-delegation-nl"),
 	
 	url(r'^archives/2011/demi-finales$', 'direct_to_template', {'template': 'fr/2011/semifinals.html'}, "semifinals-2011-fr"),
-	url(r'^archives/2011/halve-finale$', 'direct_to_template', {'template': 'nl/2011/semifinals.html'}, "semifinals-2011-nl"),
+	url(r'^archieven/2011/halve-finale$', 'direct_to_template', {'template': 'nl/2011/semifinals.html'}, "semifinals-2011-nl"),
 	
 	url(r'^archives/2011/finales$', 'direct_to_template', {'template': 'fr/2011/finals.html'}, "finals-2011-fr"),
-	url(r'^archives/2011/finale$', 'direct_to_template', {'template': 'nl/2011/finals.html'}, "finals-2011-nl"),
+	url(r'^archieven/2011/finale$', 'direct_to_template', {'template': 'nl/2011/finals.html'}, "finals-2011-nl"),
 	
 	url(r'^archives/2011/ioi2011-delegation-belge$', 'direct_to_template', {'template': 'fr/2011/ioi2011-belgian-delegation.html'}, "2011-ioi-belgian-delegation-fr"),
-	url(r'^archives/2011/ioi2011-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2011/ioi2011-belgian-delegation.html'}, "2011-ioi-belgian-delegation-nl"),
+	url(r'^archieven/2011/ioi2011-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2011/ioi2011-belgian-delegation.html'}, "2011-ioi-belgian-delegation-nl"),
 
 )
 
@@ -105,13 +112,13 @@ urlpatterns += patterns('',
 #										.order_by("rank")
 #		},"final-fr"),
 		
-	url(r'^finales-nl$',  'django.views.generic.list_detail.object_list', {
-			'template_name': 'nl/final.html',
-			"queryset": ResultFinal.objects
-										.extra(select={"total":"(score_written*2+score_computer)/3"})
-										.filter(contestant__contest_year=2011)
-										.order_by("rank"),
-		},"final-nl"),
+#	url(r'^finales-nl$',  'django.views.generic.list_detail.object_list', {
+#			'template_name': 'nl/final.html',
+#			"queryset": ResultFinal.objects
+#										.extra(select={"total":"(score_written*2+score_computer)/3"})
+#										.filter(contestant__contest_year=2011)
+#										.order_by("rank"),
+#		},"final-nl"),
 
 	url(r'^demi-finales/secondaire$',  'django.views.generic.list_detail.object_list', {
 			'template_name': 'fr/semifinal_results.html',

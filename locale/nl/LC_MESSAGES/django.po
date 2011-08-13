@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-15 17:19+0200\n"
+"POT-Creation-Date: 2011-08-14 01:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr "Postcode"
 msgid "City"
 msgstr "Stad"
 
-#: contest/forms.py:18
+#: contest/forms.py:18 oi_core/forms.py:7
 msgid "Email"
 msgstr "Email"
 
@@ -225,7 +225,7 @@ msgstr "voornaam"
 msgid "gender"
 msgstr "geslacht"
 
-#: contest/models.py:77
+#: contest/models.py:77 oi_core/models.py:7
 msgid "email"
 msgstr "email"
 
@@ -269,7 +269,7 @@ msgstr "token"
 msgid "contest year"
 msgstr "wedstrijdjaar"
 
-#: contest/models.py:90
+#: contest/models.py:90 oi_core/models.py:8
 msgid "registering time"
 msgstr "tijdstip van registratie"
 
@@ -428,7 +428,7 @@ msgstr "nieuwsbericht"
 msgid "news entries"
 msgstr "nieuwsberichten"
 
-#: templates/base.html:49 templates/fr/base.html:7 templates/nl/base.html:8
+#: templates/base.html:49 templates/fr/base.html:7 templates/nl/base.html:7
 msgid "Belgian Olympiads in Informatics"
 msgstr "Belgische Olympiade in de Informatica"
 
@@ -464,15 +464,15 @@ msgstr "Flickr Foto's"
 msgid "Archives"
 msgstr "Archieven"
 
-#: templates/fr/base.html:14 templates/nl/base.html:15
+#: templates/fr/base.html:14 templates/nl/base.html:14
 msgid "Updates"
 msgstr "Updates"
 
-#: templates/fr/base.html:27 templates/nl/base.html:25
+#: templates/fr/base.html:27 templates/nl/base.html:27
 msgid "Stay up to date. Subscribe via"
 msgstr "Blijf op de hoogte. Abonneer je via"
 
-#: templates/fr/base.html:29 templates/nl/base.html:26
+#: templates/fr/base.html:29 templates/nl/base.html:29
 msgid "or"
 msgstr "of"
 

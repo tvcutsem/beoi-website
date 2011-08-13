@@ -1,0 +1,26 @@
+{% extends "nl/base.html" %}
+
+{% block content%}
+<h2>Olympiade in de Informatica 2012</h2>
+
+<p>De organisatie en wedstrijdkalender van de Belgische Olympiade in de Informatica 2012 zal worden aangekondigd in de herfst.</p>
+
+{{ global_errors }}
+
+
+<form action="" method="post" name="registrationform"> 
+	{% if confirm %}
+	
+	<p>Dankuwel, wij hebben uw emailadres geregistreerd.</p>
+	{% else %}
+	<p><strong>Geef hieronder uw emailadres op als u een email wilt ontvangen zodra de wedstrijd aangekondigd is</strong>.</p>
+	
+	{% csrf_token %}
+	<p>{{ form.email.label_tag }}{{ form.email }}{% if form.email.errors %}<span class="error">{{ form.email.errors|join:"<br/>" }}</span>{% endif %}</p>
+	<p class="no-border">  	<input type="submit" class="button" value="Verzenden"> </p>
+	{% endif %}
+</form>
+
+
+
+{% endblock %}

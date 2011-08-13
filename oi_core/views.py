@@ -133,15 +133,19 @@ def beoi_context(request):
 				(u'Nieuws', reverse("home-nl")),
 				(u'Kalender', reverse("calendar-nl")),
 				(u'Reglement', reverse("regulations-nl")),
-				(u'Wedstrijd 2011', reverse("semifinal-nl"), [
+				(u'Wedstrijd 2012', reverse("oi2012-nl")),
+				#(u'Wedstrijd 2011', reverse("semifinal-nl"), [
 					# (u'Inschrijven', reverse("registration-nl")),
-					(u'Halve finales', reverse("semifinal-nl")),
-					(u'Finales', reverse("final-nl")),
-					(u'Internationale Olympiade', reverse("ioi-nl"))	
-				]),
+					# (u'Halve finales', reverse("semifinal-nl")),
+					# (u'Finales', reverse("final-nl")),
+					# (u'Internationale Olympiade', reverse("ioi-nl"))	
+				#]),
                 # (u'Opleidingen', reverse("training-nl")),
 				(u'Voorbeeldvragen', reverse("sample-questions-nl")),
-				(u'Archieven', reverse("archives-nl")),
+				(u'Archieven', reverse("archives-nl"), [
+				   (u'2010', reverse("archive-2010-nl")),
+				   (u'2011', reverse("archive-2011-nl")),
+				])
 			]
 			
 		context_extras["ORGANISATION_MENU"] = [
@@ -151,14 +155,13 @@ def beoi_context(request):
 			]
 			
 		context_extras["PHOTOS_MENU"] = [
-				(u'OI 2010 Finales', "http://www.flickr.com/photos/56924845@N04/sets/72157625451507363/"),
+				(u'Finales OI 2010', "http://www.flickr.com/photos/56924845@N04/sets/72157625451507363/"),
 				(u'IOI 2010', "http://www.flickr.com/photos/56924845@N04/sets/72157625451368589/")
 			]
 
 		context_extras["ARCHIVES_MENU"] = [
-				(u'OI 2010 Halve Finales', reverse("semifinals-2010-nl")),
-				(u'OI 2010 Finales', reverse("finals-2010-nl")),
-				(u'Belgische delegatie voor de IOI 2010', reverse("2010-ioi-belgian-delegation-nl"))
+				(u'2011', reverse("archive-2011-fr")),
+				(u'2010', reverse("archive-2010-fr")),
 			]
 
 	return context_extras
