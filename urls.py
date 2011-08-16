@@ -39,6 +39,15 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^reglement$', 'direct_to_template', {'template': 'fr/regulations.html'}, "regulations-fr"),
 	url(r'^reglement-nl$', 'direct_to_template', {'template': 'nl/regulations.html'}, "regulations-nl"),
 
+    url(r'^demi-finales$',  'redirect_to', {'url': 'archives/2011/demi-finales'}, "semifinal-fr"),
+
+    url(r'^halve-finale$',  'redirect_to', {'url': 'archieven/2011/halve-finale'}, "semifinal-nl"),
+
+    url(r'^olympiades-internationales$',  'redirect_to', {'url': 'archives/2011/ioi2011-delegation-belge'}, "ioi-fr"),
+
+    url(r'^internationale-olympiade$',  'redirect_to', {'url': 'archieven/2011/ioi2011-belgische-delegatie'}, "ioi-nl"),
+
+
 #	url(r'^demi-finales$',  'direct_to_template', {'template': 'fr/semifinal.html'}, "semifinal-fr"),
 #	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
 
@@ -49,8 +58,13 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
 	url(r'^halve-finale/reglement$',  'direct_to_template', {'template': 'nl/semifinal_rules.html'}, "semifinal-regulations-nl"),
 	
-	url(r'^finales-fr/reglement$', 'direct_to_template', {'template': 'fr/final_rules.html'}, "final-rules-fr"),
-	url(r'^finales-nl/reglement$', 'direct_to_template', {'template': 'nl/final_rules.html'}, "final-rules-nl"),
+	url(r'^finales-fr$', 'redirect_to', {'url': 'archives/2011/finales'}, "final-rules-fr"),
+	url(r'^finales-nl$', 'redirect_to', {'url': 'archieven/2011/finale'}, "final-rules-nl"),
+
+	url(r'^finales-fr/reglement$', 'redirect_to', {'url': 'archives/2011/finales'}, "final-rules-fr"),
+	url(r'^finales-nl/reglement$', 'redirect_to', {'url': 'archieven/2011/finale'}, "final-rules-nl"),
+#	url(r'^finales-fr/reglement$', 'direct_to_template', {'template': 'fr/final_rules.html'}, "final-rules-fr"),
+#	url(r'^finales-nl/reglement$', 'direct_to_template', {'template': 'nl/final_rules.html'}, "final-rules-nl"),
     # 
     # url(r'^formations$', 'direct_to_template', {'template': 'fr/trainings.html'}, "training-fr"),
     # url(r'^opleidingen$', 'direct_to_template', {'template': 'nl/trainings.html'}, "training-nl"),
