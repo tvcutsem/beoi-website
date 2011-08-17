@@ -58,6 +58,7 @@ urlpatterns += patterns('django.views.generic.simple',
 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
 	url(r'^halve-finale/reglement$',  'direct_to_template', {'template': 'nl/semifinal_rules.html'}, "semifinal-regulations-nl"),
 	
+	url(r'^finales$', 'redirect_to', {'url': 'archives/2011/finales'}, "finales-fr"),
 	url(r'^finales-fr$', 'redirect_to', {'url': 'archives/2011/finales'}, "final-rules-fr"),
 	url(r'^finales-nl$', 'redirect_to', {'url': 'archieven/2011/finale'}, "final-rules-nl"),
 
