@@ -18,6 +18,19 @@ class RssNews(Feed):
 	feed_type = Rss201rev2Feed # RSS 2.01
 	link = "/"
 	
+	def __call__(self, request, *args, **kwargs):
+		if request.LANGUAGE_CODE == "fr":
+			self.lang = News.LANG_FR
+			self.title = "Nouveautés des be-OI"
+			self.description = "Olympiades belges d'Informatique"
+			
+		elif request.LANGUAGE_CODE == "nl":
+			self.lang = News.LANG_NL
+			self.title = "Nieuws van de be-OI"
+			self.description = "Belgische Olympiades in Informatica"
+			
+		return super(self.__class__,self).__call__(request, args, kwargs)
+	
 	def items(self):
 		return News.online_objects.filter(lang=self.lang).order_by('-publication_date')[:10]
 	
@@ -27,24 +40,6 @@ class RssNews(Feed):
 	def item_pubdate(self, item): 
 		return item.publication_date
 		
-	
-class RssNewsFr(RssNews):
-	title = "Nouveautés des be-OI"
-	description = "Olympiades belges d'Informatique"
-	
-	def __init__(self):
-		self.lang = News.LANG_FR
-	
 	def item_link(self):
-		return reverse("home-fr")
+		return reverse("home")		
 	
-class RssNewsNl(RssNews):
-	title = "Nieuws van de be-OI"
-	description = "Belgische Olympiades in Informatica"
-
-	def __init__(self):
-		self.lang = News.LANG_NL
-
-	def item_link(self):
-		return reverse("home-nl")
-

@@ -68,6 +68,9 @@ dd {
 
 p, dl { margin: 10px 25px; }
 
+p { text-align:justify; }
+hr { border: 1px solid #aaa; width: 70%; margin: 30px; }
+
 /* images */
 img {
    border: none;
@@ -286,7 +289,7 @@ form label.forminputlabel input {
 }
 
 /* language change */
-#header form#lang {
+#header #lang {
   background:none;
   border:none;
   position: absolute;
@@ -296,7 +299,7 @@ form label.forminputlabel input {
   padding: 0; margin: 0;
   text-align: right;
 }
-#header form#lang a {
+#header #lang a {
   color: #baa7a7;
   height: 30px;
   font: normal 10px 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;

@@ -1,6 +1,84 @@
-{% extends "base.html" %}
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Olympiade belge d'Informatique &mdash; Belgische Olympiade in de Informatica</title>
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
 
-{% block inbody %}
-<!-- pop-up for languages -->
-{% include "popup.html" %}
-{% endblock %}
+{% if not debug %}
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20319365-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+{% endif %}
+<script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
+
+</head>
+<body>
+<a name="top"></a>
+	
+<!-- content-outer -->
+<div id="content-wrap" class="clear" >
+
+    <!-- content -->
+    <div id="content">
+		
+
+        <!-- main -->
+	    <div id="main">
+		
+		
+			<img id="logo" src="/static/images/be-oi-logo-120px.png" style="float:left;clear:left"/>
+			<div style="float:left;width:600px">
+				<h2>Belgische Olympiades in de Informatica</h2>
+				<p>De Belgische Olympiades in de Informatica (OI) zijn competities in programmeren, algoritmiek en logica. Er zijn twee wedstrijden: de eerste is voor leerlingen uit het middelbaar onderwijs. De beste kandidaten plaatsen zich voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd focust op studenten uit het eerste jaar van het hoger onderwijs.</p>
+				<p><a href="{{HOME_NL}}">	&raquo; Ga verder in het Nederlands</a></p>
+					
+				<hr />
+				<h2>Olympiade belge d'Informatique</h2>
+
+				<p>L'Olympiades belge d'Informatique (OI) est une compétition de programmation, d'algorithmique et de 
+					logique destinée aux élèves de secondaires de tout age et permettant d'identifier 
+					des candidats pour les Olympiades Internationales d'Informatique (IOI).</p>
+			    <p><a href="{{HOME_FR}}" >&raquo; Continuer en français</a></p>
+			</div>
+					
+       <!-- /main -->
+		</div>
+		
+		<!-- <div id="sidebar">
+		</div> -->
+
+    <!-- content -->
+	</div>
+
+<!-- /content-out -->
+</div>
+		
+<!-- footer-bottom -->
+<div id="footer-bottom">
+
+    <p class="bottom-left">
+		&copy; 2010-2011 <strong>be-OI</strong>&nbsp; &nbsp; &nbsp;
+		<a href="http://www.bluewebtemplates.com/" title="Website Templates">website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
+
+	 </p>
+
+	 <p class="bottom-right">
+		<a href="/">Home</a> |
+		{% block bottom_links %}{% endblock%}
+      <strong><a href="#top">Back to Top</a></strong>
+    </p>
+
+<!-- /footer-bottom-->
+</div>
+
+</body>
+</html>

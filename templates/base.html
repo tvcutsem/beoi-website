@@ -1,9 +1,5 @@
-{# ---------------------------------------------------------------------------------------------------------------- #}
-{#   The base template file #}
-{#   This file should not contain any dynamic reference to the beoi application. #}
-{#   (because it should be displayable even if the language is not yet determined, if there is an error, ...) #}
-{# ---------------------------------------------------------------------------------------------------------------- #}
-{% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -11,7 +7,7 @@
 <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
 <meta http-equiv="Content-language" content="{{LANGUAGE_CODE}}" />
 <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screen.css" />
-{% block rss %}{% endblock %}
+<link rel="alternate" type="application/rss+xml" href="{% url rss %}" title="{% trans "RSS feed" %}">
 {% if not debug %}
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -24,22 +20,9 @@
   })();
 </script>
 {% endif %}
-</head>
-<body {% if SWITCH_LANG %}onload="javascript:document.forms[0].language.value='{{SWITCH_LANG}}';document.forms[0].submit();"{% endif %} >
 <script type="text/javascript" src="/static/js/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" >
-$(function(){
-	$('.fadein_support img:gt(0)').hide();
-	setInterval(function(){$('.fadein_support :first-child').fadeOut(1000).next().fadeIn(1000).end().appendTo('.fadein_support');}, 5500);
-});
-$(function(){
-	$('.fadein_prizes div:gt(0)').hide();
-	setInterval(function(){$('.fadein_prizes div:first-child').fadeOut(700).next().fadeIn(700).end().appendTo('.fadein_prizes');}, 3000);
-});
-</script>
-
-
-
+</head>
+<body>
 <!--header -->
 <div id="header-wrap"><div id="header">
 
@@ -48,17 +31,8 @@ $(function(){
 	<img id="logo" src="/static/images/be-oi-logo-120px.png" />
 	<h1 id="logo-text"><a href="{% block logo-link %}/{% endblock %}" >{% trans "Belgian Olympiads in Informatics" %}</a></h1>
 	<p id="slogan">{% trans "Programming, algorithmic and logic" %}</p>
-	{% if csrf_token %}
-	<form id="lang" name="langtop" action="/i18n/setlang/" method="post"> {% csrf_token %}
-		<input name="language" type="hidden" value="" />
-		<input name="next" type="hidden" value="" />
-		{% block langswitch %}{% endblock %}
-	</form>
-	{% endif %}
-
-
-<!--/header-->
-</div></div>
+	<div id="lang">{% block langswitch %}{% endblock %}</div>
+</div></div><!--/header-->
 
 {# to insert block, code, js in the body #}
 {% block inbody %}{% endblock%} 
