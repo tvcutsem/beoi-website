@@ -304,7 +304,7 @@ form label.forminputlabel input {
   height: 30px;
   font: normal 10px 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
   margin: 0;
-  padding: 10px 0 0 30px;
+  padding: 7px 0 0 30px;
   display: block;
 }
 #header form#lang a:hover { color: #fff; }

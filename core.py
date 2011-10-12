@@ -1,47 +1,51 @@
 from django.utils.cache import patch_vary_headers
 from django.utils import translation
-from beoi.settings import HOME_URLS, LANGUAGES, LANGUAGE_CODE
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.core.urlresolvers import reverse
+from beoi import settings
+from datetime import datetime
 
 class TranslationMiddleware(object):
-
-	def process_request(self, request):
-		prefix = request.get_host().split(".")[0]
-		if prefix in ("fr", "nl"):
-			translation.activate(prefix)
-			request.LANGUAGE_CODE = translation.get_language()
-		else: # not on fr nor nl subwebsite -> redirect on "/"
-			request.LANGUAGE_CODE = ""
-			if request.META["PATH_INFO"][0:8] != "/static/":
-				from django.http import HttpResponseRedirect
-				return render_to_response("home.html", context_instance=RequestContext(request))
-			
+	
 	def process_view(self, request, view, args, kwargs):
-		if request.LANGUAGE_CODE in ("fr", "nl"):
-			for arg in ("template", "template_name"):
-				if arg in kwargs: 
-					kwargs[arg] = request.LANGUAGE_CODE + "/" + kwargs[arg]
+		lang_arg_name = "language"
 		
+		if lang_arg_name in kwargs:	
+			translation.activate(kwargs[lang_arg_name])		
+			request.LANGUAGE_CODE = translation.get_language()
+
+			if request.META["PATH_INFO"][0:4] in ("/fr/","/nl/"):
+				request.switch_lang_url = "/" + switch_lang(translation.get_language()) + request.META["PATH_INFO"][3:]
+			
+			for tpl_arg in ("template", "template_name"):
+				if tpl_arg in kwargs: 
+					kwargs[tpl_arg] = request.LANGUAGE_CODE + "/" + kwargs[tpl_arg]
+
+			del kwargs[lang_arg_name]
+
 	def process_response(self, request, response):
 		patch_vary_headers(response, ('Accept-Language',))
 		if 'Content-Language' not in response and translation.get_language() in ("fr", "nl"):
 			response['Content-Language'] = translation.get_language()
 		translation.deactivate()
 		return response
-		
-def translation_context_processor(request):
-	from beoi.settings import HOME_URLS,LANGUAGES
 
+def switch_lang(lang):
+	if lang == "fr": return "nl"
+	else: return "fr"
+	
+def changelang_context_proc(request):
 	context_extras = {}
-	context_extras['LANGUAGES'] = LANGUAGES
-	context_extras['LANGUAGE_CODE'] = translation.get_language()
-	context_extras['LANGUAGE_BIDI'] = translation.get_language_bidi()
-
-	context_extras['HOME'] = HOME_URLS["home"]
-	context_extras['HOME_FR'] = HOME_URLS["fr"]
-	context_extras['HOME_NL'] = HOME_URLS["nl"]
+	try:
+		context_extras['SWITCH_LANG_URL'] = request.switch_lang_url
+	except AttributeError: pass
 
 	return context_extras
 
+def registration_open():
+	return settings.REGISTRATION_DEADLINE > datetime.now()
 
+def contest_context(request):
+	return {
+		"REGISTRATION_OPEN": registration_open()
+	}
+	

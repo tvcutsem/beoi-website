@@ -1,36 +1,3 @@
 {# The French base template file #}
 {% extends "base.html" %}
-{% load i18n %}
-
-{% block title %}{% trans "Belgian Olympiads in Informatics" %}{% endblock %}
-
-{% block logo-link %}{% url home %}{% endblock %}
-
-{% block langswitch %}<a href="{{HOME_NL}}">Nederlands</a>{% endblock %}
-
-{% block bottom_updates %}
-	<h3>{% trans "Updates" %}</h3>
-	<ul class="subscribe-stuff">
-	 	<li><a title="RSS" href="{% url rss %}" rel="nofollow">
-				<img alt="RSS" title="RSS" src="/static/images/social_rss.png" /></a>
-		</li>
-		<li><a title="Twitter" href="http://twitter.com/beoi_fr" rel="nofollow">
-				<img alt="Twitter" title="Twitter" src="/static/images/social_twitter.png" /></a>
-		</li>
-		<li><a title="Facebook" href="http://www.facebook.com/group.php?gid=303863304852" rel="nofollow">
-				<img alt="Facebook" title="Facebook" src="/static/images/social_facebook.png" /></a>
-		</li>
-	</ul>
-
-	<div style="clear:left;"><p>{% trans "Stay up to date. Subscribe via" %}
-		<a href="{% url rss %}">RSS</a>, 
-		<a href="http://twitter.com/beoi_fr">Twitter</a> {% trans "or" %} 
-		<a href="http://www.facebook.com/group.php?gid=303863304852">Facebook</a></p>
-	</div>
-	
-{% endblock bottom_updates %}
-
-{% block bottom_links %}<a href="{% url home %}">Fr</a> |
-<a href="{% url home %}">Nl</a> |{% endblock%}
-
-{% block inbody %}<!-- Template FR -->{% endblock%} {# For test validation ! #}
+{% block langswitch %}<a href="{{SWITCH_LANG_URL}}">Nederlands</a>{% endblock %}

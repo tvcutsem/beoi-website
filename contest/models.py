@@ -15,11 +15,9 @@ LANG_CHOICES = (
 )
 
 CONTEST_SEC = 0
-CONTEST_HIGH = 1
 CONTEST_DEFAULT = CONTEST_SEC
 CONTEST_CHOICES = (
 	(CONTEST_SEC, _('secondary-school students')),
-	(CONTEST_HIGH,_("post-secondary-school students"))
 )
 
 def postal_code_belgium(value):
@@ -43,12 +41,6 @@ class Contestant(models.Model):
 	YEARSTUDY_5SEC = 5
 	YEARSTUDY_6SEC = 6
 	YEARSTUDY_7SEC = 7
-	YEARSTUDY_BAC1_CS = 10
-	YEARSTUDY_BAC1_MGMT_CS = 11
-	YEARSTUDY_BAC1_SYST = 12
-	YEARSTUDY_BAC1_APPSC = 13
-	YEARSTUDY_BAC1_INDENG = 14
-	YEARSTUDY_BAC1_OTHER = 15
 	YEARSTUDY_DEFAULT = YEARSTUDY_6SEC
 	YEARSTUDY_CHOICES = (
 		(YEARSTUDY_1SEC, _('1st year of secondary school')),
@@ -58,17 +50,7 @@ class Contestant(models.Model):
 		(YEARSTUDY_5SEC, _('5th year of secondary school')),
 		(YEARSTUDY_6SEC, _('6th year of secondary school')),
 		(YEARSTUDY_7SEC, _('7th year of secondary school')),
-		(YEARSTUDY_BAC1_CS,_("1st year of Bachelor in Computer Sciences")),
-		(YEARSTUDY_BAC1_MGMT_CS,_("1st year of Bachelor in Management Computing")),
-		(YEARSTUDY_BAC1_SYST,_("1st year of Bachelor in Computing and Systems")),
-		(YEARSTUDY_BAC1_APPSC,_("1st year of Bachelor in Engineering")),
-		(YEARSTUDY_BAC1_INDENG,_("1st year of Bachelor in Industrial Sciences")),
-		(YEARSTUDY_BAC1_OTHER,_("1st year of Bachelor (other)")),
 	)		
-	YEARSTUDY_PER_CONTEST = {
-		CONTEST_SEC: [YEARSTUDY_1SEC, YEARSTUDY_2SEC, YEARSTUDY_3SEC, YEARSTUDY_4SEC, YEARSTUDY_5SEC, YEARSTUDY_6SEC, YEARSTUDY_7SEC],
-		CONTEST_HIGH: [YEARSTUDY_BAC1_CS, YEARSTUDY_BAC1_MGMT_CS, YEARSTUDY_BAC1_SYST, YEARSTUDY_BAC1_APPSC, YEARSTUDY_BAC1_INDENG, YEARSTUDY_BAC1_OTHER]
-	}
 
 	# Fields
 	surname 			= models.CharField(_('surname'), max_length=255, db_index=True)
@@ -79,10 +61,10 @@ class Contestant(models.Model):
 	city 				= models.CharField(_('city'), max_length=255)
 	postal_code 		= models.IntegerField(_("postal code"), validators=[postal_code_belgium], max_length=4)
 	dob 				= models.DateField(_("date of birth"))
-	contest_category 	= models.IntegerField(_('contest category'), choices=CONTEST_CHOICES, default=CONTEST_DEFAULT, db_index=True)
+	contest_category 	= models.IntegerField(_('contest category'), choices=CONTEST_CHOICES, default=CONTEST_SEC, db_index=True)
 	school 				= models.ForeignKey("School")
 	year_study 			= models.IntegerField(_("year of study"), choices=YEARSTUDY_CHOICES, default=YEARSTUDY_DEFAULT)
-	language 			=  models.IntegerField(_("examination language"), choices=LANG_CHOICES, default=LANG_DEFAULT)
+	language 			= models.IntegerField(_("examination language"), choices=LANG_CHOICES, default=LANG_DEFAULT)
 	semifinal_center 	= models.ForeignKey("SemifinalCenter")
 	manual_check 		= models.BooleanField(_("manual checked"), default=False)
 	token 				= models.CharField(_('token'), max_length=255, editable=False)
@@ -108,7 +90,7 @@ class School(models.Model):
 	name 			= models.CharField(_('school name'), max_length=255)
 	city 			= models.CharField(_('city'), max_length=255)
 	postal_code 	= models.IntegerField(_("postal code"), validators=[postal_code_belgium], max_length=4, db_index=True)
-	category		= models.IntegerField(_('school category'), choices=CONTEST_CHOICES, default=CONTEST_DEFAULT, db_index=True)
+	category		= models.IntegerField(_('school category'), choices=CONTEST_CHOICES, default=CONTEST_SEC, db_index=True)
 
 	def __unicode__(self):
 		return u"%d - %s, %s" % (self.postal_code, self.name, self.city)

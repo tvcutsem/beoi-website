@@ -12,8 +12,8 @@ class NewsTest(TestCase):
         """
         Tests ``entry_archive`` view.
         """
-        responsefr = self.client.get(reverse('home-fr'))
-        responsenl = self.client.get(reverse('home-nl'))
+        responsefr = self.client.get(reverse('home',kwargs={"language":"fr"}))
+        responsenl = self.client.get(reverse('home',kwargs={"language":"nl"}))
 
 		# check related to the test date (fixture), only 1 news in total, in the right lang
         self.assertContains(responsefr, 'News in French', 1, status_code=200)  
@@ -24,32 +24,32 @@ class NewsTest(TestCase):
 
     def test_pagination(self):
         
-        response = self.client.get(reverse('home-fr'))
+        response = self.client.get(reverse('home',kwargs={"language":"fr"}))
         self.assertContains(response, 'News2', 1, status_code=200)  
         self.assertContains(response, 'News5', 1, status_code=200)  
         self.assertNotContains(response, 'News1')  
         
-        response = self.client.get(reverse('home-fr', args=[1]))
+        response = self.client.get(reverse('home', kwargs={"language":"fr"}, args=[1]))
         self.assertContains(response, 'News2', 1, status_code=200)  
         self.assertContains(response, 'News5', 1, status_code=200)  
         self.assertNotContains(response, 'News1')
         
-        response = self.client.get(reverse('home-fr',args=[2]))
+        response = self.client.get(reverse('home',kwargs={"language":"fr"}, args=[2]))
         self.assertContains(response, 'News1', 1, status_code=200)  
         self.assertNotContains(response, 'News2')  
         self.assertNotContains(response, 'News5')  
         
-        response = self.client.get(reverse('home-nl'))
+        response = self.client.get(reverse('home', kwargs={"language":"fr"}))
         self.assertContains(response, 'News2', 1, status_code=200)  
         self.assertContains(response, 'News5', 1, status_code=200)  
         self.assertNotContains(response, 'News1')  
         
-        response = self.client.get(reverse('home-nl', args=[1]))
+        response = self.client.get(reverse('home', args=[1], kwargs={"language":"nl"}))
         self.assertContains(response, 'News2', 1, status_code=200)  
         self.assertContains(response, 'News5', 1, status_code=200)  
         self.assertNotContains(response, 'News1')
         
-        response = self.client.get(reverse('home-nl',args=[2]))
+        response = self.client.get(reverse('home',args=[2], kwargs={"language":"nl"}))
         self.assertContains(response, 'News1', 1, status_code=200)  
         self.assertNotContains(response, 'News2')  
         self.assertNotContains(response, 'News5')  

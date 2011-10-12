@@ -10,19 +10,14 @@
 
 {% if LANGUAGE_CODE != "fr" %}
 <h2>Probleem</h2>
-
 <p>De gevraagde pagina heeft een probleem op de server veroorzaakt, gelieve ons te verontschuldigen. De beheerder van de website werd op de hoogte gebracht en doet het mogelijke om het probleem op te lossen.</p>
-
-<p><a href="/">&raquo; Terug naar de homepage</a></p>
-{% endif%}
+<p><a href="{% url home "nl" %}">&raquo; Terug naar de homepage</a></p>
+{% endif %}
 
 {% if LANGUAGE_CODE != "nl" %}
 <h2>Erreur</h2>
-
 <p>La page demandée a provoqué une erreur sur le serveur, veuillez nous en excuser. L'administrateur a été informé de ce problème et fera son possible pour le résoudre.</p>
-
-<p><a href="/">&raquo; Retour à la page d'accueil</a></p>
-
-{% endif%}
+<p><a href="{% url home "fr" %}">&raquo; Retour à la page d'accueil</a></p>
+{% endif %}
 
 {% endblock %}

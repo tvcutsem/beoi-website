@@ -2,129 +2,106 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
-FR = 1
-NL = 2
-
 class OiCoreTest(TestCase):
 
-    """
-        Reverse the urlname, get the page, 
-        check if status 200, if string in the text list in the response,
-        if the given lang is the lang of the page
-    """
-    def __reverse_200_contains(self, urlname, lang=None):
-        
-        response = self.client.get(reverse(urlname))
-        self.failUnlessEqual(response.status_code, 200)
-        
-        if lang == FR:
-            self.assertContains(response, "Template FR", status_code=200)
-            
-        elif lang == NL :
-            self.assertContains(response, "Template NL", status_code=200)
-            
-            
-    """ TEST on pages not related other applications, i.e. static """
-    """ These test may require an update if the content is modified """
-    """ Do NOT test on something as the title which is in all the menus ! """
-    
-    def test_home(self):
-        self.__reverse_200_contains("home-fr",FR)
-        self.__reverse_200_contains("home-nl",NL)
+	"""
+		Reverse the urlname, get the page, 
+		check if status 200 and check the right template lang 
+		is used, for both languages
+	"""
+	def _check_multilang_page(self, name):
+		
+		response_fr = self.client.get(reverse(name,kwargs={"language":"fr"}))
+		self.assertContains(response_fr, "TEMPLATE FR", status_code=200)
 
-    def test_registration(self):
-        self.__reverse_200_contains("registration-fr",FR)
-        self.__reverse_200_contains("registration-nl",NL)
+		response_nl = self.client.get(reverse(name,kwargs={"language":"nl"}))
+		self.assertContains(response_nl, "TEMPLATE NL", status_code=200)
 
-    def test_calendar(self):
-        self.__reverse_200_contains("calendar-fr",FR)
-        self.__reverse_200_contains("calendar-nl",NL)
-        
-    def test_regulations(self):
-        self.__reverse_200_contains("regulations-fr",FR)
-        self.__reverse_200_contains("regulations-nl",NL)
-    # 
-    # def test_semifinal(self):
-    #   self.__reverse_200_contains("semifinal-fr",FR)
-    #   self.__reverse_200_contains("semifinal-nl",NL)
-    # 
-    # def test_semifinal_regulations(self):
-    #   self.__reverse_200_contains("semifinal-regulations-fr",FR)
-    #   self.__reverse_200_contains("semifinal-regulations-nl",NL)
-    # 
-    # def test_semifinal_sec(self):
-    #   self.__reverse_200_contains("semifinal-sec-fr",FR)
-    #   self.__reverse_200_contains("semifinal-sec-nl",NL)
-    # 
-    # def test_semifinal_sup(self):
-    #   self.__reverse_200_contains("semifinal-high-fr",FR)
-    #   self.__reverse_200_contains("semifinal-high-nl",NL)
-    # 
-    # def test_final(self):
-    #   self.__reverse_200_contains("final-fr",FR)
-    #   self.__reverse_200_contains("final-nl",NL)
-    # 
-    # def test_final_rules(self):
-    #   self.__reverse_200_contains("final-rules-fr",FR)
-    #    self.__reverse_200_contains("final-rules-nl",NL)
+			
+	""" TEST on pages not related other applications, i.e. static """
+	""" These test may require an update if the content is modified """
+	""" Do NOT test on something as the title which is in all the menus ! """
 
-    def test_sample_questions(self):
-        self.__reverse_200_contains("sample-questions-fr",FR)
-        self.__reverse_200_contains("sample-questions-nl",NL)
+	
+	def test_globalhome(self):
+		response = self.client.get(reverse("home"))
+		self.assertContains(response, "be-OI", status_code=200)
+		 
+		# def test_home(self):
+		# 	response_fr = self.client.get("/fr/1")
+		# 	self.assertContains(response_fr, "TEMPLATE FR", status_code=200)
+		# 	response_nl = self.client.get("/nl/1")
+		# 	self.assertContains(response_nl, "TEMPLATE NL", status_code=200)
+	
+	def test_agenda(self):
+		self._check_multilang_page("agenda")
 
-    def test_archives(self):
-        self.__reverse_200_contains("archives-fr",FR)
-        self.__reverse_200_contains("archives-nl",NL)
+	def test_regulations(self):
+		self._check_multilang_page("rules")
 
-    def test_registration_error(self):
-        self.__reverse_200_contains("registration-error-fr",FR)
-        self.__reverse_200_contains("registration-error-nl",NL)
+	def test_sample_questions(self):
+		self._check_multilang_page("sample-questions")
 
-    # def test_regional_centers(self):
-    #   self.__reverse_200_contains("regional-centers-fr",FR)
-    #   self.__reverse_200_contains("regional-centers-nl",NL)
+	def test_keepinformed(self):
+		self._check_multilang_page("keepinformed")
 
-    def test_team(self):
-        self.__reverse_200_contains("team-fr",FR)
-        self.__reverse_200_contains("team-nl",NL)
+	def test_registration(self):
+		self._check_multilang_page("registration")
 
-    def test_sponsors(self):
-        self.__reverse_200_contains("sponsors-fr",FR)
-        self.__reverse_200_contains("sponsors-nl",NL)
+	def test_semifinal(self):
+		self._check_multilang_page("semifinal")
 
-    def test_press(self):
-        self.__reverse_200_contains("press-fr",FR)
-        self.__reverse_200_contains("press-nl",NL)
+	def test_semifinal_regulations(self):
+		self._check_multilang_page("semifinal-rules")
+	
+	def test_semifinal_places(self):
+		self._check_multilang_page("semifinal-places")
 
-    def test_archive2010(self):
-        self.__reverse_200_contains("archive-2010-fr",FR)
-        self.__reverse_200_contains("archive-2010-nl",NL)
+	def test_training(self):
+		self._check_multilang_page("training")
 
-    def test_semifinals2010(self):
-        self.__reverse_200_contains("semifinals-2010-fr",FR)
-        self.__reverse_200_contains("semifinals-2010-nl",NL)
+	def test_final(self):
+		self._check_multilang_page("final")
+	 
+	def test_final_rules(self):
+		self._check_multilang_page("final-rules")
+	
+	def test_ioi(self):
+		self._check_multilang_page("ioi")
 
-    def test_finals2010(self):
-        self.__reverse_200_contains("finals-2010-fr",FR)
-        self.__reverse_200_contains("finals-2010-nl",NL)
+	def test_team(self):
+		self._check_multilang_page("team")
 
-    def test_2010ioibelgiandelegation(self):
-        self.__reverse_200_contains("2010-ioi-belgian-delegation-fr",FR)
-        self.__reverse_200_contains("2010-ioi-belgian-delegation-nl",NL)
+	def test_sponsors(self):
+		self._check_multilang_page("sponsors")
 
-    def test_archive2011(self):
-        self.__reverse_200_contains("archive-2011-fr",FR)
-        self.__reverse_200_contains("archive-2011-nl",NL)
+	def test_press(self):
+		self._check_multilang_page("press")
 
-    def test_semifinals2011(self):
-        self.__reverse_200_contains("semifinals-2011-fr",FR)
-        self.__reverse_200_contains("semifinals-2011-nl",NL)
+	# archives
+	def test_archives(self):
+		self._check_multilang_page("archives")
 
-    def test_finals2011(self):
-        self.__reverse_200_contains("finals-2011-fr",FR)
-        self.__reverse_200_contains("finals-2011-nl",NL)
+	def test_archives_2010(self):
+		self._check_multilang_page("archives-2010")
 
-    def test_2011ioibelgiandelegation(self):
-        self.__reverse_200_contains("2011-ioi-belgian-delegation-fr",FR)
-        self.__reverse_200_contains("2011-ioi-belgian-delegation-nl",NL)
+	def test_archives_2010_semifinal(self):
+		self._check_multilang_page("archives-2010-semifinal")
 
+	def test_archives_2010_final(self):
+		self._check_multilang_page("archives-2010-final")
+
+	def test_archives_2010_ioi(self):
+		self._check_multilang_page("archives-2010-ioi")
+
+	def test_archives_2011(self):
+		self._check_multilang_page("archives-2011")
+
+	def test_archives_2011_semifinal(self):
+		self._check_multilang_page("archives-2011-semifinal")
+
+	def test_archives_2011_final(self):
+		self._check_multilang_page("archives-2011-final")
+
+	def test_archives_2011_ioi(self):
+		self._check_multilang_page("archives-2011-ioi")

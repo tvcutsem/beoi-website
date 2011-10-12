@@ -1,0 +1,14 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+<h2>Demi-finale<img src="/static/pictures/2010/oi2010-finals-sheet.jpg" width="350" height="231" class="withframe float-right" /></h2>
+
+<p>La demi-finale se déroule le mercredi 1e février 2012 et commencera à 14h dans les différents <a href="{% url semifinal-places LANGUAGE_CODE %}">centres régionaux</a> du pays.
+	
+<p>Quelques indications sur les types de questions auxquels vous pourriez être confrontés durant la demi-finale sont reprises dans le règlement ci-dessous. N'hésitez pas non plus à consulter <a href="{% url sample-questions LANGUAGE_CODE %}">les questions de l'année passée</a>.</p>
+
+<h3>Règlement de l'épreuve</h3>
+
+{% include "fr/includes/semifinal_rules.html" %}
+
+{% endblock %}

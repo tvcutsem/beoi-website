@@ -14,8 +14,7 @@ from django.contrib.sites.models import Site, RequestSite
 from django.contrib.syndication.views import add_domain
 from django.utils.translation import ugettext_lazy as _
 from django.db import transaction
-
-REGISTRATION_FORM_YEAR = 2011 # to change each year !
+from beoi.core import registration_open
 
 def _gen_token():
 	
@@ -31,10 +30,11 @@ def _gen_token():
 
 def registration(request, template):
 	
-	if not REGISTRATION_OPEN :   # handle registration open/close status
-		if request.LANGUAGE_CODE == "fr": template = "fr/closed_registration.html"
-		else: template = "nl/closed_registration.html"
-		return render_to_response(template, context_instance=RequestContext(request))
+	if not registration_open() :  
+		return render_to_response(
+			request.LANGUAGE_CODE+"/closed_registration.html", 
+			context_instance=RequestContext(request)
+		)
 
 	if request.method == 'POST': 
 		form = RegisteringForm(request.POST) 
@@ -83,9 +83,8 @@ def registration(request, template):
 				transaction.savepoint_rollback(sid)
 				test = Contestant.objects.count()
 				
-				if request.LANGUAGE_CODE == "fr": return HttpResponseRedirect(reverse("registration-error-fr")) 
-				else: return HttpResponseRedirect(reverse("registration-error-nl")) 
-			
+				return HttpResponseRedirect(reverse("registration-error", args=[request.LANGUAGE_CODE])) 
+				
 			# get the full url for mail data
 			if Site._meta.installed: current_site = Site.objects.get_current()
 			else: current_site = RequestSite(request)
@@ -96,26 +95,20 @@ def registration(request, template):
 						"CONTEST": dict(CONTEST_CHOICES)[cd["contest_category"]],
 						"CENTER_NAME": cd["semifinal_center"]
 					 })
-			if request.LANGUAGE_CODE == "fr":
-				mail_template = get_template("emails/fr/registration.txt")
-				context["CENTER_DETAILS"] = add_domain(current_site.domain,reverse("regional-centers-fr"))  
-			else : 
-				mail_template = get_template("emails/nl/registration.txt")
-				context["CENTER_DETAILS"] = add_domain(current_site.domain,reverse("regional-centers-nl"))				
-
+			mail_template = get_template("emails/"+request.LANGUAGE_CODE+"/registration.txt")
+			context["CENTER_DETAILS"] = add_domain(current_site.domain,reverse("regional-centers",args=[request.LANGUAGE_CODE]))  
 			send_mail(_("Registering to Belgian Olympiads in Informatics"), mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
 		
 			# redirect to confirmation page
-			if request.LANGUAGE_CODE == "fr": 
-				return HttpResponseRedirect(reverse("registration-confirm-fr", args=[cd["semifinal_center"].id])) 
-			else: 
-				return HttpResponseRedirect(reverse("registration-confirm-nl", args=[cd["semifinal_center"].id])) 
-
+			return HttpResponseRedirect(reverse("registration-confirm-fr", args=[request.LANGUAGE_CODE, cd["semifinal_center"].id])) 
+			
  	else:
-		if request.LANGUAGE_CODE == "fr": form = RegisteringForm(initial={"language":LANG_FR}) 
-		else: form = RegisteringForm(initial={"language":LANG_NL}) 
+		initial_lang = LANG_FR if request.LANGUAGE_CODE == "fr" else LANG_NL
+		form = RegisteringForm(initial={"language":initial_lang}) 
 
 	return render_to_response(template, {
-		'form': form, "global_errors": form.non_field_errors(), 
-	}, context_instance=RequestContext(request))
+			'form': form, 
+			"global_errors": form.non_field_errors(), 
+		}, context_instance=RequestContext(request)
+	)
     

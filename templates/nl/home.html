@@ -33,7 +33,7 @@
 		<p>[ pagina: 
 		{% for page in paginator.page_range %}
 			{% if page != page_obj.number %} 
-			<a href="{% url home-nl page=page %}">{{page}}</a> 
+			<a href="{% url home LANGUAGE_CODE page=page %}">{{page}}</a> 
 			{% else%} 
 			<strong>{{page}}</strong>
 			{% endif %}

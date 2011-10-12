@@ -19,15 +19,9 @@ class RssNews(Feed):
 	link = "/"
 	
 	def __call__(self, request, *args, **kwargs):
-		if request.LANGUAGE_CODE == "fr":
-			self.lang = News.LANG_FR
-			self.title = "Nouveautés des be-OI"
-			self.description = "Olympiades belges d'Informatique"
-			
-		elif request.LANGUAGE_CODE == "nl":
-			self.lang = News.LANG_NL
-			self.title = "Nieuws van de be-OI"
-			self.description = "Belgische Olympiades in Informatica"
+		self.lang = News.LANG_FR if request.LANGUAGE_CODE == "fr" else News.LANG_NL
+		self.title = _("be-OI News")
+		self.description = _("Belgian Olympiads in Informatics")
 			
 		return super(self.__class__,self).__call__(request, args, kwargs)
 	

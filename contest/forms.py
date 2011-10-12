@@ -26,7 +26,6 @@ class RegisteringForm(forms.Form):
 
 	year_study 		= forms.ChoiceField(choices=Contestant.YEARSTUDY_CHOICES, label=_("Year of study"), initial=Contestant.YEARSTUDY_DEFAULT)
 	
-	contest_category= forms.ChoiceField(choices=CONTEST_CHOICES, label=_('Contest category'))
 	language 		= forms.ChoiceField(choices=LANG_CHOICES, label=_("Examination language"))
 	
 	semifinal_center= forms.ModelChoiceField(queryset=SemifinalCenter.objects.filter(active=True).order_by('city','name'), empty_label=_("Make a choice"))
@@ -41,13 +40,11 @@ class RegisteringForm(forms.Form):
 		
 	def clean_school_exists(self): return self.__int_only("school_exists")
 	def clean_year_study(self): return self.__int_only("year_study")
-	def clean_contest_category(self): return self.__int_only("contest_category")
 	def clean_language(self): return self.__int_only("language")
 	
 	def clean(self):
 		
 		cleaned_data = self.cleaned_data
-		contest = cleaned_data.get("contest_category")
 
 		if cleaned_data.get("school_exists") == SCHOOL_EXISTS:
 			
@@ -55,8 +52,6 @@ class RegisteringForm(forms.Form):
 				self._errors["school"] = self.error_class([_("Please choose your school")])
 				del cleaned_data["school"]
 				return cleaned_data
-			
-			school_category = cleaned_data.get("school").category
 			
 		elif cleaned_data.get("school_exists") == SCHOOL_NOT_EXIST:
 			error = False
@@ -74,25 +69,8 @@ class RegisteringForm(forms.Form):
 				error = True
 			if error: return cleaned_data
 			
-			school_category = contest
 		else: 
 			return cleaned_data
-
-		# check category
-		year_study = cleaned_data.get("year_study")
-		if contest == CONTEST_SEC : 
-			if year_study not in Contestant.YEARSTUDY_PER_CONTEST[contest]: 
-				raise forms.ValidationError( _("You cannot register to the secondary school contest if you are in the first year of baccalaureate") )			
-			if school_category != CONTEST_SEC:
-				raise forms.ValidationError( _("You have selected a high school but have registered to the secondary school contest") )
-			
-		elif contest == CONTEST_HIGH:
-			if year_study not in Contestant.YEARSTUDY_PER_CONTEST[contest]: 
-				raise forms.ValidationError( _("You cannot register to the high school contest if you are at the secondary school") )			
-			if school_category != CONTEST_HIGH:
-				raise forms.ValidationError( _("You have selected a secondary school but have registered to the high school contest") )
-		
-		else: pass # not valid
 
 		return cleaned_data
 	

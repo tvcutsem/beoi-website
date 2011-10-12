@@ -1,0 +1,14 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+<h2>Finale<img src="/static/pictures/2010/oi2010-machine.jpg" width="350" height="231" class="withframe float-right" /></h2>
+
+<p>La finale 2012 se déroulera le mercredi 14 mars. Elle se compose, contrairement à la demi-finale, d'une partie sur papier et d'une partie sur ordinateur. Le lieu n'est pas encore fixé. </p>
+	
+<p>Quelques indications sur les types de questions auxquels vous pourriez être confrontés durant la finale sont reprises dans le règlement ci-dessous. N'hésitez pas non plus à consulter <a href="{% url sample-questions LANGUAGE_CODE %}">les questions de l'année passée</a>.</p>
+
+<h3>Règlement de l'épreuve</h3>
+
+{% include "fr/includes/final_rules.html" %}
+
+{% endblock %}

@@ -4,13 +4,61 @@ admin.autodiscover()
 from os import path
 from django.conf.urls.defaults import patterns, include, url
 
-from beoi.news.models import News
 from beoi.contest.models import *
 from beoi.news.feed import RssNews
+from beoi.news.views import news
 
 from django.views.generic import list_detail
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import direct_to_template, redirect_to
 
+# Those urls are resolved with the lang prefix. This prefix is prepend before template file value.
+multilang_patterns = patterns('',
+	url(r'^(?P<page>[0-9]+)?$', news, {'template': "home.html"}, 'home'),
+	url(r'^rss$', RssNews(), {}, "rss"),
+	url(r'^agenda$', direct_to_template, {'template': 'calendar.html'}, "agenda"),
+	url(r'^rules$', direct_to_template, {'template': 'rules.html'}, "rules"),
+	url(r'^sample-questions$', direct_to_template, {'template': 'sample_questions.html'}, "sample-questions"),
+	url(r'^keepinformed$', "beoi.oi_core.views.keepuptodate",  {'template': 'keepuptodate.html'}, "keepinformed"),
+
+	url(r'^registration$', "beoi.contest.views.registration",  {'template': 'registration.html'}, "registration"),
+	url(r'^registration/error$', direct_to_template, {'template': 'registration_confirm.html', "extra_context":{"error":1}}, "registration-error"),
+	url(r'^registration/confirm/(?P<object_id>\d+)$', list_detail.object_detail, {	'template_name': 'registration_confirm.html', 
+		"queryset": SemifinalCenter.objects.filter(active=True) }, "registration-confirm"),
+
+	url(r'^semifinal$', direct_to_template,  {'template': 'semifinal_before.html'}, "semifinal"),
+	url(r'^semifinal/rules$', direct_to_template,  {'template': 'semifinal_rules.html'}, "semifinal-rules"),
+	url(r'^semifinal/places$', list_detail.object_list, {'template_name': 'semifinal_places.html',
+		"queryset": SemifinalCenter.objects.filter(active=True)},"semifinal-places"),
+	#url(r'^semifinal$', list_detail.object_list, { 'template_name': 'semifinal_results.html',
+	#	"queryset": ResultSemifinal.objects.filter(qualified=True,contestant__contest_year=2012)
+	#										.order_by("contestant__surname","contestant__firstname")
+
+	url(r'^training$', direct_to_template,  {'template': 'training.html'}, "training"),
+			
+	url(r'^final$', direct_to_template,  {'template': 'final_before.html'}, "final"),
+	url(r'^final/rules$', direct_to_template,  {'template': 'final_rules.html'}, "final-rules"),
+	#url(r'^final$', list_detail.object_list, { 'template_name': 'final.html',
+	#	"queryset": ResultFinal.objects.extra(select={"total":"(score_written*2+score_computer)/3"})
+	#		.filter(contestant__contest_year=2011).order_by("rank")	},"final"),
+	#	},"semifinal"),
+
+	url(r'^ioi$', direct_to_template,  {'template': 'ioi.html'}, "ioi"),
+	
+	url(r'^team$', direct_to_template, {'template': 'team.html'}, "team"),
+	url(r'^sponsors$', direct_to_template, {'template': 'sponsors.html'}, "sponsors"),
+	url(r'^press$', direct_to_template, {'template': 'press.html'}, "press"),
+	
+	url(r'^archives$', direct_to_template, {'template': 'archives.html'}, "archives"),
+	url(r'^archives/2010$', direct_to_template, {'template': '2010/index.html'}, "archives-2010"),
+	url(r'^archives/2010/semifinal$', direct_to_template, {'template': '2010/semifinal.html'}, "archives-2010-semifinal"),
+	url(r'^archives/2010/final$', direct_to_template, {'template': '2010/final.html'}, "archives-2010-final"),
+	url(r'^archives/2010/ioi$', direct_to_template, {'template': '2010/ioi.html'}, "archives-2010-ioi"),
+	url(r'^archives/2011$', direct_to_template, {'template': '2011/index.html'}, "archives-2011"),
+	url(r'^archives/2011/semifinal$', direct_to_template, {'template': '2011/semifinal.html'}, "archives-2011-semifinal"),
+	url(r'^archives/2011/final$', direct_to_template, {'template': '2011/final.html'}, "archives-2011-final"),
+	url(r'^archives/2011/ioi$', direct_to_template, {'template': '2011/ioi.html'}, "archives-2011-ioi"),
+	
+)
 
 urlpatterns = patterns('',
 	# admin panel
@@ -24,251 +72,39 @@ urlpatterns = patterns('',
 	url(r'^$', direct_to_template, {'template': 'home.html'}, "home"),
 
 	# meta
-	url(r'^rss$', RssNews(), {}, "rss"),
+	(r'^(?P<language>(fr|nl))/', include(multilang_patterns)),
 	
-	
-
+	# for transition/compatibity purpose
+	(r'^inscription', redirect_to, {'url': '/fr/registration'}),
+	(r'^inschrijven', redirect_to, {'url': '/nl/registration'}),
+	(r'^tenirajour$', redirect_to, {'url': '/fr'}),
+	(r'^todo$', redirect_to, {'url': '/nl'}),
+	(r'^calendrier$', redirect_to, {'url': '/fr/agenda'}),
+	(r'^agenda$', redirect_to, {'url': '/nl/agenda'}),
+	(r'^reglement$', redirect_to, {'url': '/fr/rules'}),
+	(r'^reglement-nl$', redirect_to, {'url': '/nl/rules'}),
+	(r'^demi-finales', redirect_to, {'url': '/fr/semifinal'}),
+	(r'^halve-finale', redirect_to, {'url': '/nl/semifinal'}),
+	(r'^olympiades-internationales$', redirect_to, {'url': '/fr/ioi'}),
+	(r'^internationale-olympiade$', redirect_to, {'url': '/nl/ioi'}),
+	(r'^finales-fr', redirect_to, {'url': '/fr/final'}),
+	(r'^finales-nl', redirect_to, {'url': '/nl/final'}),
+	(r'^formations$', redirect_to, {'url': '/fr/training'}),
+	(r'^opleidingen$', redirect_to, {'url': '/nl/training'}),
+	(r'^exemple-questions$', redirect_to, {'url': '/fr/sample-questions'}),
+	(r'^voorbeeldvragen$', redirect_to, {'url': '/nl/sample-questions'}),
+	(r'^archives', redirect_to, {'url': '/fr/archives'}),
+	(r'^archieven', redirect_to, {'url': '/nl/archives'}),
+	(r'^equipe$', redirect_to, {'url': '/fr/team'}),
+	(r'^team$', redirect_to, {'url': '/nl/team'}),
+	(r'^sponsors$', redirect_to, {'url': '/fr/sponsors'}),
+	(r'^sponsors-nl$', redirect_to, {'url': '/nl/sponsors'}),
+	(r'^presse$', redirect_to, {'url': '/fr/press'}),
+	(r'^pers$', redirect_to, {'url': '/nl/press'}),
+	(r'^centres-regionaux$', redirect_to, {'url': '/fr/semifinal/places'}),
+	(r'^regionalecentra$', redirect_to, {'url': '/nl/semifinal/places'}),
+	(r'^accueil', redirect_to, {'url': '/fr/'}),
+	(r'^home$', redirect_to, {'url': '/nl/'}),
+	(r'^rss-fr', redirect_to, {'url': '/fr/rss'}),
+	(r'^rss-nl$', redirect_to, {'url': '/nl/rss'}),
 )
-
-
-
-
-
-# 
-# # custom views
-# urlpatterns = patterns('',
-# 	
-# 	url(r'^inscription$', "beoi.contest.views.registration", {'template': 'fr/contest/registration.html'}, "registration-fr"),
-# 	url(r'^inschrijven$', "beoi.contest.views.registration", {'template': 'nl/contest/registration.html'}, "registration-nl"),
-# 
-# 	url(r'^$', 'beoi.oi_core.views.home', {}, "home"),
-# 
-#     url(r'^tenirajour/(?P<confirm>confirm)?$',
-#             'beoi.oi_core.views.keepuptodate', 
-#             {'template': 'fr/keepuptodate.html'}, 
-#             "oi2012-fr"),
-# 
-# 	url(r'^todo/(?P<confirm>confirm)?$',
-#             'beoi.oi_core.views.keepuptodate', 
-#             {'template': 'nl/keepuptodate.html'}, 
-#             "oi2012-nl"),
-# 
-# )
-# 
-# 
-# #    def url(regex, view, kwargs=None, name=None, prefix=''):
-# 
-# 
-# # static pages (url can be changed without affecting links)
-# #urlpatterns += patterns_lang('django.views.generic.simple',
-# #	(r'^calendrier$', r'^agenda$', 'direct_to_template', {'template': 'calendar.html'}, "calendar"),
-# #)
-# 
-# 
-# # static pages (url can be changed without affecting links)
-# urlpatterns += patterns('django.views.generic.simple',
-# 
-# 
-# 	url(r'^reglement$', 'direct_to_template', {'template': 'fr/regulations.html'}, "regulations-fr"),
-# 	url(r'^reglement-nl$', 'direct_to_template', {'template': 'nl/regulations.html'}, "regulations-nl"),
-# 
-#     url(r'^demi-finales$',  'redirect_to', {'url': 'archives/2011/demi-finales'}, "semifinal-fr"),
-# 
-#     url(r'^halve-finale$',  'redirect_to', {'url': 'archieven/2011/halve-finale'}, "semifinal-nl"),
-# 
-#     url(r'^olympiades-internationales$',  'redirect_to', {'url': 'archives/2011/ioi2011-delegation-belge'}, "ioi-fr"),
-# 
-#     url(r'^internationale-olympiade$',  'redirect_to', {'url': 'archieven/2011/ioi2011-belgische-delegatie'}, "ioi-nl"),
-# 
-# 
-# #	url(r'^demi-finales$',  'direct_to_template', {'template': 'fr/semifinal.html'}, "semifinal-fr"),
-# #	url(r'^halve-finale$',  'direct_to_template', {'template': 'nl/semifinal.html'}, "semifinal-nl"),
-# 
-# #	url(r'^olympiades-internationales$',  'direct_to_template', {'template': 'fr/ioi.html'}, "ioi-fr"),
-# #    	url(r'^internationale-olympiade$',  'direct_to_template', {'template': 'nl/ioi.html'}, "ioi-nl"),
-# 
-# 
-# 	url(r'^demi-finales/reglement$',  'direct_to_template', {'template': 'fr/semifinal_rules.html'}, "semifinal-regulations-fr"),
-# 	url(r'^halve-finale/reglement$',  'direct_to_template', {'template': 'nl/semifinal_rules.html'}, "semifinal-regulations-nl"),
-# 	
-# 	url(r'^finales$', 'redirect_to', {'url': 'archives/2011/finales'}, "finales-fr"),
-# 	url(r'^finales-fr$', 'redirect_to', {'url': 'archives/2011/finales'}, "final-rules-fr"),
-# 	url(r'^finales-nl$', 'redirect_to', {'url': 'archieven/2011/finale'}, "final-rules-nl"),
-# 
-# 	url(r'^finales-fr/reglement$', 'redirect_to', {'url': 'archives/2011/finales'}, "final-rules-fr"),
-# 	url(r'^finales-nl/reglement$', 'redirect_to', {'url': 'archieven/2011/finale'}, "final-rules-nl"),
-# #	url(r'^finales-fr/reglement$', 'direct_to_template', {'template': 'fr/final_rules.html'}, "final-rules-fr"),
-# #	url(r'^finales-nl/reglement$', 'direct_to_template', {'template': 'nl/final_rules.html'}, "final-rules-nl"),
-#     # 
-#     # url(r'^formations$', 'direct_to_template', {'template': 'fr/trainings.html'}, "training-fr"),
-#     # url(r'^opleidingen$', 'direct_to_template', {'template': 'nl/trainings.html'}, "training-nl"),
-# 
-# 	url(r'^exemple-questions$', 'direct_to_template', {'template': 'fr/sample_questions.html'}, "sample-questions-fr"),
-# 	url(r'^voorbeeldvragen$', 'direct_to_template', {'template': 'nl/sample_questions.html'}, "sample-questions-nl"),
-# 
-# 	url(r'^archives$', 'direct_to_template', {'template': 'fr/archives.html'}, "archives-fr"),
-# 	url(r'^archieven$', 'direct_to_template', {'template': 'nl/archives.html'}, "archives-nl"),
-# 
-# 	url(r'^inscription/error$', 'direct_to_template', {'template': 'fr/contest/registration_confirm.html', "extra_context":{"error":1}}, "registration-error-fr"),
-# 	url(r'^inschrijven/error$', 'direct_to_template', {'template': 'nl/contest/registration_confirm.html', "extra_context":{"error":1}}, "registration-error-nl"),
-# 
-# 	url(r'^equipe$', 'direct_to_template', {'template': 'fr/team.html'}, "team-fr"),
-# 	url(r'^team$', 'direct_to_template', {'template': 'nl/team.html'}, "team-nl"),
-# 
-# 	url(r'^sponsors$', 'direct_to_template', {'template': 'fr/sponsors.html'}, "sponsors-fr"),
-# 	url(r'^sponsors-nl$', 'direct_to_template', {'template': 'nl/sponsors.html'}, "sponsors-nl"),
-# 
-# 	url(r'^presse$', 'direct_to_template', {'template': 'fr/press.html'}, "press-fr"),
-# 	url(r'^pers$', 'direct_to_template', {'template': 'nl/press.html'}, "press-nl"),
-# 	
-# 	url(r'^archives/2010$', 'direct_to_template', {'template': 'fr/2010/index.html'}, "archive-2010-fr"),
-# 	url(r'^archieven/2010$', 'direct_to_template', {'template': 'nl/2010/index.html'}, "archive-2010-nl"),
-# 
-# 	url(r'^archives/2011$', 'direct_to_template', {'template': 'fr/2011/index.html'}, "archive-2011-fr"),
-# 	url(r'^archieven/2011$', 'direct_to_template', {'template': 'nl/2011/index.html'}, "archive-2011-nl"),
-# 	
-# 	url(r'^archives/2010/demi-finales$', 'direct_to_template', {'template': 'fr/2010/semifinals.html'}, "semifinals-2010-fr"),
-# 	url(r'^archieven/2010/halve-finale$', 'direct_to_template', {'template': 'nl/2010/semifinals.html'}, "semifinals-2010-nl"),
-# 	
-# 	url(r'^archives/2010/finales$', 'direct_to_template', {'template': 'fr/2010/finals.html'}, "finals-2010-fr"),
-# 	url(r'^archieven/2010/finale$', 'direct_to_template', {'template': 'nl/2010/finals.html'}, "finals-2010-nl"),
-# 	
-# 	url(r'^archives/2010/ioi2010-delegation-belge$', 'direct_to_template', {'template': 'fr/2010/ioi2010-belgian-delegation.html'}, "2010-ioi-belgian-delegation-fr"),
-# 	url(r'^archieven/2010/ioi2010-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2010/ioi2010-belgian-delegation.html'}, "2010-ioi-belgian-delegation-nl"),
-# 	
-# 	url(r'^archives/2011/demi-finales$', 'direct_to_template', {'template': 'fr/2011/semifinals.html'}, "semifinals-2011-fr"),
-# 	url(r'^archieven/2011/halve-finale$', 'direct_to_template', {'template': 'nl/2011/semifinals.html'}, "semifinals-2011-nl"),
-# 	
-# 	url(r'^archives/2011/finales$', 'direct_to_template', {'template': 'fr/2011/finals.html'}, "finals-2011-fr"),
-# 	url(r'^archieven/2011/finale$', 'direct_to_template', {'template': 'nl/2011/finals.html'}, "finals-2011-nl"),
-# 	
-# 	url(r'^archives/2011/ioi2011-delegation-belge$', 'direct_to_template', {'template': 'fr/2011/ioi2011-belgian-delegation.html'}, "2011-ioi-belgian-delegation-fr"),
-# 	url(r'^archieven/2011/ioi2011-belgische-delegatie$', 'direct_to_template', {'template': 'nl/2011/ioi2011-belgian-delegation.html'}, "2011-ioi-belgian-delegation-nl"),
-# 
-# )
-# 
-# 
-# # Django views
-# urlpatterns += patterns('',
-# 
-# 
-# #	url(r'^finales-fr$',  'django.views.generic.list_detail.object_list', {
-# #			'template_name': 'fr/final.html',
-# #			"queryset": ResultFinal.objects
-# #									.extra(select={"total":"(score_written*2+score_computer)/3"})
-# #										.filter(contestant__contest_year=2011)
-# #										.order_by("rank")
-# #		},"final-fr"),
-# 		
-# #	url(r'^finales-nl$',  'django.views.generic.list_detail.object_list', {
-# #			'template_name': 'nl/final.html',
-# #			"queryset": ResultFinal.objects
-# #										.extra(select={"total":"(score_written*2+score_computer)/3"})
-# #										.filter(contestant__contest_year=2011)
-# #										.order_by("rank"),
-# #		},"final-nl"),
-# 
-# 	url(r'^demi-finales/secondaire$',  'django.views.generic.list_detail.object_list', {
-# 			'template_name': 'fr/semifinal_results.html',
-# 			"queryset": ResultSemifinal.objects
-# 										.filter(qualified=True,
-# 												contestant__contest_category=CONTEST_SEC,
-# 												contestant__contest_year=2011)
-# 										.order_by("contestant__surname","contestant__firstname"),
-# 			"extra_context": {"category":"sec" }
-# 		},"semifinal-sec-fr"),
-# 
-# 	url(r'^demi-finales/superieur$',  'django.views.generic.list_detail.object_list', {
-# 			'template_name': 'fr/semifinal_results.html',
-# 			"queryset": ResultSemifinal.objects
-# 										.filter(qualified=True,
-# 												contestant__contest_category=CONTEST_HIGH,
-# 												contestant__contest_year=2011)
-# 										.order_by("contestant__surname","contestant__firstname"),
-# 			"extra_context": {"category":"high"}
-# 		},"semifinal-high-fr"),
-# 	url(r'^halve-finale/secundair$',  'django.views.generic.list_detail.object_list', {
-# 			'template_name': 'nl/semifinal_results.html',
-# 			"queryset": ResultSemifinal.objects
-# 										.filter(qualified=True,
-# 												contestant__contest_category=CONTEST_SEC,
-# 												contestant__contest_year=2011)
-# 										.order_by("contestant__surname","contestant__firstname"),
-# 			"extra_context": {"category":"sec" }
-# 		},"semifinal-sec-nl"),
-# 
-# 	url(r'^halve-finale/hoger$',  'django.views.generic.list_detail.object_list', {
-# 			'template_name': 'nl/semifinal_results.html',
-# 			"queryset": ResultSemifinal.objects
-# 										.filter(qualified=True,
-# 												contestant__contest_category=CONTEST_HIGH,
-# 												contestant__contest_year=2011)
-# 										.order_by("contestant__surname","contestant__firstname"),
-# 			"extra_context": {"category":"high"}
-# 		},"semifinal-high-nl"),
-# 
-# 
-# 	url(r'^centres-regionaux$',  'django.views.generic.list_detail.object_list', {
-# 				'template_name': 'fr/regionalcenters.html',
-# 				"queryset": SemifinalCenter.objects.filter(active=True)
-# 			},"regional-centers-fr"),
-# 	url(r'^regionalecentra$',  'django.views.generic.list_detail.object_list', {
-# 				'template_name': 'nl/regionalcenters.html',
-# 				"queryset": SemifinalCenter.objects.filter(active=True)
-# 			},"regional-centers-nl"),
-# 
-# 	url(r'^inscription/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', {
-# 				'template_name': 'fr/contest/registration_confirm.html', 
-# 				"queryset": SemifinalCenter.objects.filter(active=True) 
-# 			}, "registration-confirm-fr"),
-# 	
-# 	url(r'^inschrijven/confirm/(?P<object_id>\d+)/$', 'django.views.generic.list_detail.object_detail', {
-# 				'template_name': 'nl/contest/registration_confirm.html', 
-# 				"queryset": SemifinalCenter.objects.filter(active=True) 
-# 			}, "registration-confirm-nl"),
-# 
-#    	url(r'^accueil/$', 
-#    	    'django.views.generic.list_detail.object_list', {
-# 			'queryset': News.online_objects.filter(lang=News.LANG_FR)\
-# 			            .order_by("-publication_date"),
-# 			'template_name': "fr/home.html",
-# 			'paginate_by': 5,
-# 			'page': 1
-# 		}, 'home-fr'),
-#    	url(r'^accueil/(?P<page>[0-9]+)/$', 
-#    	    'django.views.generic.list_detail.object_list', {
-# 			'queryset': News.online_objects.filter(lang=News.LANG_FR)\
-# 			            .order_by("-publication_date"),
-# 			'template_name': "fr/home.html",
-# 			'paginate_by': 5
-# 		}, 'home-fr'),
-# 
-# 	url(r'^home/$', 
-# 	    'django.views.generic.list_detail.object_list', {
-# 		'queryset': News.online_objects.filter(lang=News.LANG_NL)\
-# 		            .order_by("-publication_date"),
-# 		'template_name': "nl/home.html",
-# 		'paginate_by': 5,
-# 		'page': 1
-# 	}, 'home-nl'),
-# 	
-# 	url(r'^home/(?P<page>[0-9]+)/$', 
-# 	    'django.views.generic.list_detail.object_list', {
-# 		'queryset': News.online_objects.filter(lang=News.LANG_NL)\
-# 		            .order_by("-publication_date"),
-# 		'template_name': "nl/home.html",
-# 		'paginate_by': 5
-# 	}, 'home-nl'),
-# 	
-# 
-# 	# admin panel
-# 	(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-# 	(r'^admin/', include(admin.site.urls)),
-# 
-# 	# language post
-# 	(r'^i18n/', include('django.conf.urls.i18n')),
-# 
-# 	# Serving public files
-# 	(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': path.join(path.dirname(__file__), 'static').replace('\\','/')}),
-#     
-# )

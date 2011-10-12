@@ -5,11 +5,8 @@ from beoi.contest.models import *
 from beoi.contest.forms import *
 from django.core import mail
 
-urlfr = reverse("registration-fr")
-urlnl = reverse("registration-nl")
-urlresultsecfr = reverse("semifinal-sec-fr")
-urlresulthighfr = reverse("semifinal-high-fr")
-
+urlfr = reverse("registration",kwargs={"language":"fr"})
+urlnl = reverse("registration",kwargs={"language":"nl"})
 
 sample = {
 	"firstname": "Abcd",
@@ -26,7 +23,6 @@ sample = {
 	"new_school_postal_code": "",
 	"new_school_city": "",
 	"year_study": str(Contestant.YEARSTUDY_6SEC),
-	"contest_category": str(CONTEST_SEC),
 	"language": str(LANG_FR),
 	"semifinal_center": "8",
 }
@@ -42,7 +38,11 @@ class RegistrationTest(TransactionTestCase):
 		response = self.client.post(urlfr, sample)
 		
 		# check that redirect, to a code-200 page, to the right center page
-		self.assertRedirects(response, reverse("registration-confirm-fr", args=[sample["semifinal_center"]]),target_status_code=200)
+		self.assertRedirects(response, reverse( "registration-confirm",
+			args=[sample["semifinal_center"]],
+			kwargs={"language":"fr"}),
+			target_status_code=200
+		)
 
 		# an email has been sent
 		self.assertEquals(len(mail.outbox), 1)
@@ -54,29 +54,6 @@ class RegistrationTest(TransactionTestCase):
 		self.assertEquals(Contestant.objects.get(firstname=sample["firstname"]).contest_category, CONTEST_SEC)
 		
 		
-	def test_valid_highschool(self):
-
-		if not REGISTRATION_OPEN: return;
-
-		samplecopy = sample.copy()
-		samplecopy["school"] = "85"
-		samplecopy["year_study"] = str(Contestant.YEARSTUDY_BAC1_MGMT_CS)
-		samplecopy["contest_category"] = str(CONTEST_HIGH)
-
-		response = self.client.post(urlnl, samplecopy)
-		
-		# check that redirect, to a code-200 page, to the right center page
-		self.assertRedirects(response, reverse("registration-confirm-nl", args=[samplecopy["semifinal_center"]]),target_status_code=200)
-
-		# an email has been sent
-		self.assertEquals(len(mail.outbox), 1)
-		
-		# the object exists
-		self.assertEquals(Contestant.objects.filter(firstname=samplecopy["firstname"]).count(), 1)
-
-		# the right category
-		self.assertEquals(Contestant.objects.get(firstname=samplecopy["firstname"]).contest_category, CONTEST_HIGH)
-
 	def test_valid_new_school(self):
 		
 		if not REGISTRATION_OPEN: return;
@@ -90,7 +67,10 @@ class RegistrationTest(TransactionTestCase):
 		response = self.client.post(urlfr, samplecopy)
 		
 		# check that redirect, to a code-200 page, to the right center page
-		self.assertRedirects(response, reverse("registration-confirm-fr", args=[samplecopy["semifinal_center"]]),target_status_code=200)
+		self.assertRedirects(response, reverse("registration-confirm",
+		 	args=[samplecopy["semifinal_center"]],
+			kwargs={"language":"fr"}),
+			target_status_code=200)
 
 		# an email has been sent
 		self.assertEquals(len(mail.outbox), 1)
@@ -115,7 +95,7 @@ class RegistrationTest(TransactionTestCase):
 		
 			# check that come back to the same page with errors
 			self.assertContains(response, "erreur", status_code=200)
-			self.assertTemplateUsed(response, "fr/contest/registration.html")
+			self.assertTemplateUsed(response, "fr/registration.html")
 		
 			# an email has NOT been sent
 			self.assertEquals(len(mail.outbox), 0)
@@ -136,7 +116,9 @@ class RegistrationTest(TransactionTestCase):
 		response = self.client.post(urlnl, samplecopy)
 		
 		# check that redirect, to a code-200 error page
-		self.assertRedirects(response, reverse("registration-error-nl"),target_status_code=200)
+		self.assertRedirects(response, 	
+			reverse("registration-error",kwargs={"language":"nl"}),
+			target_status_code=200)
 
 		# an email has NOT been sent
 		self.assertEquals(len(mail.outbox), 0)
@@ -156,7 +138,9 @@ class RegistrationTest(TransactionTestCase):
 		response = self.client.post(urlnl, samplecopy)
 
 		# check that redirect, to a code-200 error page
-		self.assertRedirects(response, reverse("registration-error-nl"),target_status_code=200)
+		self.assertRedirects(response, 
+			reverse("registration-error",kwargs={"language":"fr"}),
+			target_status_code=200)
 
 		# an email has NOT been sent
 		self.assertEquals(len(mail.outbox), 0)
@@ -183,7 +167,10 @@ class RegistrationTest(TransactionTestCase):
 		response = self.client.post(urlfr, samplecopy)
 		
 		# check that redirect, to a code-200 page, to the right center page
-		self.assertRedirects(response, reverse("registration-confirm-fr", args=[samplecopy["semifinal_center"]]),target_status_code=200)
+		self.assertRedirects(response, reverse("registration-confirm-fr",
+		 	args=[samplecopy["semifinal_center"]],
+			kwargs={"language":"fr"}),
+			target_status_code=200)
 
 		# an email has been sent
 		self.assertEquals(len(mail.outbox), 1)
@@ -192,28 +179,7 @@ class RegistrationTest(TransactionTestCase):
 		self.assertEquals(Contestant.objects.filter(firstname=samplecopy["firstname"]).count(), 1)
 
 		# check that no school has been added
-		self.assertEquals(School.objects.count(), schoolnumber_before)
-		
-		
-	def test_bad_combination_contest_wrong_contest(self):
-		
-		if not REGISTRATION_OPEN: return;
-		
-		samplecopy = sample.copy()
-		samplecopy["contest_category"] = str(CONTEST_HIGH)
-		
-		response = self.client.post(urlfr, samplecopy)
-	
-		# check that come back to the same page with errors
-		self.assertContains(response, "erreur", status_code=200)
-		self.assertTemplateUsed(response, "fr/contest/registration.html")
-	
-		# an email has NOT been sent
-		self.assertEquals(len(mail.outbox), 0)
-	
-		# the object does NOT exists
-		self.assertEquals(Contestant.objects.filter(firstname=samplecopy["firstname"]).count(), 0)
-		
+		self.assertEquals(School.objects.count(), schoolnumber_before)		
 
 	def test_bad_combination_contest_wrong_school(self):
 		
@@ -275,7 +241,8 @@ class RegistrationTest(TransactionTestCase):
 		
 		if not REGISTRATION_OPEN: return;
 		
-		response = self.client.get(reverse("registration-confirm-fr", args=[8]))
+		response = self.client.get(reverse(
+			"registration-confirm", args=[8], kwargs={"language":"fr"}))
 		self.assertContains(response, "Vrije Universiteit Brussel")
 		self.assertContains(response, "Gebouw Q - Aula QB", 1)
 		self.assertNotContains(response, "Une erreur s'est produite")
@@ -305,13 +272,15 @@ class RegistrationTest(TransactionTestCase):
 		self.assertEquals(len(mail.outbox), 0)
 	
 		# the object does NOT exists
-		self.assertEquals(Contestant.objects.filter(firstname=samplecopy["firstname"]).count(), 0)
+		self.assertEquals(Contestant.objects.filter(
+			firstname=samplecopy["firstname"]).count(), 0)
 
 	def test_inactive_semifinalecenter_confirm(self):
 		
 		if not REGISTRATION_OPEN: return;
 		
-		response = self.client.get(reverse("registration-confirm-fr", args=[1]))
+		response = self.client.get(reverse("registration-confirm", 
+			kwargs={"language":"fr"}, args=[1]))
 		# an inactive center should be render any confirm page 
 		self.failUnlessEqual(response.status_code, 404)
 
@@ -319,10 +288,12 @@ class RegistrationTest(TransactionTestCase):
 		
 		if not REGISTRATION_OPEN: return;
 		
-		response = self.client.get(reverse("registration-confirm-fr", args=[10]))
+		response = self.client.get(reverse("registration-confirm", 
+			kwargs={"language":"fr"}, args=[10]))
 		# a non-existing center should be render any confirm page 
 		self.failUnlessEqual(response.status_code, 404)
-    # 
+    
+
     # def test_secondary_semifinal_result_page(self):
     # 
     #   response = self.client.get(urlresultsecfr)
