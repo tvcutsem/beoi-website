@@ -1,7 +1,7 @@
 {{ NAME }},
 
-Nous confirmons votre inscription à la demi-finale des Olympiades belges d'Informatique, catégorie "{{ CONTEST }}". 
-Vous avez choisi de la présenter le 16 février 2011 au centre de "{{ CENTER_NAME }}". Vous trouverez plus d'informations sur comment vous y rendre sur la page {{ CENTER_DETAILS }}.
+Nous confirmons votre inscription à la demi-finale des Olympiades belges d'Informatique. 
+Vous avez choisi de la présenter le 1er février 2012 au centre de "{{ CENTER_NAME }}". Vous trouverez plus d'informations sur comment vous y rendre sur la page {{ CENTER_DETAILS }}.
 
 Vous ne devez rien apporter de particulier, si ce n'est de quoi écrire. Dans la mesure du possible, essayez d'arriver à 13h45. Le concours débute à 14h.
 
