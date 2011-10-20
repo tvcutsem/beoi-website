@@ -1,76 +1,14 @@
 {% extends "nl/base.html" %}
 
 {% block content%}
+<h2>Finale<img src="/static/pictures/2010/oi2010-machine.jpg" width="350" height="231" class="withframe float-right" /></h2>
 
-<h2>Finales<img src="/static/pictures/2011/finale2.jpg" class="withframe float-right" /></h2>
+<p>De finale 2012 zal plaatsvinden op woensdag 14 maart. In tegenstelling tot de halve finale bestaat ze uit twee delen: een schriftelijk gedeelte en een gedeelte aan de computer. De locatie is nog niet bepaald. </p>
+	
+<p>Enkele hints over het soort vragen dat je kan verwachten op de finale staan in het reglement hieronder opgesomd. Aarzel ook niet om de <a href="{% url sample-questions LANGUAGE_CODE %}">vragen van vorige jaren</a> te raadplegen.</p>
 
-<p>38 leerlingen uit het secundair onderwijs en 54 uit het hoger onderwijs hebben deelgenomen aan de finales van de Belgische Olympiades in de Informatica. Die vonden plaats op woensdag 30 maart 2011 te Louvain-La-Neuve. Wij feliciteren alle deelnemers, en met name ook Benoît Legat en Thomas Van Gysegem, respectievelijk winnaar in de categorie <em>secundair onderwijs</em> en <em>hoger onderwijs</em>. Voor elke categorie staat het volledig klassement op deze pagina. De finale bestond uit een proef op papier en een proef aan de computer. Je kan de vragen van de wedstrijd hier downloaden: </p>
+<h3>Reglement van de proef</h3>
 
-<ul>
-	<li>Categorie secundair onderwijs: <a href="/static/downloads/OI-2011-final-sec-paper-nl.pdf">gedeelte op papier</a> en <a href="/static/downloads/OI-2011-final-sec-comp-nl.pdf">gedeelte aan de computer</a> ;</li>
-	<li>Categorie hoger onderwijs : <a href="/static/downloads/OI-2011-final-high-paper-nl.pdf">gedeelte op papier</a> en <a href="/static/downloads/OI-2011-final-high-comp-nl.pdf">gedeelte aan de computer</a>.</li>
-</ul>
-
-<p>Een prijzenpot ter waarde van bijna 4000&nbsp;&euro; werd uitgereikt aan de best geklasseerde finalisten van de twee wedstrijden. Die prijzen werden aangeboden door IBM, Dell, Redcorp, Eyrolles, Plantyn en IRIS. Onder de prijzen bevonden zich onder andere een Parrot AR Drone, een iPod Touch, een HP Mini Note, een Dell Latitude, een HTC Desire, een IRIS Scan en een IRIS Pen.</p>
-
-<p>Daarnaast werden 10 kandidaten, 5 Franstaligen en 5 Nederlandstaligen, geselecteerd uit de finalisten van de wedstrijd voor het secundair. Zij maken deel uit van een trainingspool met als doel om een Belgische delegatie klaar te stomen voor de Internationale Olympiade in de Informatica. Die vindt dit jaar plaats in Thailand.</p>
-
-<p>Hieronder vindt u het officiële klassement en de scores van de finales 2011, samen met enkele statistieken. Het <a href="{% url final-rules LANGUAGE_CODE %}">reglement van de finales</a> is ook nog steeds beschikbaar.</p>
-
-<h3>Categorie secundair onderwijs</h3>
-
-<img class="withframe" src="/static/pictures/2011/group_sec.jpg" />
-
-<table>
-<tr><th>#</th><th>Naam</th><th>School</th><th><img title="Score gedeelte papier" class="icons" src="/static/icons/pen.png" /></th><th><img title="Score gedeelte computer" class="icons" src="/static/icons/keyboard.png" /></th><th><img title="Totaalscore" class="icons" src="/static/icons/sum.png" /></th></tr>
-<tr>
-	{% for finalist in object_list %}
-	{% if finalist.contestant.contest_category == 0 %}
-	<td>{{ finalist.rank }}</td>
-	<td nowrap="nowrap">{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</td>
-	<td>{{ finalist.contestant.school.name }}, {{ finalist.contestant.school.city }} &mdash; {{ finalist.contestant.year_study }}e</td>
-	<td>{{ finalist.score_written }}%</td>
-	<td>{{ finalist.score_computer }}%</td>
-	<td><strong>{{ finalist.total }}%</strong></td>
-</tr>
-	{% endif %}
-	{% endfor %}
-</table>
-
-
-<h3>Categorie hoger onderwijs</h3>
-
-<img class="withframe" src="/static/pictures/2011/group_high.jpg" />
-
-
-<table>
-<tr><th>#</th><th>Naam</th><th>School</th><th><img title="Score gedeelte papier" class="icons" src="/static/icons/pen.png" /></th><th><img title="Score gedeelte computer" class="icons" src="/static/icons/keyboard.png" /></th><th><img title="Totaalscore" class="icons" src="/static/icons/sum.png" /></th></tr><tr>
-	{% for finalist in object_list %}
-	{% if finalist.contestant.contest_category == 1 %}
-	<td>{{ finalist.rank }}</td>
-	<td nowrap="nowrap">{{finalist.contestant.surname}} {{finalist.contestant.firstname}}</td>
-	<td>{{ finalist.contestant.school.name }}, {{ finalist.contestant.school.city }}</td>
-	<td>{{ finalist.score_written }}%</td>
-	<td>{{ finalist.score_computer }}%</td>
-	<td><strong>{{ finalist.total }}%</strong></td>
-</tr>
-	{% endif %}
-	{% endfor %}
-</table>
-
-<h3>Statistieken</h3>
-
-<img src="http://chart.apis.google.com/chart?chf=c,ls,86.667,FFFFFF,0.1,FBFBFB,0.1&chxl=0:|50%25|100%25|||0%25&chxp=0,50,100,75,25,0&chxs=0,676767,9,0.167,lt,676767&chxtc=0,5&chxt=y&chbh=7,1,0&chs=337x207&cht=bvs&chco=3399CC,FF9900&chd=t:57,50,48,44,41,56,38,36,34,31,28,44,39,38,34,32,36,32,32,28,26,19,19,31,28,23,22,22,15,22,17,21,22,22,15,16,0,0|33,33,33,33,29,11,29,27,29,31,33,16,21,20,21,19,14,13,11,13,13,19,18,5,5,10,11,9,13,6,11,6,5,0,5,4,6,2&chdl=Gedeelte+papier|Gedeelte+computer&chdlp=b&chg=-1,-1,0,0&chma=0,0,0,6&chtt=Scores+in+de+categorie+%22secundair+onderwijs%22+(van+hoog+naar+laag)&chts=676767,10.834" width="337" height="207" alt="Scores in de categorie secundair onderwijs (van hoog naar laag)" />
-
-<img src="http://chart.apis.google.com/chart?chf=c,ls,90,FFFFFF,0.1,FBFBFB,0.1&chxl=0:|50%25|75%25|25%25|0%25&chxp=0,50,75,25,0&chxr=0,0,75&chxs=0,676767,9,0.167,lt,676767&chxtc=0,5&chxt=y&chbh=4,1,0&chs=337x207&cht=bvs&chco=3399CC,FF9900&chds=0,75,0,75&chd=t:54,59,61,53,54,54,55,52,50,44,47,52,42,46,44,44,44,46,40,36,44,44,42,38,37,40,42,41,41,38,39,39,38,42,39,42,36,31,34,38,32,34,16,34,25,29,28,30,28,25,26,28,18,18|19,13,10,15,14,11,7,7,10,15,12,5,15,11,12,12,10,5,12,15,7,5,6,10,11,7,5,5,5,7,6,6,6,3,5,1,7,12,7,2,6,4,22,2,11,5,4,0,1,4,2,0,0,0&chdl=Gedeelte+papier|Gedeelte+computer&chdlp=b&chg=-1,-1,0,0&chma=4,0,0,6|2,11&chtt=Scores+in+de+categorie+%22hoger+onderwijs%22+(van+hoog+naar+laag)&chts=676767,9.833" width="337" height="207" alt="Scores in de categorie hoger onderwijs (van hoog naar laag)" />
-
-<img src="http://chart.apis.google.com/chart?chf=c,ls,90,FFFFFF,0.1,FBFBFB,0.1&chxl=1:|Q1|Q2|Q3|Q4|Q5|Q6|Q7|Q1|Q2&chxr=1,-1.667,100&chxs=0,676767,11.5,-0.333,lt,676767|1,676767,11.5,0,lt,676767&chxtc=0,5|1,0&chxt=y,x&chbh=25,1,2&chs=337x166&cht=bvs&chco=3399CC,FF9900&chd=t:77.77,63.88,100,50,36.8,12.03,28.33|0,0,0,0,0,0,0,61.05,44.05&chdl=Papier|Computer&chtt=Gemiddelde+(%25)+behaald+op+elke+vraag+(secundair)&chts=676767,10" width="337" height="166" alt="Gemiddelde (%) behaald op elke vraag (secundair)" />
-
-<img src="http://chart.apis.google.com/chart?chf=c,ls,90,FFFFFF,0.1,FBFBFB,0.1&chxl=1:|Q1|Q2|Q3|Q4|Q5|Q6|Q1|Q2&chxr=1,-1.667,100&chxs=0,676767,11.5,-0.333,lt,676767|1,676767,11.5,0,lt,676767&chxtc=0,5|1,0&chxt=y,x&chbh=25,1,2&chs=337x166&cht=bvs&chco=3399CC,FF9900&chd=t:38,92,85,47,78,22|0,0,0,0,0,0,49,8&chdl=Papier|Computer&chtt=Gemiddelde+(%25)+behaald+op+elke+vraag+(hoger)&chts=676767,10" width="337" height="166" alt="Gemiddelde (%) behaald op elke vraag (hoger)" />
-
-
-
+{% include "nl/includes/final_rules.html" %}
 
 {% endblock %}
-
-

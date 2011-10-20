@@ -2,9 +2,9 @@
 
 {% block content%}
 
-<img class="withframe" src="/static/pictures/2011/banner.jpg" alt="image post" width="680" height="213" />
+<img class="withframe" src="/static/pictures/2011/banner.jpg" alt="image post" width="680" height="203" />
 
-<p>De Belgische Olympiades in de Informatica (OI) zijn competities in programmeren, algoritmiek en logica. Er zijn twee wedstrijden: de eerste is voor leerlingen uit het middelbaar onderwijs. De beste kandidaten plaatsen zich voor de Internationale Olympiades in Informatica (IOI). De tweede wedstrijd focust op studenten uit het eerste jaar van het hoger onderwijs.</p>
+<p>De Belgische Olympiade in de Informatica (OI) is een wedstrijd in programmeren, algoritmiek en logica. Ze is bestemd voor leerlingen uit alle jaren en richtingen van het middelbaar onderwijs. De beste kandidaten maken kans op deelname aan de Internationale Olympiades in Informatica (IOI).</p>
 
 <h3>Laatste nieuws</h3>
 
@@ -33,7 +33,7 @@
 		<p>[ pagina: 
 		{% for page in paginator.page_range %}
 			{% if page != page_obj.number %} 
-			<a href="{% url home LANGUAGE_CODE page=page %}">{{page}}</a> 
+			<a href="{% url home LANGUAGE_CODE,page %}">{{page}}</a> 
 			{% else%} 
 			<strong>{{page}}</strong>
 			{% endif %}
@@ -41,6 +41,4 @@
 		]</p>
 	{% endif %}
 
-
 {% endblock %}
-

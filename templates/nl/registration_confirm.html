@@ -4,11 +4,12 @@
 <h2>Inschrijven</h2>
 
 {% if not error %}
-<p>Gefeliciteerd, je bent nu ingeschreven ! Ga op 16 februari naar je regionale centrum.</p>
+<p>Gefeliciteerd, je bent nu ingeschreven voor de Belgische Olympiade in de Informatica 2012! Ga op 1 februari naar je regionale centrum.</p>
 {% if object %}
 <p>Je hebt <i>{{object}}</i> als centrum gekozen voor de halve finale. Dat centrum heeft ons de volgende informatie gegeven over de precieze plaats van de halve finale. Als het nodig is, zal je meer informatie per email ontvangen.</p>
 <div style="padding-left:50px;">{{object.details|safe}}</div>
 {% endif %}
+<p></p>
 
 {% else %}
 <p>Er was een probleem tijdens het inschrijven. Misschien was je al ingeschreven!</p>
@@ -17,5 +18,6 @@
 <p>&nbsp;</p>
 <p>Als je je inschrijving wil veranderen, stuur een email naar <a href="mailto:inschrijven@be-oi.be">inschrijven@be-oi.be</a>.</p>
 
+{# TODO MAKE SURE THAT EMAIL ADDRESS IS ACTIVE! #}
 
 {% endblock %}

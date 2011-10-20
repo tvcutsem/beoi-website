@@ -1,51 +1,15 @@
 {% extends "nl/base.html" %}
 
 {% block content%}
-<h2>Halve finale<img src="/static/pictures/2010/oi2010-finals-sheet.jpg" width="350" height="231" alt="firefox" class="withframe float-right" /></h2>
+<h2>Halve finale<img src="/static/pictures/2010/oi2010-finals-sheet.jpg" width="350" height="231" class="withframe float-right" /></h2>
 
-<p>De halve finale vindt plaats op woensdag 16 februari 2011 en vangt aan om 14 uur in verschillende <a href="{% url semifinal-places LANGUAGE_CODE %}">regionale centra</a> in het land.</p>
-
-<p>Een paar aanwijzingen over het soort van vragen die kunnen verwacht worden tijdens de halve finale staan in het reglement hieronder. U kunt ook <a href="{% url sample-questions LANGUAGE_CODE %}">de vragen van vorig jaar</a> bekijken.</p>
+<p>De halve finale vindt plaats op 1 februari 2012 en zal om 14u beginnen in de verschillende <a href="{% url semifinal-places LANGUAGE_CODE %}">regionale centra</a> verspreid over het land.
+	
+<p>Enkele hints over de vragen waaraan deelnemers zich kunnen verwachten staan in het reglement hieronder opgesomd. Aarzel zeker niet om ook de <a href="{% url sample-questions LANGUAGE_CODE %}">vragen van vorige jaren</a> te raadplegen.</p>
 
 <h3>Reglement van de wedstrijd</h3>
 
-<ol>
-	<li>De halve finale bestaat uit twee afzonderlijke wedstrijden, elk met een verschillende vragenlijst: één voor leerlingen uit het secundair onderwijs en één voor leerlingen uit het eerste jaar hoger onderwijs.</li>
-	
-	<li>De test voor de halve finale gebeurt volledig op papier en duurt maximaal 3 uur. De deelnemers moeten enkel zorgen voor schrijfmateriaal. Kladpapier zal hen ter beschikking worden gesteld tijdens de test. Het gebruik van GSM toestellen, rekenmachines, of enig ander electronisch toestel tijdens de test wordt uitdrukkelijk verboden en impliceert een onmiddellijke uitsluiting.</li>
-	
-	<li>Om een gelijke behandeling van de deelnemers in de verschillende centra te garanderen kunnen de deelnemers geen begripsvragen aan de opletters stellen. Elke fout in de test wordt beschouwd als onderdeel van de wedstrijd.</li>
-	
-	<li>Tijdens de test is het de deelnemers onder geen beding toegestaan om de zaal te verlaten, indien ze niet eerst hun antwoordexemplaar hebben ingediend.</li>
-	
-	<li>De deelnemer moet ten minste 15 minuten vóór de start van de wedstrijd arriveren in het regionaal centrum dat hij bij inschrijving heeft gekozen. Elke vertraging zal van de duur van zijn proeftijd afgetrokken worden.</li>
-	
-	<li>De taal die door de deelnemer werd gekozen bij inschrijving bepaalt de taal van zijn opgavenblad, onafhankelijk van het gekozen centrum. Wel dient de deelnemer te weten dat de opletters van het gekozen centrum niet geacht worden een andere taal dan de officiële taal van dat centrum te spreken. De deelnemer zal de opletters eraan herinneren wat de gewenste taal van zijn opgavenblad is.</li>
-	
-	<li>De deelnemers dienen hun naam, voornaam en school duidelijk te vermelden, op de eerste pagina van het antwoordformulier, in het daartoe voorziene kader. Voor al de andere pagina's dienen ze er vooral op te letten dat ze hun antwoorden duidelijk vermelden in de daarvoor voorziene kaders.</li>
-	
-	<li>De deelnemers kunnen hun vragen beantwoorden in het Nederlands, in het Frans of in het Engels, in pseudo-code of in een van de toegestane programmeertalen: Java, C, C++, Pascal, Python en PHP. Het is niet toegestaan functies te gebruiken afkomstig van niet-standaard bibliotheken voor de desbetreffende talen.</li>
-	
-	<li>Leerlingen uit het secundair onderwijs kunnen de volgende soorten en thema's van vragen verwachten:
-		<ul>
-			<li>Meerkeuzevragen : een kort algoritme kunnen lezen en begrijpen, om een ontbrekend deel in te vullen, om het verwachte resultaat te voorspellen, of om er een fout in te ontdekken&nbsp;;</li>
-			<li>Opstellen van een algoritme om een probleem in een bepaalde context op te lossen&nbsp;;</li>
-			<li>Een algoritme opstellen dat een bepaalde wiskundige uitdrukking correct berekent&nbsp;;</li>
-			<li>Op basis van een aantal precies gedefinieerde primitieve basisfuncties, deze functies gebruiken en combineren om een bepaald probleem op te lossen&nbsp;;</li>
-			<li>Het opstellen van een algoritme om een probleem op te lossen dat de manipulatie van een "array" datastructuur vereist.</li>
-		</ul>
-	</li>
-	
-	<li>Leerlingen uit het hoger onderwijs kunnen de volgende soorten en thema's van vragen verwachten:
-		<ul>
-			<li>Meerkeuzevragen : een kort algoritme kunnen lezen en begrijpen, om een ontbrekend deel in te vullen, om het verwachte resultaat te voorspellen, of om er een fout in te ontdekken&nbsp;;</li>
-			<li>Een vraag omtrent het lezen, begrijpen en vergelijken van verschillende algoritmes die eenzelfde  probleem oplossen&nbsp;;</li>
-			<li>Het lezen en begrijpen van een relatief complex algoritme, om vervolgens een variant van dat algoritme voor te stellen dat meer efficiënt is of een algemener probleem oplost&nbsp;;</li>
-			<li>Op basis van een precieze specificatie van een probleem, het probleem kunnen begrijpen en een algoritme vinden en opstellen om dat probleem op te lossen&nbsp;;</li>
-			<li>Op basis van een voorgestelde datastructuur en een gegeven probleem, een algoritme opstellen dat gebruik maakt van die datastructuur om dat probleem op te lossen.</li>
-		</ul>
-	</li>
-</ol>
-
+{% include "nl/includes/semifinal_rules.html" %}
 
 {% endblock %}
+

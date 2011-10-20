@@ -26,7 +26,7 @@ class News(models.Model):
 	LANG_DEFAULT = LANG_FR
 	LANG_CHOICES = (
 		(LANG_FR, _('French')),
-		(LANG_NL,_("Dutch"))
+		(LANG_NL,_('Dutch'))
 	)
 
 	# Fields

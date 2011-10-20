@@ -1,36 +1,31 @@
 {% extends "nl/base.html" %}
 
 {% block content%}
-<h2>Agenda</h2>
+<h2>Kalender</h2>
 
-<p>De officiële kalender voor 2012 zal worden aangekondigd in de herfst van 2011.</p>
-
-
-<h3>Agenda 2011</h3>
-
-<!-- <p>Deze officiële agenda bevat de belangrijkste data van de Belgische Olympiades in de Informatica 2011.</p> -->
+<p>Deze officiële kalender bevat de belangrijkste data van de Belgische Olympiades in de Informatica 2012.</p>
 
 <dl>
-	<dt><strike>10 februari 2011</strike> 13 februari 2011</dt>
-	<dd><p>Deadline voor de inschrijvingen.</p></dd>
+	<dt>29 januari 2012</dt>
+	<dd><p>Uiterste inschrijvingsdatum.</p></dd>
 
-	<dt>16 februari 2011</dt>
-	<dd><p><a href="{% url archives-2011-semifinal LANGUAGE_CODE %}">Halve finales</a> in de regionale centra.</p></dd>
+	<dt>1 februari 2012</dt>
+	<dd><p>Halve finale in de regionale centra.</p></dd>
 
-	<dt>7-11 maart 2011</dt>
-	<dd><p>Tweedaagse opleiding algoritmiek (optioneel) voor leerlingen uit het middelbaar onderwijs (krokusvakantie, exacte data te bepalen).</p></dd>
+	<dt>20-24 februari 2012</dt>
+	<dd><p>Tweedaagse opleiding algoritmiek (optioneel) voor leerlingen uit het middelbaar onderwijs (krokusvakantie, exacte data nog te bepalen).</p></dd>
 
-	<dt>30 maart 2011</dt>
-	<dd><p><a href="{% url archives-2011-final LANGUAGE_CODE %}">Finales</a> in de UCL te Louvain-La-Neuve.</p></dd>
+	<dt>14 maart 2012</dt>
+	<dd><p>Finale.</p></dd>
 
-	<dt>2 april 2011</dt>
-	<dd><p><a href="{% url archives-2011-final LANGUAGE_CODE %}">Bekendmaking resultaten en prijsuitreiking</a> te Louvain-La-Neuve.</p></dd>
+	{# <dt>2 april 2012</dt> #}
+	{# <dd><p>Bekendmaking resultaten en prijsuitreiking te Louvain-La-Neuve.</p></dd> #}
 
-	<dt>11-24 april 2011</dt>
-	<dd><p>Vierdaagse opleiding algoritmiek voor leerlingen uit het middelbaar onderwijs geselecteerd voor de IOI pool (exacte data te bepalen).</p></dd>
+	<dt>2-13 april 2012</dt>
+	<dd><p>Diepgaande opleiding algoritmiek voor de kandidaten geselecteerd voor de IOI pool (exacte data nog te bepalen).</p></dd>
 
-	<dt>22-29 juli 2011</dt>
-	<dd><p>23<sup>st</sup> International Olympiad in Informatics (IOI) in Pattaya in Thailand (<a href="http://www.ioi2011.or.th/">http://www.ioi2011.or.th/</a>).</p></dd>
+	<dt>?-? september 2012</dt>
+	<dd><p>24<sup>st</sup> International Olympiad in Informatics (IOI) in Noord-Italië ({{ "http://www.ioi2012.org/"|urlize }}).</p></dd>
 </dl>
 
 {% endblock %}
