@@ -1,0 +1,42 @@
+{% extends "nl/base.html" %}
+
+{% block content%}
+<h2>Jezelf voorbereiden</h2>
+
+<p>Uit vorige jaren leerden we dat veel mensen wel willen meedoen met de Informatica Olympiade, maar niet goed weten wat ze kunnen verwachten. Een van de meest gehoorde vragen die wij krijgen is: "Wat moet ik allemaal kennen om te kunnen meedoen"? Het korte antwoord is: de Belgische Olympiade in de Informatica wil zo laagdrempelig mogelijk zijn. In feite kan iedereen met een minimum aan voorbereiding deelnemen.</p>
+
+
+<h4>Vereiste voorkennis</h4>
+<p>
+<ul>
+	<li>Voor de halve finale is <em>geen specifieke voorkennis</em> vereist. Je moet niet kunnen programmeren, de test is volledig schriftelijk. Het is echter wel handig als je weet hoe een algoritme werkt, en hoe je het kan noteren, lezen en begrijpen. Bekijk daarom zeker de <a href="{% url sample-questions  LANGUAGE_CODE %}">voorbeeldvragen</a>.</li>
+
+	<li>De finale omvat een kleine programmeeropdracht. Om succesvol te kunnen zijn in de finale moet je dus een beetje overweg kunnen met een van de volgende programmeertalen: <em>Java, C, C++, Pascal, PHP, Python</em>.</li>
+
+	<li>De gelukkigen die mogen deelnemen aan de Internationale Olympiade in de Informatica zullen ruime ervaring moeten hebben (of willen opdoen) met programmeren in <em>C, C++ of Pascal</em>.</li>
+</ul>
+</p>
+
+
+<h4>Om je op weg te helpen</h4>
+
+<p>Op de pagina met <a href="{% url sample-questions  LANGUAGE_CODE %}">voorbeeldvragen</a> kan je alle vragen van de vorige jaren raadplegen. Je vindt er ook het document <a href="/static/downloads/OI-2010-NL-intro-algo.pdf">Introductie tot de algoritmiek</a>, dat je laat kennismaken met algoritmes en hoe ze in pseudo-code genoteerd kunnen worden. Als je weinig ervaring hebt met algoritmes, is het erg aan te raden om dit grondig door te lezen!</p>
+
+<p>Tussen de halve finale en de finale krijgen alle deelnemers ook de kans om tijdens de krokusvakantie een <a href="{% url training LANGUAGE_CODE %}">mini-cursus Algoritmiek en Programmeren</a> te volgen. Wie naar de finale mag en weinig programmeerervaring heeft, kan op die manier (en door thuis te oefenen) met vertrouwen naar de finale uitkijken.</p>
+
+<p>De belangrijkste bron van informatie is je <em>leerkracht informatica</em>. Als je vragen hebt over iets dat je tegenkomt, of je wil extra studiemateriaal, kan je bij hem/haar het best terecht. Vraag bijvoorbeeld om enkele van de <a href="{% url sample-questions  LANGUAGE_CODE %}">voorbeeldvragen</a> eens samen te bespreken!</p>
+
+
+<h4>Computerinfrastructuur</h4>
+
+<p>De finaleronde verloopt deels aan de computer. De software voor het indienen en testen van je code is erg overzichtelijk en eenvoudig in gebruik, je moet niet kunnen dan typen. Je krijgt ook ruim de tijd om kennis te maken met de computer die je toegewezen krijgt. De exacte specificatie van de softwareomgeving kunnen we op dit moment nog niet geven.</p>
+
+<p>Wie toch een voorproefje wil kunnen we de volgende richtlijnen geven: we gebruiken <a href="http://www.ubuntu.com/" target="_blank">Ubuntu Linux</a>. Je mag je favoriete tekst-editor gebruiken, standaard zal <a href="http://projects.gnome.org/gedit/" target="_blank">gEdit</a> geïnstalleerd zijn. Wie dit zonder risico eens wilt uittesten kan proberen deze omgeving te installeren in een virtual machine zoals <a href="https://www.virtualbox.org/" target="_blank">VirtualBox</a>.
+</p>
+
+
+<h2>Inschrijven!</h2>
+
+Al bij al zijn er geen redenen om niet mee te doen, dus aarzel niet om je <em><a href="{% url registration LANGUAGE_CODE %}">in te schrijven</a></em> voor de Belgische Olympiade in de Informatica 2012! 
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "fr/base.html" %}
+
+{% block content%}
+<h2>Preparing yourself</h2>
+
+<p>From previous years we learned that many people want to participate in the Informatics Olympiad, but they don't know well what to expect. One of the most frequently asked questions we get is: "What do I need to know to participate"? Short answer: The Belgian Olympiad in Informatics wants to be as accessible as possible. In fact, everyone can participate with only a minimum of preparation.</p>
+
+
+<h4>Required knowledge</h4>
+<p>
+<ul>
+	<li>For the semifinals <em>no prior knowledge</em> is required. You do not need to know programming, the test is entirely on paper. It is however handy if you know how an algorithm works, and how to write, read and understand it. Therefore certainly take a look at the <a href="{% url sample-questions  LANGUAGE_CODE %}">sample questions</a>.</li>
+
+	<li>The final contains a small programming exercise. To be successful in the final you need to know your way around a little bit, in one of the following programming languages: <em>Java, C, C++, Pascal, PHP, Python</em>.</li>
+
+	<li>The happy few that get selected to participate in the International Olympiad in Informatics will need to have a broad experience (or be willing to obtain it) with programming in <em>C, C++ of Pascal</em>.</li>
+</ul>
+</p>
+
+
+<h4>To help you get started</h4>
+
+<p>The page with <a href="{% url sample-questions  LANGUAGE_CODE %}">sample questions</a> contains all questions of previous years. There you will also find the document <a href="/static/downloads/OI-2010-FR-intro-algo.pdf">Introduction to Algorithmics</a>, that introduces algorithms and how they can be written down using pseudo-code. If you have no experience with algorithms, it's highly recommended to read it thoroughly!</p>
+
+<p>In between the semifinal and the final, all participants get the opportunity during the Carnival Holiday to follow a <a href="{% url training LANGUAGE_CODE %}">mini-course Algorithmics and Programming</a>. Those who are selected for the final but have little programming experience, can thus (and by practicing at home) look forward to the final with confidence.</p>
+
+<p>The most important source of information is your <em>informatics teacher</em>. If you have questions about something you encountered, or you want additional study materials, he/she is best placed to help you. For example, ask to review a couple of the <a href="{% url sample-questions  LANGUAGE_CODE %}">sample questions</a> together!</p>
+
+
+<h4>Computer infrastructure</h4>
+
+<p>The final will be partially at the computer. The software to submit and test your code is very clear and simple to use, you only need to know how to type. You will also get plenty of time to familiarize yourself with the computer that will be appointed to you. We cannot give the exact specifications of the software environment yet. </p>
+
+<p>For those who want a taste of it, we can give the following guidelines: we use <a href="http://www.ubuntu.com/" target="_blank">Ubuntu Linux</a>. You can use your favorite text editor, standard <a href="http://projects.gnome.org/gedit/" target="_blank">gEdit</a> will be installed. Those who want to test this environment without risk, can try to install it in a virtual machine like <a href="https://www.virtualbox.org/" target="_blank">VirtualBox</a>.
+</p>
+
+
+<h2>Registering!</h2>
+
+All in all there are no reasons not to participate, so do not hesitate to <em><a href="{% url registration LANGUAGE_CODE %}">register</a></em> for the Belgian Olympiad in de Informatics 2012! 
+
+{% endblock %}
