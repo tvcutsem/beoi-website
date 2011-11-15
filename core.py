@@ -44,6 +44,9 @@ def changelang_context_proc(request):
 def registration_open():
 	return settings.REGISTRATION_DEADLINE > datetime.now()
 
+def contest_year():
+	return settings.REGISTRATION_DEADLINE.year
+
 def contest_context(request):
 	return {
 		"REGISTRATION_OPEN": registration_open()

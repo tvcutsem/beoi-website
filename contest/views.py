@@ -14,7 +14,7 @@ from django.contrib.sites.models import Site, RequestSite
 from django.contrib.syndication.views import add_domain
 from django.utils.translation import ugettext_lazy as _
 from django.db import transaction
-from beoi.core import registration_open
+from beoi.core import registration_open,contest_year
 
 def _gen_token():
 	
@@ -48,7 +48,8 @@ def registration(request, template):
 													name = cd["new_school_name"],
 													city = cd["new_school_city"],
 													postal_code = cd["new_school_postal_code"],
-													category = cd["contest_category"])
+													##category = cd["contest_category"]
+													)
 				# should never raise a IntegrityError, right?
 										
 			else :  # if school selected in the list
@@ -65,13 +66,13 @@ def registration(request, template):
 				city 				= cd["city"],
 				postal_code 		= cd["postal_code"],
 				dob 				= cd["dob"],
-				contest_category 	= cd["contest_category"],
+				#contest_category 	= cd["contest_category"],
 				school 				= school,
 				year_study 			= cd["year_study"],
 				language 			= cd["language"],
 				semifinal_center 	= cd["semifinal_center"],
 				token 				= token,
-				contest_year 		= REGISTRATION_FORM_YEAR
+				contest_year 		= contest_year()
 			)			
 			try :		
 				# if using postgres >=8.2, should use database-level autocommit instead
@@ -92,15 +93,15 @@ def registration(request, template):
 			# mail sending
 			context = Context({
 						"NAME":cd["firstname"]+" "+cd["surname"], 
-						"CONTEST": dict(CONTEST_CHOICES)[cd["contest_category"]],
+						#"CONTEST": dict(CONTEST_CHOICES)[cd["contest_category"]],
 						"CENTER_NAME": cd["semifinal_center"]
 					 })
 			mail_template = get_template("emails/"+request.LANGUAGE_CODE+"/registration.txt")
-			context["CENTER_DETAILS"] = add_domain(current_site.domain,reverse("regional-centers",args=[request.LANGUAGE_CODE]))  
+			context["CENTER_DETAILS"] = add_domain(current_site.domain,reverse("semifinal-places",args=[request.LANGUAGE_CODE]))  
 			send_mail(_("Registering to Belgian Olympiads in Informatics"), mail_template.render(context), "info@be-oi.be", [cd["email"]], fail_silently=True)
 		
 			# redirect to confirmation page
-			return HttpResponseRedirect(reverse("registration-confirm-fr", args=[request.LANGUAGE_CODE, cd["semifinal_center"].id])) 
+			return HttpResponseRedirect(reverse("registration-confirm", args=[request.LANGUAGE_CODE, cd["semifinal_center"].id])) 
 			
  	else:
 		initial_lang = LANG_FR if request.LANGUAGE_CODE == "fr" else LANG_NL
