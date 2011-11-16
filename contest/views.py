@@ -104,7 +104,10 @@ def registration(request, template):
 			return HttpResponseRedirect(reverse("registration-confirm", args=[request.LANGUAGE_CODE, cd["semifinal_center"].id])) 
 			
  	else:
-		initial_lang = LANG_FR if request.LANGUAGE_CODE == "fr" else LANG_NL
+		if request.LANGUAGE_CODE == "fr": 
+			initial_lang = LANG_FR 
+		else: 
+			initial_lang =  LANG_NL
 		form = RegisteringForm(initial={"language":initial_lang}) 
 
 	return render_to_response(template, {
