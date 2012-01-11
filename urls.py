@@ -58,6 +58,9 @@ multilang_patterns = patterns('',
 	url(r'^archives/2011/final$', direct_to_template, {'template': '2011/final.html'}, "archives-2011-final"),
 	url(r'^archives/2011/ioi$', direct_to_template, {'template': '2011/ioi.html'}, "archives-2011-ioi"),
 	
+	
+	# unlinked pages
+	url(r'^registration/stats$', "beoi.contest.views.stats", {'template': '../common/stats.html'}, "stats"),
 )
 
 urlpatterns = patterns('',

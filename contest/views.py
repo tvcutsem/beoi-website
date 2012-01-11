@@ -116,3 +116,29 @@ def registration(request, template):
 		}, context_instance=RequestContext(request)
 	)
     
+def stats(request, template):
+	from django.conf import settings
+	from datetime import datetime 
+	
+	remaining = settings.REGISTRATION_DEADLINE - datetime.now()
+	allcontestant = Contestant.objects.filter(contest_year=contest_year()).select_related("semifinal_center")
+	allcenters = set( map(lambda c:c.semifinal_center, allcontestant) )
+	
+	return render_to_response(template, {
+			'total': len(allcontestant),
+			'registration_open': registration_open(),
+			'remaining_days': remaining.days,
+			'remaining_hours': remaining.seconds / 3600,
+			'dutch': len(filter(lambda c:c.language==LANG_NL, allcontestant)),
+			'french': len(filter(lambda c:c.language==LANG_FR, allcontestant)),
+			'centers': [ {
+				'name': center.name,
+				'fr': len(filter(lambda c:c.language==LANG_FR and c.semifinal_center == center, allcontestant)),
+				'nl': len(filter(lambda c:c.language==LANG_NL and c.semifinal_center == center, allcontestant))
+			} for center in allcenters ],
+			'years': [ {
+				'year': year,
+				'nb': len(filter(lambda c:c.year_study==year, allcontestant)),
+			} for year in xrange(1,8) ],
+		}, context_instance=RequestContext(request)
+	)

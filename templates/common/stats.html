@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<h2>Registration statistics</h2>
+<ul>
+	<li>Constestant registered: {{total}}</li>
+	<li>Registrations {% if registration_open %}opened for {{remaining_days}} days, {{remaining_hours}} hours{% else %}closed{% endif %}
+</ul>
+
+<h3>Languages</h3>
+    <script type="text/javascript">
+      google.load('visualization', '1.0', {'packages':['corechart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+	      var data = new google.visualization.DataTable();
+	      data.addColumn('string', 'lang');
+	      data.addColumn('number', 'nb');
+	      data.addRows([
+	        ['French-speaking', {{french}}],
+	        ['Dutch-speaking', {{dutch}}]
+	      ]);
+	      var options = {'width':400,'height':200,'pieSliceText':'value'};
+	      var chart = new google.visualization.PieChart(document.getElementById('lang_chart_div'));
+	      chart.draw(data, options);
+    }
+    </script>
+	<div id="lang_chart_div"></div>
+
+
+<h3>Semifinal centers</h3>
+    <script type="text/javascript">
+	  google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'center');
+        data.addColumn('number', 'French-speaking');
+        data.addColumn('number', 'Dutch-speaking');
+        data.addRows([
+		{% for center in centers %}
+          ["{{center.name}}", {{center.fr}}, {{center.nl}}],
+		{% endfor %}
+        ]);
+
+        var options = {
+          width: 500, height: 300,
+		  isStacked:true,
+		  hAxis:{minValue:0 },
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('center_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+	<div id="center_chart_div"></div>
+
+
+<h3>Secondary year</h3>
+    <script type="text/javascript">
+	  google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'center');
+        data.addColumn('number', 'Contestants');
+        data.addRows([
+		{% for year in years %}
+          ["{{year.year}}e", {{year.nb}}],
+		{% endfor %}
+        ]);
+
+        var options = {
+          width: 500, height: 240,
+		  hAxis:{minValue:0 },
+		  legend:{position:'none'}
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('year_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+	<div id="year_chart_div"></div>
+
+
+
+{% endblock %}
