@@ -1,7 +1,7 @@
 from django.utils.cache import patch_vary_headers
 from django.utils import translation
 from django.core.urlresolvers import reverse
-from beoi import settings
+from django.conf import settings
 from datetime import datetime
 
 class TranslationMiddleware(object):
