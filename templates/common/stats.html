@@ -22,7 +22,7 @@
 	        ['French-speaking', {{french}}],
 	        ['Dutch-speaking', {{dutch}}]
 	      ]);
-	      var options = {'width':400,'height':200,'pieSliceText':'value'};
+	      var options = {'width':700,'height':130,'pieSliceText':'value','chartArea': {height: '100%'},};
 	      var chart = new google.visualization.PieChart(document.getElementById('lang_chart_div'));
 	      chart.draw(data, options);
     }
@@ -46,9 +46,11 @@
         ]);
 
         var options = {
-          width: 500, height: 300,
+          width: 700, height: 250,
+		  chartArea: {width:280, height: '100%'},
 		  isStacked:true,
 		  hAxis:{minValue:0 },
+		  vAxis:{textStyle:{width:"400px;"}}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('center_chart_div'));
@@ -73,9 +75,10 @@
         ]);
 
         var options = {
-          width: 500, height: 240,
+          width: 700, height: 200,
 		  hAxis:{minValue:0 },
-		  legend:{position:'none'}
+		  legend:{position:'none'},
+		  chartArea: {height: '100%'}
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('year_chart_div'));
