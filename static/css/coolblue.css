@@ -574,6 +574,11 @@ p.thumbs img {
    border: 1px solid #EDEDED;
 }
 
+.social-widget{
+	float:left;
+	margin: 30px 10px 0 10px;
+}
+
 /* footer columns */
 #footer-wrap .col-a {
 	width: 250px;

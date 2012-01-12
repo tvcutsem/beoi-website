@@ -151,8 +151,6 @@ $(document).ready(function() {
 		{# 	    </div> #}
 
 		<div class="col-a">
-			<h3>Contact</h3>
-        	<p><strong>E-mail: </strong>info <emph>[at]</emph> be-oi.be</p>
 			<h3>{% trans "Updates" %}</h3>
 			<ul class="subscribe-stuff">
 			 	<li>
@@ -180,29 +178,34 @@ $(document).ready(function() {
 		</div>
 
 		<div class="col-a">
-			&nbsp;
+			<div class="social-widget"><div class="g-plusone" data-size="tall" data-href="http://www.be-oi.be"></div></div>
+			<div class="fb-like social-widget" data-href="http://www.be-oi.be" data-send="false" data-layout="box_count" data-width="50" data-show-faces="false" data-font="lucida grande"></div>
+			
+			<script type="text/javascript">
+			  (function() {
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/plusone.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			</script>
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
 		</div>
 
 		<div class="col-a">
-			<h3>{% trans "Archives" %} 2010</h3>
-			<div class="footer-list">
-				<ul>
-					<li><a href="{% url archives-2010-semifinal LANGUAGE_CODE %}">{% trans "Semifinal" %}</a></li>
-					<li><a href="{% url archives-2010-final LANGUAGE_CODE %}">{% trans "Final" %}</a></li>
-					<li><a href="{% url archives-2010-ioi LANGUAGE_CODE %}">{% trans "International Olympiad" %}</a></li>
-				</ul>
-			</div>
+			&nbsp;			
 		</div>
 
 		<div class="col-b">
-			<h3>{% trans "Archives" %} 2011</h3>
-			<div class="footer-list">
-				<ul>
-					<li><a href="{% url archives-2011-semifinal LANGUAGE_CODE %}">{% trans "Semifinal" %}</a></li>
-					<li><a href="{% url archives-2011-final LANGUAGE_CODE %}">{% trans "Final" %}</a></li>
-					<li><a href="{% url archives-2011-ioi LANGUAGE_CODE %}">{% trans "International Olympiad" %}</a></li>
-				</ul>
-			</div>
+			<h3>Contact</h3>
+        	<p><strong>E-mail: </strong>info <emph>[at]</emph> be-oi.be</p>
+			
 		</div>
 
 	</div>
