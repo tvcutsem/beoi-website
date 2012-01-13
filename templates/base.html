@@ -69,10 +69,9 @@ $(document).ready(function() {
             	<ul>
 					<li><a href="{% url home LANGUAGE_CODE %}">{% trans "News" %}</a></li>
 					<li><a href="{% url faq LANGUAGE_CODE %}">{% trans "FAQ" %}</a></li>
-					<li><a href="{% url agenda LANGUAGE_CODE %}">{% trans "Calendar" %} 2012</a></li>
-					<li><a href="{% url rules LANGUAGE_CODE %}">{% trans "Rules" %}</a></li>
 					<li><a href="{% url registration LANGUAGE_CODE %}">{% trans "Contest" %} 2012</a>
 						<ul>
+							<li><a href="{% url agenda LANGUAGE_CODE %}">{% trans "Calendar" %}</a></li>
 							{% if REGISTRATION_OPEN %}<li><a href="{% url registration LANGUAGE_CODE %}">{% trans "Registering" %}</a></li>{% endif %}
 							<li><a href="{% url semifinal LANGUAGE_CODE %}">{% trans "Semifinal" %}</a></li>
 							<li><a href="{% url training LANGUAGE_CODE %}">{% trans "Training" %}</a></li>
@@ -80,6 +79,7 @@ $(document).ready(function() {
 							<li><a href="{% url ioi LANGUAGE_CODE %}">{% trans "International Olympiad" %}</a></li>
 						</ul>
 					</li>
+					<li><a href="{% url rules LANGUAGE_CODE %}">{% trans "Rules" %}</a></li>
 					<li><a href="{% url sample-questions LANGUAGE_CODE %}">{% trans "Sample Questions" %}</a></li>
 					<li><a href="{% url archives LANGUAGE_CODE %}">{% trans "Archives" %}</a>
 						<ul>
