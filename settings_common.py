@@ -110,4 +110,5 @@ INSTALLED_APPS = (
 	'beoi.oi_core',
 	'beoi.news',
 	'beoi.contest',
+	'beoi.faq'
 )

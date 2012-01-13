@@ -1,0 +1,68 @@
+[
+  {
+    "pk": 1, 
+    "model": "faq.category", 
+    "fields": {
+      "name_fr": "frcat1", 
+      "name_nl": "nlcat1", 
+      "order": 1
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "faq.category", 
+    "fields": {
+      "name_fr": "frcat2", 
+      "name_nl": "nlcat2", 
+      "order": 20
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "faq.question", 
+    "fields": {
+      "lang": 0, 
+      "category": 2, 
+      "created": "2012-01-13 21:38:59", 
+      "question": "Q2FR", 
+      "modified": "2012-01-13 21:38:59", 
+      "answer": "A2FR"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "faq.question", 
+    "fields": {
+      "lang": 1, 
+      "category": 1, 
+      "created": "2012-01-13 21:39:14", 
+      "question": "Q3NL", 
+      "modified": "2012-01-13 21:39:14", 
+      "answer": "A2NL"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "faq.question", 
+    "fields": {
+      "lang": 0, 
+      "category": 1, 
+      "created": "2012-01-13 21:39:34", 
+      "question": "Q4FR", 
+      "modified": "2012-01-13 21:39:34", 
+      "answer": "A4FR"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "faq.question", 
+    "fields": {
+      "lang": 0, 
+      "category": 1, 
+      "created": "2012-01-13 21:38:32", 
+      "question": "Q1FR", 
+      "modified": "2012-01-13 21:47:08", 
+      "answer": "A1FR\r\n"
+    }
+  }
+]

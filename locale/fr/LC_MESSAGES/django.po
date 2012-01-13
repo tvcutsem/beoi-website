@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-18 23:45+0100\n"
+"POT-Creation-Date: 2012-01-13 22:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 
-#: settings_common.py:36 contest/models.py:13 news/models.py:28
+#: settings_common.py:36 contest/models.py:13 faq/models.py:8
+#: news/models.py:28
 msgid "French"
 msgstr "Français"
 
-#: settings_common.py:37 contest/models.py:14 news/models.py:29
+#: settings_common.py:37 contest/models.py:14 faq/models.py:9
+#: news/models.py:29
 msgid "Dutch"
 msgstr "Néerlandais"
 
@@ -298,6 +300,14 @@ msgstr "résultats de la finale"
 msgid "Registering to Belgian Olympiads in Informatics"
 msgstr "Inscription aux Olympiades belges d'Informatique"
 
+#: faq/models.py:21 faq/models.py:22
+msgid "Text only. No html tags!"
+msgstr ""
+
+#: faq/models.py:23 news/models.py:40
+msgid "language"
+msgstr ""
+
 #: news/admin.py:18
 msgid "Headline"
 msgstr ""
@@ -355,10 +365,6 @@ msgstr ""
 msgid "status"
 msgstr ""
 
-#: news/models.py:40
-msgid "language"
-msgstr ""
-
 #: news/models.py:41
 msgid "body"
 msgstr ""
@@ -379,7 +385,7 @@ msgstr ""
 msgid "Programming, algorithmic and logic"
 msgstr "Programmation, algorithmique et logique"
 
-#: templates/base.html:68 templates/base.html.py:73
+#: templates/base.html:68 templates/base.html.py:74
 msgid "Contest"
 msgstr "Épreuve"
 
@@ -388,80 +394,83 @@ msgid "News"
 msgstr ""
 
 #: templates/base.html:71
+msgid "FAQ"
+msgstr "Foire aux Questions"
+
+#: templates/base.html:72
 msgid "Calendar"
 msgstr "Calendrier"
 
-#: templates/base.html:72
+#: templates/base.html:73
 msgid "Rules"
 msgstr "Réglement"
 
-#: templates/base.html:75
+#: templates/base.html:76
 msgid "Registering"
 msgstr "Inscription"
 
-#: templates/base.html:76 templates/base.html.py:187 templates/base.html:198
+#: templates/base.html:77
 msgid "Semifinal"
 msgstr "Demi-finale"
 
-#: templates/base.html:77
+#: templates/base.html:78
 msgid "Training"
 msgstr "Formation"
 
-#: templates/base.html:78 templates/base.html.py:188 templates/base.html:199
+#: templates/base.html:79
 msgid "Final"
 msgstr "Finale"
 
-#: templates/base.html:79 templates/base.html.py:189 templates/base.html:200
+#: templates/base.html:80
 msgid "International Olympiad"
 msgstr "Olympiade Internationale"
 
-#: templates/base.html:82
+#: templates/base.html:83
 msgid "Sample Questions"
 msgstr "Exemples de Questions"
 
-#: templates/base.html:83 templates/base.html.py:184 templates/base.html:195
+#: templates/base.html:84
 msgid "Archives"
 msgstr "Archives"
 
-#: templates/base.html:93
+#: templates/base.html:94
 msgid "Organisation"
 msgstr "Organisation"
 
-#: templates/base.html:95
+#: templates/base.html:96
 msgid "be-OI Team"
 msgstr "Equipe be-OI"
 
-#: templates/base.html:96
+#: templates/base.html:97
 msgid "Sponsors & Partners"
 msgstr "Sponsors & Partenaires"
 
-#: templates/base.html:97
+#: templates/base.html:98
 msgid "Press"
 msgstr "Presse"
 
-#: templates/base.html:102
+#: templates/base.html:103
 msgid "Sponsors"
 msgstr ""
 
-#: templates/base.html:107
-msgid "Prizes offered by"
-msgstr "Prix offerts par"
-
-#: templates/base.html:114
+#: templates/base.html:116
 msgid "With support from"
 msgstr "Avec le soutien de"
 
-#: templates/base.html:153
+#: templates/base.html:155
 msgid "Updates"
 msgstr "Restez informé"
 
-#: templates/base.html:172
+#: templates/base.html:174
 msgid "Stay up to date. Subscribe via"
 msgstr "Restez informé des derniers changements. Suivez-nous via"
 
-#: templates/base.html:174
+#: templates/base.html:176
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Prizes offered by"
+#~ msgstr "Prix offerts par"
 
 #~ msgid "Contest category"
 #~ msgstr "Catégorie"

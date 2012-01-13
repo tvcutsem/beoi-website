@@ -1,0 +1,33 @@
+{% extends "fr/base.html" %}
+
+{% block title %}Foire aux Questions{% endblock title %}
+{% block content %}
+
+<h2>Foire aux Questions</h2>
+
+<p>Cette page reprend la plupart des questions qui nous sont adressées tout au long de l'année et qui ne sont pas nécessairement reprises dans le reste du site (ou difficilement trouvables). Pour toute autre question, n'hésitez pas à nous contacter (info [a] be-oi.be).</p>
+
+{% if categories %}
+<h3>Catégories</h3>
+<ul>
+	{% for category in categories %}
+	<li><a href="#cat{{category.id}}">{{ category.name_fr }}</a></li>
+	{% endfor %}
+</ul>
+{% else %}
+    <p><strong>Aucune question pour l'instant.</strong></p>
+{% endif %}
+
+<hr />
+
+{% for category in categories %}
+	<h3><a name="cat{{category.id}}"></a>{{ category.name_fr }}</h3>
+<dl>
+	{% for question in category.questions %}
+		<dt>{{ question.question }}</dt>
+		<dd><p>{{ question.answer }}</p></dd>
+	{% endfor %}
+</dl>
+{% endfor %}
+
+{% endblock content %}

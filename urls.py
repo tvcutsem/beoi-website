@@ -19,6 +19,7 @@ multilang_patterns = patterns('',
 	url(r'^rules$', direct_to_template, {'template': 'rules.html'}, "rules"),
 	url(r'^sample-questions$', direct_to_template, {'template': 'sample_questions.html'}, "sample-questions"),
 	url(r'^keepinformed$', "beoi.oi_core.views.keepuptodate",  {'template': 'keepuptodate.html'}, "keepinformed"),
+	url(r'^faq$', "beoi.faq.views.faq",  {'template': 'faq.html'}, "faq"),
 
 	url(r'^registration$', "beoi.contest.views.registration",  {'template': 'registration.html'}, "registration"),
 	url(r'^registration/error$', direct_to_template, {'template': 'registration_confirm.html', "extra_context":{"error":1}}, "registration-error"),
