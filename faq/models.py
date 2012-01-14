@@ -26,4 +26,4 @@ class Question(models.Model):
 	modified =  models.DateTimeField(auto_now=True)
 	
 	def __unicode__(self):
-		return "[%s] %s" % ("FR" if self.lang == LANG_FR else "NL", self.question)
+		return "[%s] %s" % ( dict(LANG_CHOICES)[self.lang][:3], self.question)
