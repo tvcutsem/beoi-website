@@ -5,7 +5,10 @@ from beoi.faq.models import *
 
 def faq(request, template):
 
-	questions = Question.objects.select_related("category").filter(lang=LANG_FR if request.LANGUAGE_CODE == "fr" else LANG_NL).order_by("category__order")
+	if request.LANGUAGE_CODE == "fr": quest_lang = LANG_FR
+	else: quest_lang = LANG_NL
+
+	questions = Question.objects.select_related("category").filter(lang=quest_lang).order_by("category__order")
 	categories = set(map(lambda q:q.category, questions))
 	for cat in categories:
 		cat.questions = filter(lambda q: q.category == cat, questions)
