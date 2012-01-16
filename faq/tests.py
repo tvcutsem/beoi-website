@@ -2,6 +2,8 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 
+from beoi.faq.models import *
+
 class NewsTest(TestCase):
 	"""
 	Tests of ``news`` application.
@@ -41,4 +43,13 @@ class NewsTest(TestCase):
 		self.assertNotContains(response, 'Q2FR')  
 		self.assertNotContains(response, 'Q4FR')  
 		self.assertContains(response, 'Q3NL', 1, status_code=200)  
+		
+	def test_ordering(self):
+		response = self.client.get(reverse('faq',kwargs={"language":"fr"}))
+		self.assertTrue( response.content.find( "frcat1" ) < response.content.find( "frcat2" ) )
+		cat = Category.objects.get(pk=1)
+		cat.order = 60
+		cat.save()
+		response = self.client.get(reverse('faq',kwargs={"language":"fr"}))
+		self.assertFalse( response.content.find( "frcat1" ) < response.content.find( "frcat2" ) )
 		

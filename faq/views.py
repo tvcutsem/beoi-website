@@ -7,9 +7,13 @@ def faq(request, template):
 
 	if request.LANGUAGE_CODE == "fr": quest_lang = LANG_FR
 	else: quest_lang = LANG_NL
+	
+	def compare_cat(a,b):
+		return cmp(a.order, b.order)
 
-	questions = Question.objects.select_related("category").filter(lang=quest_lang).order_by("category__order")
-	categories = set(map(lambda q:q.category, questions))
+	questions = Question.objects.select_related("category").filter(lang=quest_lang)
+	categories = sorted(list(set(map(lambda q:q.category, questions))),  compare_cat)
+
 	for cat in categories:
 		cat.questions = filter(lambda q: q.category == cat, questions)
 
