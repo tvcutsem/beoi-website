@@ -1,21 +1,21 @@
 {% extends "nl/base.html" %}
 
-{% block title %}Foire aux Questions{% endblock title %}
+{% block title %}Veel gestelde vragen{% endblock title %}
 {% block content %}
 
-<h2>Foire aux Questions</h2>
+<h2>Veel gestelde vragen</h2>
 
-<p>Cette page reprend la plupart des questions qui nous sont adressées tout au long de l'année et qui ne sont pas nécessairement reprises dans le reste du site (ou difficilement trouvables). Pour toute autre question, n'hésitez pas à nous contacter (info [a] be-oi.be).</p>
+<p>Op deze pagina staan de antwoorden op de vragen die ons het vaakst gesteld worden, en waarvan het antwoord niet snel terug te vinden is op de website. Heb je toch nog een andere vraag, aarzel niet om ons te contacteren op (info [a] be-oi.be).</p>
 
 {% if categories %}
-<h3>Catégories</h3>
+<h3>Thema's</h3>
 <ul>
 	{% for category in categories %}
 	<li><a href="#cat{{category.id}}">{{ category.name_nl }}</a></li>
 	{% endfor %}
 </ul>
 {% else %}
-    <p><strong>Aucune question pour l'instant.</strong></p>
+    <p><strong>Geen vragen gevonden.</strong></p>
 {% endif %}
 
 <hr />
