@@ -47,7 +47,7 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-REGISTRATION_DEADLINE = datetime(2012,01,30,00,00,00)
+REGISTRATION_DEADLINE = datetime(2012,01,31,00,00,00)
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
