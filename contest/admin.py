@@ -4,7 +4,8 @@ Administration interface options of ``contest`` application.
 """
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-import unicodecsv
+from django.http import HttpResponse
+from django.template import loader, Context
 
 from beoi.contest.models import School, SemifinalCenter, Contestant, ResultSemifinal, ResultFinal, LANG_FR, LANG_NL
 
@@ -45,24 +46,25 @@ class ContestantAdmin(admin.ModelAdmin):
 	mark_as_checked.short_description = _("Mark selected contestants as manual checked")
 		
 	def export_as_csv(self, request, queryset):
-		from django.http import HttpResponse
-		
 		response = HttpResponse(mimetype='text/csv')
 		response['Content-Disposition'] = 'attachment; filename=contestants.csv'
 
-		writer = unicodecsv.writer(response)
-		writer.writerow(['Name', 'Year', 'Lang', 'Signature'])
-		for contestant in queryset:
-			if contestant.language == LANG_FR: lang = "fr"
-			else: lang = "nl"
-			
-			writer.writerow([
-				contestant.surname+" "+contestant.firstname, 
-				str(contestant.year_study), 
-				lang, 
-				""
-			])
+		def lang2txt(lang):
+			if lang == LANG_FR: return "fr"
+			else: return "nl"
 
+		csv_data = map(lambda contestant: [
+			contestant.surname+" "+contestant.firstname, 
+			str(contestant.year_study), 
+			lang2txt(contestant.language), 
+			""
+		], queryset)
+
+		t = loader.get_template('contestants.csv')
+		c = Context({
+			'data': csv_data,
+		})
+		response.write(t.render(c))
 		return response
 	export_as_csv.short_description = _("Export as CSV")
 		
