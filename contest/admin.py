@@ -5,11 +5,7 @@ Administration interface options of ``contest`` application.
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from beoi.contest.models import School
-from beoi.contest.models import SemifinalCenter
-from beoi.contest.models import Contestant
-from beoi.contest.models import ResultSemifinal
-from beoi.contest.models import ResultFinal
+from beoi.contest.models import School, SemifinalCenter, Contestant, ResultSemifinal, ResultFinal, LANG_FR, LANG_NL
 
 
 class SchoolAdmin(admin.ModelAdmin):
@@ -28,13 +24,15 @@ class SemifinalCenterAdmin(admin.ModelAdmin):
 
 class ContestantAdmin(admin.ModelAdmin):
 
-	list_display = ("formatted_name", 'contest_category', "contest_year", 'gender', "manual_check")
+	list_display = ("formatted_name", 'contest_year', "contest_year", 'gender', "manual_check")
 	search_fields = ['surname', 'firstname']
 	list_filter = ("contest_year", "contest_category", "year_study", "language","semifinal_center", "manual_check", )
 	save_on_top = True
 	readonly_fields = ("token","registering_time")
-	actions = ['mark_as_checked']
+	actions = ['mark_as_checked', 'export_as_csv']
 	actions_on_top = True
+	ordering = ('-registering_time', )
+	
 	
 	def formatted_name(self, obj):
 		return ("%s %s" % (obj.surname.upper(), obj.firstname))
@@ -46,6 +44,28 @@ class ContestantAdmin(admin.ModelAdmin):
 		self.message_user(request, "%d contestant(s) updated" % rows_updated)
 	mark_as_checked.short_description = _("Mark selected contestants as manual checked")
 		
+	def export_as_csv(self, request, queryset):
+		import csv
+		from django.http import HttpResponse
+		
+		response = HttpResponse(mimetype='text/csv')
+		response['Content-Disposition'] = 'attachment; filename=contestants.csv'
+
+		writer = csv.writer(response)
+		writer.writerow(['Name', 'Year', 'Lang', 'Signature'])
+		for contestant in queryset:
+			if contestant.language == LANG_FR: lang = "fr"
+			else: lang = "nl"
+			
+			writer.writerow([
+				contestant.surname+" "+contestant.firstname, 
+				contestant.year_study, 
+				lang, 
+				""
+			])
+
+		return response
+	export_as_csv.short_description = _("Export as CSV")
 		
 
 class ResultSemifinalAdmin(admin.ModelAdmin):
