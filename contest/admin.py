@@ -53,12 +53,12 @@ class ContestantAdmin(admin.ModelAdmin):
 			if lang == LANG_FR: return "fr"
 			else: return "nl"
 
-		csv_data = map(lambda contestant: [
-			contestant.surname+" "+contestant.firstname, 
-			str(contestant.year_study), 
-			lang2txt(contestant.language), 
-			""
-		], queryset)
+		csv_data = map(lambda contestant: {
+			'name': contestant.surname+" "+contestant.firstname, 
+			'lang': lang2txt(contestant.language), 
+			'school': contestant.school.name+", "+contestant.school.city, 
+			'year': str(contestant.year_study)
+		}, queryset.order_by("surname","firstname").select_related("school"))
 
 		t = loader.get_template('contestants.csv')
 		c = Context({
