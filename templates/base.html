@@ -69,7 +69,7 @@ $(document).ready(function() {
             	<ul>
 					<li><a href="{% url home LANGUAGE_CODE %}">{% trans "News" %}</a></li>
 					<li><a href="{% url faq LANGUAGE_CODE %}">{% trans "FAQ" %}</a></li>
-					<li><a href="{% url registration LANGUAGE_CODE %}">{% trans "Contest" %} 2012</a>
+					<li><a href="{% url semifinal LANGUAGE_CODE %}">{% trans "Contest" %} 2012</a>
 						<ul>
 							<li><a href="{% url agenda LANGUAGE_CODE %}">{% trans "Calendar" %}</a></li>
 							{% if REGISTRATION_OPEN %}<li><a href="{% url registration LANGUAGE_CODE %}">{% trans "Registering" %}</a></li>{% endif %}
