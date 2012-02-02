@@ -26,7 +26,7 @@ multilang_patterns = patterns('',
 	url(r'^registration/confirm/(?P<object_id>\d+)$', list_detail.object_detail, {	'template_name': 'registration_confirm.html', 
 		"queryset": SemifinalCenter.objects.filter(active=True) }, "registration-confirm"),
 
-	url(r'^semifinal$', direct_to_template,  {'template': 'semifinal_before.html'}, "semifinal"),
+	url(r'^semifinal$', direct_to_template,  {'template': 'semifinal_after.html'}, "semifinal"),
 	url(r'^semifinal/rules$', direct_to_template,  {'template': 'semifinal_rules.html'}, "semifinal-rules"),
 	url(r'^semifinal/places$', list_detail.object_list, {'template_name': 'semifinal_places.html',
 		"queryset": SemifinalCenter.objects.filter(active=True)},"semifinal-places"),
